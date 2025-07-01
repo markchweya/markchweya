@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @markchweya
 - 👀 I’m interested in creating websites, mobile applications that solve problems
-- 🌱 I’m currently learning Data SScience & Analytics
+- 🌱 I’m currently learning Data Science & Analytics
 - 💞️ I’m looking to collaborate on creating websites and mobile applications
 - 📫 Reach me on 254 703 951840 / chweyamark@gmail.com
 - ⚡ Fun fact: I love to travel
