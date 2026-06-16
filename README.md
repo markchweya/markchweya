@@ -1,135 +1,186 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=260&color=gradient&customColorList=6,11,20,24,30&text=MARK%20CHWEYA&fontSize=58&fontColor=ffffff&animation=fadeIn&desc=AI%20Builder%20%E2%80%A2%20Software%20Developer%20%E2%80%A2%20Data%20Science%20Student&descSize=18&descAlignY=62" />
+<img src="https://capsule-render.vercel.app/api?type=venom&height=320&color=0:0f172a,35:7c3aed,70:06b6d4,100:ec4899&text=MARKVERSE&fontSize=70&fontColor=ffffff&animation=twinkling&desc=the%20digital%20universe%20of%20mark%20chweya&descSize=20&descAlignY=68" />
 
 <br />
 
-<img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=700&size=22&duration=2600&pause=900&color=00D9FF&center=true&vCenter=true&width=900&lines=building+useful+ai+products;designing+modern+digital+experiences;turning+ideas+into+real+software;learning+data+science+and+analytics" />
-
-<br /><br />
-
-<a href="mailto:chweyamark@gmail.com">
-<img src="https://img.shields.io/badge/email-ff4ecd?style=for-the-badge&logo=gmail&logoColor=white" />
-</a>
-
-<a href="https://github.com/markchweya">
-<img src="https://img.shields.io/badge/github-7c3aed?style=for-the-badge&logo=github&logoColor=white" />
-</a>
+<img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=700&size=24&duration=2600&pause=900&color=22D3EE&center=true&vCenter=true&width=900&lines=ai+builder;software+developer;product+creator;turning+ideas+into+real+software" />
 
 </div>
+
+---
+
+```txt
+╔════════════════════════════════════════════════════════════╗
+║                                                            ║
+║                      ENTER MARKVERSE                      ║
+║                                                            ║
+║        A profile experience built around projects,         ║
+║        ideas, software, AI, design, and execution.          ║
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
+```
 
 ---
 
 <div align="center">
 
-## ✦ Builder Interface
-
-</div>
-
-```txt
-╭────────────────────────────────────────────────────╮
-│                                                    │
-│   NAME        : Mark Chweya                         │
-│   ROLE        : Software Developer                  │
-│   FOCUS       : AI products + digital experiences   │
-│   CURRENT     : Data Science & Analytics            │
-│   STYLE       : Clean, useful, intentional          │
-│                                                    │
-╰────────────────────────────────────────────────────╯
-```
-
----
-
-## ✨ About
-
-I build practical software products with a focus on AI, clean interfaces, automation, and real-world usefulness.
-
-My work sits between software development, data science, product thinking, and visual design — with a strong interest in turning simple ideas into polished digital experiences.
-
----
-
-## 🚀 Featured Builds
+## 🌌 Project Universe
 
 <table>
 <tr>
-<td width="50%" valign="top">
+<td align="center" width="25%">
 
-<h3>🤖 ibia</h3>
+### 🤖  
+### ibia  
+Desktop AI assistant  
 
-A desktop AI assistant designed for fast everyday help using local and cloud AI models.
-
-<br /><br />
-
-<img src="https://img.shields.io/badge/AI-00D9FF?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Desktop-7C3AED?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Local_First-FF4ECD?style=for-the-badge" />
+`AI` `Local Models`
 
 </td>
-<td width="50%" valign="top">
+<td align="center" width="25%">
 
-<h3>🏛 Civic Assistant</h3>
+### 🏛  
+### Civic AI  
+Citizen reporting assistant  
 
-An AI-powered citizen reporting tool for public complaints and service issues.
-
-<br /><br />
-
-<img src="https://img.shields.io/badge/Civic_Tech-22C55E?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Chatbot-00D9FF?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Automation-F97316?style=for-the-badge" />
+`Civic Tech` `Automation`
 
 </td>
-</tr>
+<td align="center" width="25%">
 
-<tr>
-<td width="50%" valign="top">
+### ⚽  
+### Jamhuri  
+Football academy platform  
 
-<h3>⚽ Jamhuri Soccer Academy</h3>
-
-A modern football academy website with team identity, news, merchandise, and admin tools.
-
-<br /><br />
-
-<img src="https://img.shields.io/badge/Sports-22C55E?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Merch-FF4ECD?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Admin_Panel-7C3AED?style=for-the-badge" />
+`Sports` `Merch`
 
 </td>
-<td width="50%" valign="top">
+<td align="center" width="25%">
 
-<h3>🏝 Zazu Zanzibar</h3>
+### 🏝  
+### Zazu  
+Tourism web experience  
 
-An immersive tourism website inspired by beaches, ocean movement, travel, and storytelling.
-
-<br /><br />
-
-<img src="https://img.shields.io/badge/Tourism-00D9FF?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Experience-F97316?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Design-FF4ECD?style=for-the-badge" />
+`Travel` `Design`
 
 </td>
 </tr>
 </table>
 
----
-
-## 🧠 Current Focus
-
-<div align="center">
-
-| Focus Area | Energy |
-|---|---|
-| AI Products | ██████████ |
-| Web Experiences | █████████░ |
-| Mobile Apps | ████████░░ |
-| Data Science | ███████░░░ |
-| Product Design | ████████░░ |
-| Automation | █████████░ |
-
 </div>
 
 ---
 
-## 🛠 Tech Stack
+## 🧬 Builder DNA
+
+```txt
+╭────────────────────────────────────────────╮
+│                                            │
+│  Innovation       ████████████████████ 98% │
+│  Execution        ██████████████████░░ 90% │
+│  Curiosity        ████████████████████ 100%│
+│  Design Sense     ████████████████░░░░ 80% │
+│  AI Thinking      ███████████████████░ 95% │
+│  Product Energy   ██████████████████░░ 90% │
+│                                            │
+╰────────────────────────────────────────────╯
+```
+
+---
+
+## 🛰 Mission Control
+
+```txt
+┌───────────────────────┬───────────────────────┐
+│ ACTIVE SYSTEM          │ STATUS                │
+├───────────────────────┼───────────────────────┤
+│ AI Products            │ ONLINE                │
+│ Web Experiences        │ ONLINE                │
+│ Mobile Apps            │ BUILDING              │
+│ Data Science           │ LEARNING              │
+│ Automation             │ ACTIVE                │
+│ Product Design         │ ACTIVE                │
+└───────────────────────┴───────────────────────┘
+```
+
+---
+
+## 🚀 Launch Modules
+
+<details>
+<summary>🤖 Launch ibia Module</summary>
+
+```txt
+SYSTEM: ibia
+
+A desktop AI assistant for fast everyday help.
+Designed around local-first workflows and cloud AI flexibility.
+
+CORE:
+- local AI models
+- cloud AI providers
+- floating desktop chat
+- fast writing and coding help
+```
+
+</details>
+
+<details>
+<summary>🏛 Launch Civic AI Module</summary>
+
+```txt
+SYSTEM: Civic AI
+
+An AI assistant for citizen reporting and public service issues.
+
+CORE:
+- complaint guidance
+- structured reports
+- chatbot interface
+- automation workflows
+```
+
+</details>
+
+<details>
+<summary>⚽ Launch Jamhuri Module</summary>
+
+```txt
+SYSTEM: Jamhuri Soccer Academy
+
+A digital home for a football academy.
+
+CORE:
+- academy identity
+- players and teams
+- news and updates
+- merchandise
+- admin panel
+```
+
+</details>
+
+<details>
+<summary>🏝 Launch Zazu Module</summary>
+
+```txt
+SYSTEM: Zazu Zanzibar
+
+An immersive tourism website inspired by beaches, travel, and storytelling.
+
+CORE:
+- destination pages
+- tour guide profile
+- visual storytelling
+- ocean-inspired design
+```
+
+</details>
+
+---
+
+## 🛠 Tech Arsenal
 
 <div align="center">
 
@@ -137,10 +188,10 @@ An immersive tourism website inspired by beaches, ocean movement, travel, and st
 
 <br /><br />
 
-<img src="https://img.shields.io/badge/Python-00D9FF?style=for-the-badge&logo=python&logoColor=white" />
-<img src="https://img.shields.io/badge/JavaScript-F97316?style=for-the-badge&logo=javascript&logoColor=white" />
+<img src="https://img.shields.io/badge/Python-06B6D4?style=for-the-badge&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/JavaScript-F59E0B?style=for-the-badge&logo=javascript&logoColor=white" />
 <img src="https://img.shields.io/badge/TypeScript-7C3AED?style=for-the-badge&logo=typescript&logoColor=white" />
-<img src="https://img.shields.io/badge/React-FF4ECD?style=for-the-badge&logo=react&logoColor=white" />
+<img src="https://img.shields.io/badge/React-EC4899?style=for-the-badge&logo=react&logoColor=white" />
 <img src="https://img.shields.io/badge/Next.js-111827?style=for-the-badge&logo=nextdotjs&logoColor=white" />
 <img src="https://img.shields.io/badge/Node.js-22C55E?style=for-the-badge&logo=nodedotjs&logoColor=white" />
 
@@ -148,7 +199,7 @@ An immersive tourism website inspired by beaches, ocean movement, travel, and st
 
 ---
 
-## 🗂 Project Map
+## 🗺 World Map
 
 ```txt
 markchweya/
@@ -157,47 +208,61 @@ markchweya/
 │   └── desktop AI assistant
 │
 ├── 🏛 civic-ai
-│   └── AI citizen reporting assistant
+│   └── citizen reporting assistant
 │
 ├── ⚽ jamhuri-web
 │   └── football academy website
 │
 ├── 🏝 zazu-zanzibar
-│   └── immersive tourism web experience
+│   └── tourism web experience
 │
 └── 🧪 experiments
-    └── AI, automation, and data ideas
+    └── AI, automation, and data projects
 ```
 
 ---
 
-## 📊 GitHub Activity
+## 📊 Signal Feed
 
 <div align="center">
 
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=markchweya&show_icons=true&theme=radical&hide_border=true" />
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=markchweya&show_icons=true&theme=tokyonight&hide_border=true" />
 
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=markchweya&layout=compact&theme=radical&hide_border=true" />
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=markchweya&layout=compact&theme=tokyonight&hide_border=true" />
 
 </div>
 
 ---
 
-## 🌈 Builder Energy
+## 🏆 Achievements
 
 ```txt
-Ideas        ██████████
-Execution    █████████░
-Curiosity    ██████████
-Consistency  ████████░░
-Creativity   █████████░
+[UNLOCKED] First AI Product Concept
+[UNLOCKED] Desktop Assistant Builder
+[UNLOCKED] Civic Tech Explorer
+[UNLOCKED] Football Platform Designer
+[UNLOCKED] Tourism Experience Builder
+[ACTIVE]   Data Science Journey
+[ACTIVE]   Product Builder Mode
 ```
 
 ---
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=140&section=footer&color=gradient&customColorList=6,11,20,24,30" />
+## 🔗 Launch Pad
+
+<a href="mailto:chweyamark@gmail.com">
+<img src="https://img.shields.io/badge/CONTACT_EMAIL-EC4899?style=for-the-badge&logo=gmail&logoColor=white" />
+</a>
+
+<a href="https://github.com/markchweya">
+<img src="https://img.shields.io/badge/GITHUB_PROFILE-111827?style=for-the-badge&logo=github&logoColor=white" />
+</a>
+
+<br /><br />
+
+<img src="https://capsule-render.vercel.app/api?type=waving&height=160&section=footer&color=0:ec4899,50:7c3aed,100:06b6d4" />
 
 ### Build useful things. Make them feel intentional.
 
