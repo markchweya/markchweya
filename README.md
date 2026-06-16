@@ -1,67 +1,62 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,50:0969DA,100:58A6FF&height=220&section=header&text=MARK%20CHWEYA&fontSize=48&fontColor=FFFFFF&animation=fadeIn&fontAlignY=38&desc=AI%20Builder%20%7C%20Software%20Developer%20%7C%20Data%20Science%20Student&descAlignY=58&descSize=16" />
+<img src="https://capsule-render.vercel.app/api?type=waving&height=260&color=gradient&customColorList=12,20,24,25,30&text=MARK%20CHWEYA&fontSize=55&fontColor=ffffff&animation=fadeIn&desc=AI%20Builder%20%E2%80%A2%20Software%20Developer%20%E2%80%A2%20Data%20Science%20Student&descSize=18&descAlignY=62" />
 
-</div>
+<h3>Building useful AI products and digital experiences that solve real problems.</h3>
 
-<div align="center">
+<img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=20&duration=2600&pause=900&color=00D9FF&center=true&vCenter=true&width=800&lines=I+build+websites+and+AI+tools;I+turn+ideas+into+products;I+love+clean+and+intentional+design;Currently+learning+Data+Science+%26+Analytics" />
 
-### Building useful AI products and modern digital experiences.
+<br />
 
 <a href="mailto:chweyamark@gmail.com">
-<img src="https://img.shields.io/badge/email-0D1117?style=for-the-badge&logo=gmail&logoColor=58A6FF" />
+<img src="https://img.shields.io/badge/email-ff4ecd?style=for-the-badge&logo=gmail&logoColor=white" />
 </a>
 
 <a href="https://github.com/markchweya">
-<img src="https://img.shields.io/badge/github-0D1117?style=for-the-badge&logo=github&logoColor=58A6FF" />
+<img src="https://img.shields.io/badge/github-7c3aed?style=for-the-badge&logo=github&logoColor=white" />
 </a>
 
 </div>
 
-<br />
+---
 
-## 🎮 Builder Quest
-
-<div align="center">
+## ✨ About Me
 
 ```txt
-┌──────────────────────────────────────────────┐
-│                                              │
-│              MARK'S BUILDER QUEST            │
-│                                              │
-│        collect ideas • ship projects         │
-│                                              │
-│                 ▶ START GAME                 │
-│                                              │
-└──────────────────────────────────────────────┘
+Developer by craft.
+AI builder by curiosity.
+Designer by instinct.
+Problem solver by mission.
 ```
 
-<a href="https://markchweya.github.io/builder-quest/">
-<img src="https://img.shields.io/badge/play_builder_quest-0969DA?style=for-the-badge&logo=github&logoColor=white" />
-</a>
+I create websites, mobile applications, and AI-powered tools with a focus on usefulness, clean design, and real-world impact.
 
-</div>
+---
 
-<br />
-
-## 🧭 Mission Control
+## 🚀 Featured Projects
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### 🤖 ibia  
-Desktop AI assistant for fast everyday help.
+<h3>🤖 ibia</h3>
 
-`AI` `desktop app` `local models`
+A Windows desktop AI assistant for fast everyday help using local and cloud AI models.
+
+<img src="https://img.shields.io/badge/AI-00D9FF?style=flat-square" />
+<img src="https://img.shields.io/badge/Desktop_App-7C3AED?style=flat-square" />
+<img src="https://img.shields.io/badge/Local_First-FF4ECD?style=flat-square" />
 
 </td>
 <td width="50%" valign="top">
 
-### 🇫🇷 Civic Assistant  
-AI tool for citizen reporting and public complaints.
+<h3>🏛 Civic Assistant</h3>
 
-`civic tech` `chatbot` `automation`
+An AI-powered citizen reporting tool for public complaints and service issues.
+
+<img src="https://img.shields.io/badge/Civic_Tech-22C55E?style=flat-square" />
+<img src="https://img.shields.io/badge/Chatbot-00D9FF?style=flat-square" />
+<img src="https://img.shields.io/badge/Automation-F97316?style=flat-square" />
 
 </td>
 </tr>
@@ -69,48 +64,66 @@ AI tool for citizen reporting and public complaints.
 <tr>
 <td width="50%" valign="top">
 
-### ⚽ Jamhuri Soccer Academy  
-Digital home for a football academy.
+<h3>⚽ Jamhuri Soccer Academy</h3>
 
-`sports` `website` `merch`
+A modern football academy website with team identity, news, merchandise, and admin tools.
+
+<img src="https://img.shields.io/badge/Sports-22C55E?style=flat-square" />
+<img src="https://img.shields.io/badge/Merch-FF4ECD?style=flat-square" />
+<img src="https://img.shields.io/badge/Admin_Panel-7C3AED?style=flat-square" />
 
 </td>
 <td width="50%" valign="top">
 
-### 🏝 Zazu Zanzibar  
-Immersive tourism website inspired by Zanzibar.
+<h3>🏝 Zazu Zanzibar</h3>
 
-`tourism` `web experience` `design`
+An immersive tourism website inspired by Zanzibar beaches, ocean motion, and travel storytelling.
+
+<img src="https://img.shields.io/badge/Tourism-00D9FF?style=flat-square" />
+<img src="https://img.shields.io/badge/Experience-F97316?style=flat-square" />
+<img src="https://img.shields.io/badge/Design-FF4ECD?style=flat-square" />
 
 </td>
 </tr>
 </table>
 
-<br />
+---
 
-## 🧩 Player Stats
+## 🧠 Current Focus
 
-```txt
-ROLE              Software Developer
-CLASS             AI Builder
-CURRENT QUEST     Data Science & Analytics
-SPECIAL SKILL     Turning ideas into products
-STATUS            Building in public
-```
+<div align="center">
 
-<br />
+| Area | Progress |
+|---|---|
+| AI Products | ██████████ |
+| Web Experiences | █████████░ |
+| Mobile Apps | ████████░░ |
+| Data Science | ███████░░░ |
+| Product Design | ████████░░ |
+| Automation | █████████░ |
 
-## ⚙️ Tech Loadout
+</div>
+
+---
+
+## 🛠 Tech Stack
 
 <div align="center">
 
 <img src="https://skillicons.dev/icons?i=python,js,ts,react,nextjs,nodejs,express,html,css,tailwind,sqlite,git,github,vscode" />
 
+<br /><br />
+
+<img src="https://img.shields.io/badge/Python-00D9FF?style=for-the-badge&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/JavaScript-F97316?style=for-the-badge&logo=javascript&logoColor=white" />
+<img src="https://img.shields.io/badge/React-7C3AED?style=for-the-badge&logo=react&logoColor=white" />
+<img src="https://img.shields.io/badge/Next.js-111827?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+
 </div>
 
-<br />
+---
 
-## 🗺️ World Map
+## 🗂 Project Map
 
 ```txt
 markchweya/
@@ -119,116 +132,48 @@ markchweya/
 │   └── desktop AI assistant
 │
 ├── 🏛 civic-ai
-│   └── citizen reporting assistant
+│   └── AI citizen reporting assistant
 │
 ├── ⚽ jamhuri-web
 │   └── football academy website
 │
 ├── 🏝 zazu-zanzibar
-│   └── tourism web experience
+│   └── immersive tourism website
 │
 └── 🧪 experiments
     └── AI, automation, and data projects
 ```
 
-<br />
+---
 
-## 📊 GitHub Signals
+## 📊 GitHub Activity
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=markchweya&show_icons=true&theme=github_dark&hide_border=true" />
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=markchweya&show_icons=true&theme=radical&hide_border=true" />
+
+<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=markchweya&layout=compact&theme=radical&hide_border=true" />
 
 </div>
 
-<br />
+---
 
-## 🕹️ Mini README Game
-
-<details>
-<summary>▶ Start Mission</summary>
+## 🌈 Builder Energy
 
 ```txt
-You wake up inside GitHub City.
-
-Your mission:
-Build useful products before the bugs take over.
-
-Choose your path:
+Ideas        ██████████
+Execution    █████████░
+Curiosity    ██████████
+Consistency  ████████░░
+Creativity   █████████░
 ```
-
-</details>
-
-<details>
-<summary>🤖 Enter AI Lab</summary>
-
-```txt
-You found: ibia
-
-+20 XP for building a desktop AI assistant.
-+10 XP for local-first thinking.
-```
-
-</details>
-
-<details>
-<summary>🏛 Visit Civic District</summary>
-
-```txt
-You found: Civic Assistant
-
-+25 XP for solving real public-service problems.
-+10 XP for AI automation.
-```
-
-</details>
-
-<details>
-<summary>⚽ Visit Jamhuri Stadium</summary>
-
-```txt
-You found: Jamhuri Soccer Academy
-
-+15 XP for sports community design.
-+10 XP for merch system ideas.
-```
-
-</details>
-
-<details>
-<summary>🏝 Travel to Zanzibar Island</summary>
-
-```txt
-You found: Zazu Zanzibar
-
-+20 XP for immersive web design.
-+10 XP for storytelling.
-```
-
-</details>
-
-<details>
-<summary>🏆 Final Score</summary>
-
-```txt
-TOTAL XP: 120
-
-RANK: PRODUCT BUILDER
-
-Achievement unlocked:
-"Build useful things. Make them feel intentional."
-```
-
-</details>
-
-<br />
 
 ---
 
 <div align="center">
 
-### Build useful things. Make them feel intentional.
+<img src="https://capsule-render.vercel.app/api?type=waving&height=140&section=footer&color=gradient&customColorList=12,20,24,25,30" />
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:58A6FF,50:0969DA,100:0D1117&height=120&section=footer" />
+### Build useful things. Make them feel intentional.
 
 </div>
