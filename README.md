@@ -1,57 +1,53 @@
+## MarkBot
+
 <div align="center">
 
-<img src="./assets/hero.svg" width="100%" />
-
-<br />
-
-Building useful software with a focus on AI, product design, automation, analytics, and modern digital experiences.
-
-<br /><br />
-
-<a href="mailto:chweyamark@gmail.com">Email</a>
-&nbsp;&nbsp;·&nbsp;&nbsp;
-<a href="https://github.com/markchweya">GitHub</a>
-&nbsp;&nbsp;·&nbsp;&nbsp;
-<a href="#">LinkedIn</a>
+<img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=600&size=22&duration=2500&pause=700&color=7DD3FC&center=true&vCenter=true&width=700&lines=Hi%2C+I'm+MarkBot.;Ask+me+about+Mark's+projects.;Explore+AI%2C+web%2C+and+product+work." />
 
 </div>
 
-<br />
-
-<img src="./assets/projects.svg" width="100%" />
-
-<br />
-
-<img src="./assets/focus.svg" width="100%" />
+<details>
+<summary><b>What does Mark build?</b></summary>
 
 <br />
 
-## Technology
+Mark builds AI products, websites, automation tools, and modern digital experiences.
+
+</details>
+
+<details>
+<summary><b>Tell me about ibia</b></summary>
+
+<br />
+
+ibia is a desktop AI assistant designed for fast everyday help using local and cloud AI models.
+
+</details>
+
+<details>
+<summary><b>What is Mark focused on?</b></summary>
+
+<br />
+
+AI products, data science, analytics, automation, web experiences, and product design.
+
+</details>
+
+<details>
+<summary><b>How can I contact Mark?</b></summary>
+
+<br />
+
+Email: <a href="mailto:chweyamark@gmail.com">chweyamark@gmail.com</a>
+
+</details>
+
+<br />
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=python,js,ts,react,nextjs,nodejs,express,html,css,tailwind,sqlite,git,github,vscode" />
-
-</div>
-
-<br />
-
-## GitHub Activity
-
-<div align="center">
-
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=markchweya&show_icons=true&theme=transparent&hide_border=true&title_color=7DD3FC&icon_color=A78BFA&text_color=CBD5E1" />
-
-</div>
-
-<br />
-
-<img src="./assets/connect.svg" width="100%" />
-
-<br />
-
-<div align="center">
-
-### Build useful things. Make them feel intentional.
+<a href="https://your-chatbot-link.com">
+<img src="https://img.shields.io/badge/Open_real_chatbot-7C3AED?style=for-the-badge&logo=openai&logoColor=white" />
+</a>
 
 </div>
