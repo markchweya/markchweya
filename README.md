@@ -1,151 +1,141 @@
 <div align="center">
 
-# MARK CHWEYA
+# Mark Chweya
 
-<img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=700&size=22&duration=2800&pause=900&color=58A6FF&center=true&vCenter=true&width=900&lines=software+developer;ai+builder;data+science+student;building+technology+that+matters" />
+### Building AI products and digital experiences that solve real problems.
+
+Software Developer · AI Builder · Data Science Student
+
+<br />
+
+<a href="mailto:chweyamark@gmail.com">Email</a>
+&nbsp;&nbsp;·&nbsp;&nbsp;
+<a href="https://github.com/markchweya">GitHub</a>
+&nbsp;&nbsp;·&nbsp;&nbsp;
+<a href="#">LinkedIn</a>
 
 </div>
 
-```txt
-┌──────────────────────────────────────────────────────────────┐
-│                                                              │
-│   MARK OS // BUILDER DASHBOARD                               │
-│                                                              │
-│   STATUS          : ONLINE                                   │
-│   CURRENT FOCUS   : AI PRODUCTS                              │
-│   LEARNING        : DATA SCIENCE & ANALYTICS                 │
-│   COLLABORATION   : OPEN                                     │
-│   MISSION         : BUILD USEFUL TECHNOLOGY                  │
-│                                                              │
-└──────────────────────────────────────────────────────────────┘
-```
-
-```bash
-mark@github:~$ whoami
-> software developer building websites, mobile apps, and AI tools
-
-mark@github:~$ current_focus
-> local-first AI assistants
-> civic technology
-> useful web experiences
-> data science & analytics
-
-mark@github:~$ contact
-> 254 703 951840
-> chweyamark@gmail.com
-```
+<br />
 
 ---
 
-## ACTIVE MISSIONS
+<br />
+
+## About
+
+I build practical software products with a focus on AI, clean interfaces, and real-world usefulness.
+
+My work sits between software development, data science, automation, and product design — with a strong interest in building tools that feel simple, intentional, and helpful.
+
+<br />
+
+## Featured Work
 
 <table>
 <tr>
-<td width="50%">
+<td width="50%" valign="top">
 
-### 🤖 ibia  
-A Windows desktop AI assistant built for fast everyday help using local and cloud AI models.
+### ibia
+
+A desktop AI assistant for fast everyday help, designed around local-first workflows and cloud AI flexibility.
+
+**Focus:** AI assistant · desktop app · local models
 
 </td>
-<td width="50%">
+<td width="50%" valign="top">
 
-### 🇫🇷 French Civic AI  
-An AI-powered citizen reporting assistant for issues like noise, traffic, water problems, and public complaints.
+### French Civic Assistant
+
+An AI-powered citizen reporting tool for complaints such as noise, traffic, water issues, and public service problems.
+
+**Focus:** civic tech · AI chatbot · public services
 
 </td>
 </tr>
 
 <tr>
-<td width="50%">
+<td width="50%" valign="top">
 
-### ⚽ Jamhuri Soccer Academy  
-A modern football academy website with team identity, merch, news, and admin tools.
+### Jamhuri Soccer Academy
+
+A modern football academy website with team identity, news, merchandise, and admin tools.
+
+**Focus:** sports website · merch · admin panel
 
 </td>
-<td width="50%">
+<td width="50%" valign="top">
 
-### 🏝 Zazu Zanzibar  
-An immersive tourism website inspired by Zanzibar beaches, ocean motion, and travel experiences.
+### Zazu Zanzibar
+
+An immersive tourism website inspired by Zanzibar’s beaches, ocean movement, and local travel experiences.
+
+**Focus:** tourism · web experience · visual design
 
 </td>
 </tr>
 </table>
 
----
+<br />
 
-## BUILD STACK
-
-```txt
-AI PRODUCTS      ██████████
-WEB APPS         █████████░
-MOBILE APPS      ████████░░
-DATA SCIENCE     ███████░░░
-UI DESIGN        ████████░░
-AUTOMATION       █████████░
-```
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=python,js,ts,react,nextjs,nodejs,express,html,css,tailwind,sqlite,git,github,vscode" />
-</p>
-
----
-
-## PROJECT DIRECTORY
-
-```bash
-/projects
-├── ibia                 # desktop AI assistant
-├── french-civic-ai      # AI citizen reporting tool
-├── jamhuri-web          # football academy website
-├── zazu-zanzibar        # immersive tour guide website
-└── experiments          # AI, automation, and data ideas
-```
-
----
-
-## BUILDER TIMELINE
+## Currently Building
 
 ```txt
-2023  → started building websites
-2024  → moved deeper into software development
-2025  → explored AI tools and local models
-2026  → building practical AI products and civic tech
+AI products           ██████████
+Web experiences       █████████░
+Civic technology      ████████░░
+Data science          ███████░░░
+Product design        ████████░░
 ```
 
----
+<br />
 
-## GITHUB SIGNALS
-
-<p align="center">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=markchweya&show_icons=true&theme=github_dark&hide_border=true" />
-  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=markchweya&layout=compact&theme=github_dark&hide_border=true" />
-</p>
-
----
-
-## TRANSMISSION CHANNELS
-
-<p align="center">
-  <a href="mailto:chweyamark@gmail.com">
-    <img src="https://img.shields.io/badge/email-58A6FF?style=for-the-badge&logo=gmail&logoColor=white" />
-  </a>
-  <a href="https://github.com/markchweya">
-    <img src="https://img.shields.io/badge/github-161B22?style=for-the-badge&logo=github&logoColor=white" />
-  </a>
-</p>
-
----
-
-```txt
-SYSTEM LOG
-[OK] ideas loaded
-[OK] code editor open
-[OK] building in public
-[OK] solving real problems
-```
+## Tech Stack
 
 <div align="center">
 
-### “Build useful things. Make them feel intentional.”
+<img src="https://skillicons.dev/icons?i=python,js,ts,react,nextjs,nodejs,express,html,css,tailwind,sqlite,git,github,vscode" />
+
+</div>
+
+<br />
+
+## Project Directory
+
+```txt
+markchweya/
+├── ibia
+│   └── desktop AI assistant
+│
+├── civic-ai
+│   └── AI citizen reporting assistant
+│
+├── jamhuri-web
+│   └── football academy website
+│
+├── zazu-zanzibar
+│   └── immersive tourism website
+│
+└── experiments
+    └── AI, automation, and data projects
+```
+
+<br />
+
+## GitHub
+
+<div align="center">
+
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=markchweya&show_icons=true&theme=transparent&hide_border=true" />
+
+</div>
+
+<br />
+
+---
+
+<div align="center">
+
+### Build useful things. Make them feel intentional.
 
 </div>
