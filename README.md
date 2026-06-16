@@ -4,11 +4,11 @@
 
 <br />
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=600&size=20&duration=2800&pause=900&color=7DD3FC&center=true&vCenter=true&width=850&lines=Software+Developer;AI+Builder;Data+Science+Student;Turning+ideas+into+useful+products" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=600&size=20&duration=2800&pause=900&color=7DD3FC&center=true&vCenter=true&width=850&lines=Software+Developer;AI+Builder;Data+Scientist;Data+Analyst;Turning+ideas+into+useful+products" />
 
 <br /><br />
 
-Building useful software with a focus on AI, product design, automation, and clean digital experiences.
+Building useful software with a focus on AI, product design, automation, analytics, and clean digital experiences.
 
 <br /><br />
 
@@ -28,24 +28,34 @@ Building useful software with a focus on AI, product design, automation, and cle
 
 ## Featured Work
 
+<div align="center">
+
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### ibia
+<h3>ibia</h3>
 
+<p>
 A desktop AI assistant designed around local-first workflows and cloud AI flexibility.
+</p>
 
-<sub>AI assistant · desktop app · local models</sub>
+<p>
+<sub><b>Focus:</b> AI assistant · desktop app · local models</sub>
+</p>
 
 </td>
 <td width="50%" valign="top">
 
-### Civic Assistant
+<h3>Civic Assistant</h3>
 
+<p>
 An AI-powered citizen reporting platform focused on accessibility, structure, and public-service impact.
+</p>
 
-<sub>civic technology · automation · AI chatbot</sub>
+<p>
+<sub><b>Focus:</b> civic technology · automation · AI chatbot</sub>
+</p>
 
 </td>
 </tr>
@@ -53,61 +63,71 @@ An AI-powered citizen reporting platform focused on accessibility, structure, an
 <tr>
 <td width="50%" valign="top">
 
-### Jamhuri Soccer Academy
+<h3>Jamhuri Soccer Academy</h3>
 
+<p>
 A digital platform bringing together football, community, identity, news, merchandise, and admin tools.
+</p>
 
-<sub>sports platform · web design · community</sub>
+<p>
+<sub><b>Focus:</b> sports platform · web design · community</sub>
+</p>
 
 </td>
 <td width="50%" valign="top">
 
-### Zazu Zanzibar
+<h3>Zazu Zanzibar</h3>
 
+<p>
 An immersive tourism website inspired by travel, storytelling, beaches, and visual experience.
+</p>
 
-<sub>tourism · visual storytelling · web experience</sub>
+<p>
+<sub><b>Focus:</b> tourism · visual storytelling · web experience</sub>
+</p>
 
 </td>
 </tr>
 </table>
+
+</div>
 
 <br />
 
 ## Current Focus
 
+<div align="center">
+
 <table>
 <tr>
 <td align="center" width="25%">
 
-**AI Products**
-
-Building useful AI tools for everyday workflows.
-
-</td>
-<td align="center" width="25%">
-
-**Web Experiences**
-
-Designing modern websites that feel intentional.
+<h3>AI Products</h3>
+<p>Useful AI tools for everyday workflows.</p>
 
 </td>
 <td align="center" width="25%">
 
-**Data Science**
-
-Learning how to turn data into insight.
+<h3>Web Experiences</h3>
+<p>Modern websites that feel intentional.</p>
 
 </td>
 <td align="center" width="25%">
 
-**Automation**
+<h3>Data Science</h3>
+<p>Turning data into insight and decisions.</p>
 
-Creating systems that reduce repetitive work.
+</td>
+<td align="center" width="25%">
+
+<h3>Automation</h3>
+<p>Systems that reduce repetitive work.</p>
 
 </td>
 </tr>
 </table>
+
+</div>
 
 <br />
 
@@ -117,13 +137,7 @@ Creating systems that reduce repetitive work.
 
 <img src="https://skillicons.dev/icons?i=python,js,ts,react,nextjs,nodejs,express,html,css,tailwind,sqlite,git,github,vscode" />
 
-</div>
-
-<br />
-
-## Selected Stack
-
-<div align="center">
+<br /><br />
 
 <img src="https://img.shields.io/badge/Python-111827?style=for-the-badge&logo=python&logoColor=7DD3FC" />
 <img src="https://img.shields.io/badge/JavaScript-111827?style=for-the-badge&logo=javascript&logoColor=FACC15" />
@@ -148,12 +162,34 @@ Creating systems that reduce repetitive work.
 
 ## Direction
 
-```txt
-Build with clarity.
-Design with intention.
-Ship with consistency.
-Improve through feedback.
-```
+<div align="center">
+
+<table>
+<tr>
+<td align="center">
+
+<b>Build with clarity</b>
+
+</td>
+<td align="center">
+
+<b>Design with intention</b>
+
+</td>
+<td align="center">
+
+<b>Ship with consistency</b>
+
+</td>
+<td align="center">
+
+<b>Improve through feedback</b>
+
+</td>
+</tr>
+</table>
+
+</div>
 
 <br />
 
