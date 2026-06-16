@@ -41,3 +41,11 @@ Building AI products, websites, and applications that solve real-world problems.
 </tr>
 
 </table>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=markchweya&show_icons=true&theme=tokyonight" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com?user=markchweya&theme=tokyonight" />
+</p>
