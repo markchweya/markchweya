@@ -5,5 +5,5 @@ Building AI products, websites, and applications that solve real-world problems.
 </h3>
 
 <p align="center">
-🇰🇪 Kenya • 🇨🇭 Switzerland • 🤖 AI Enthusiast • 💻 Developer
+🇰🇪 Kenya • 🤖 AI Enthusiast • 💻 Developer
 </p>
