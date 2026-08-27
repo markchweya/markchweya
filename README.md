@@ -4,19 +4,25 @@
 
 <br />
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=600&size=20&duration=2800&pause=900&color=7DD3FC&center=true&vCenter=true&width=850&lines=Software+Developer;AI+Builder;Data+Scientist;Data+Analyst;Turning+ideas+into+useful+products" />
+<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=20&duration=2800&pause=900&color=7DD3FC&center=true&vCenter=true&width=850&lines=Software+Developer;AI+Builder;Data+Scientist;Data+Analyst;Turning+ideas+into+useful+products" />
+
+<br /><br />
+
+<img src="https://komarev.com/ghpvc/?username=markchweya&style=for-the-badge&color=0ea5e9&label=PROFILE+VIEWS" />
+&nbsp;
+<a href="https://github.com/markchweya?tab=followers"><img src="https://img.shields.io/github/followers/markchweya?style=for-the-badge&logo=github&color=8b5cf6&labelColor=1f2937&label=FOLLOWERS" /></a>
+&nbsp;
+<img src="https://img.shields.io/badge/FOCUS-AI%20%C3%97%20PRODUCT-38bdf8?style=for-the-badge&labelColor=1f2937" />
 
 <br /><br />
 
 Building useful software with a focus on AI, product design, automation, analytics, and clean digital experiences.
 
-<br /><br />
+<br />
 
-<a href="mailto:chweyamark@gmail.com">Email</a>
-&nbsp;&nbsp;·&nbsp;&nbsp;
-<a href="https://github.com/markchweya">GitHub</a>
-&nbsp;&nbsp;·&nbsp;&nbsp;
-<a href="#">LinkedIn</a>
+<a href="mailto:chweyamark@gmail.com"><img src="https://img.shields.io/badge/Email-chweyamark%40gmail.com-0ea5e9?style=flat-square&logo=gmail&logoColor=white&labelColor=1f2937" /></a>
+&nbsp;
+<a href="https://github.com/markchweya"><img src="https://img.shields.io/badge/GitHub-markchweya-8b5cf6?style=flat-square&logo=github&logoColor=white&labelColor=1f2937" /></a>
 
 </div>
 
@@ -30,65 +36,35 @@ Building useful software with a focus on AI, product design, automation, analyti
 
 <div align="center">
 
-<table>
-<tr>
-<td width="50%" valign="top">
+<a href="https://github.com/markchweya/ibia">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=markchweya&repo=ibia&theme=transparent&hide_border=true&title_color=7DD3FC&icon_color=A78BFA&text_color=CBD5E1&description_lines_count=2" />
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=markchweya&repo=ibia&hide_border=true&title_color=0284c7&icon_color=7c3aed&text_color=334155&bg_color=ffffff00&description_lines_count=2" width="420" />
+</picture>
+</a>
+<a href="https://github.com/markchweya/OngeaLabs">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=markchweya&repo=OngeaLabs&theme=transparent&hide_border=true&title_color=7DD3FC&icon_color=A78BFA&text_color=CBD5E1&description_lines_count=2" />
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=markchweya&repo=OngeaLabs&hide_border=true&title_color=0284c7&icon_color=7c3aed&text_color=334155&bg_color=ffffff00&description_lines_count=2" width="420" />
+</picture>
+</a>
 
-<h3>ibia</h3>
+<a href="https://github.com/markchweya/sdmx-data-mcp">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=markchweya&repo=sdmx-data-mcp&theme=transparent&hide_border=true&title_color=7DD3FC&icon_color=A78BFA&text_color=CBD5E1&description_lines_count=2" />
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=markchweya&repo=sdmx-data-mcp&hide_border=true&title_color=0284c7&icon_color=7c3aed&text_color=334155&bg_color=ffffff00&description_lines_count=2" width="420" />
+</picture>
+</a>
+<a href="https://github.com/markchweya/kukilabs">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=markchweya&repo=kukilabs&theme=transparent&hide_border=true&title_color=7DD3FC&icon_color=A78BFA&text_color=CBD5E1&description_lines_count=2" />
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=markchweya&repo=kukilabs&hide_border=true&title_color=0284c7&icon_color=7c3aed&text_color=334155&bg_color=ffffff00&description_lines_count=2" width="420" />
+</picture>
+</a>
 
-<p>
-A desktop AI assistant designed around local-first workflows and cloud AI flexibility.
-</p>
+<br /><br />
 
-<p>
-<sub><b>Focus:</b> AI assistant · desktop app · local models</sub>
-</p>
-
-</td>
-<td width="50%" valign="top">
-
-<h3>Civic Assistant</h3>
-
-<p>
-An AI-powered citizen reporting platform focused on accessibility, structure, and public-service impact.
-</p>
-
-<p>
-<sub><b>Focus:</b> civic technology · automation · AI chatbot</sub>
-</p>
-
-</td>
-</tr>
-
-<tr>
-<td width="50%" valign="top">
-
-<h3>Jamhuri Soccer Academy</h3>
-
-<p>
-A digital platform bringing together football, community, identity, news, merchandise, and admin tools.
-</p>
-
-<p>
-<sub><b>Focus:</b> sports platform · web design · community</sub>
-</p>
-
-</td>
-<td width="50%" valign="top">
-
-<h3>Zazu Zanzibar</h3>
-
-<p>
-An immersive tourism website inspired by travel, storytelling, beaches, and visual experience.
-</p>
-
-<p>
-<sub><b>Focus:</b> tourism · visual storytelling · web experience</sub>
-</p>
-
-</td>
-</tr>
-</table>
+<sub><b>Also in the lab:</b> Nua — grounded institutional research copilot &nbsp;·&nbsp; Patikana — telecom fraud-intelligence platform &nbsp;·&nbsp; Ingia — event ticket scanning &amp; verification &nbsp;·&nbsp; Civic Assistant — AI-powered citizen reporting</sub>
 
 </div>
 
@@ -135,26 +111,62 @@ An immersive tourism website inspired by travel, storytelling, beaches, and visu
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=python,js,ts,react,nextjs,nodejs,express,html,css,tailwind,sqlite,git,github,vscode" />
-
-<br /><br />
-
-<img src="https://img.shields.io/badge/Python-111827?style=for-the-badge&logo=python&logoColor=7DD3FC" />
-<img src="https://img.shields.io/badge/JavaScript-111827?style=for-the-badge&logo=javascript&logoColor=FACC15" />
-<img src="https://img.shields.io/badge/TypeScript-111827?style=for-the-badge&logo=typescript&logoColor=60A5FA" />
-<img src="https://img.shields.io/badge/React-111827?style=for-the-badge&logo=react&logoColor=7DD3FC" />
-<img src="https://img.shields.io/badge/Next.js-111827?style=for-the-badge&logo=nextdotjs&logoColor=ffffff" />
-<img src="https://img.shields.io/badge/Node.js-111827?style=for-the-badge&logo=nodedotjs&logoColor=86EFAC" />
+<table>
+<tr>
+<td align="right"><b>Languages</b></td>
+<td><img src="https://skillicons.dev/icons?i=python,js,ts,html,css" /></td>
+</tr>
+<tr>
+<td align="right"><b>Frameworks</b></td>
+<td><img src="https://skillicons.dev/icons?i=react,nextjs,nodejs,express,tailwind" /></td>
+</tr>
+<tr>
+<td align="right"><b>AI &amp; Data</b></td>
+<td><img src="https://skillicons.dev/icons?i=pytorch,tensorflow,sklearn,fastapi" /></td>
+</tr>
+<tr>
+<td align="right"><b>Tools</b></td>
+<td><img src="https://skillicons.dev/icons?i=git,github,vscode,sqlite,postgres,vercel" /></td>
+</tr>
+</table>
 
 </div>
 
 <br />
 
-## GitHub Activity
+## GitHub Analytics
 
 <div align="center">
 
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=markchweya&show_icons=true&theme=transparent&hide_border=true&title_color=7DD3FC&icon_color=A78BFA&text_color=CBD5E1" />
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=markchweya&show_icons=true&include_all_commits=true&theme=transparent&hide_border=true&title_color=7DD3FC&icon_color=A78BFA&text_color=CBD5E1&rank_icon=github" />
+<img height="180" src="https://github-readme-stats.vercel.app/api?username=markchweya&show_icons=true&include_all_commits=true&hide_border=true&title_color=0284c7&icon_color=7c3aed&text_color=334155&bg_color=ffffff00&rank_icon=github" />
+</picture>
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=markchweya&hide_border=true&background=00000000&ring=7DD3FC&fire=A78BFA&currStreakNum=CBD5E1&sideNums=CBD5E1&currStreakLabel=7DD3FC&sideLabels=CBD5E1&dates=64748B" />
+<img height="180" src="https://streak-stats.demolab.com?user=markchweya&hide_border=true&background=00000000&ring=0284c7&fire=7c3aed&currStreakNum=334155&sideNums=334155&currStreakLabel=0284c7&sideLabels=334155&dates=64748b" />
+</picture>
+
+<br /><br />
+
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=markchweya&layout=compact&langs_count=8&theme=transparent&hide_border=true&title_color=7DD3FC&text_color=CBD5E1" />
+<img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=markchweya&layout=compact&langs_count=8&hide_border=true&title_color=0284c7&text_color=334155&bg_color=ffffff00" />
+</picture>
+
+<br /><br />
+
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=markchweya&bg_color=00000000&color=CBD5E1&line=7DD3FC&point=A78BFA&area=true&area_color=1e3a5f&hide_border=true" />
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=markchweya&bg_color=00000000&color=334155&line=0284c7&point=7c3aed&area=true&area_color=bae6fd&hide_border=true" width="94%" />
+</picture>
+
+<br /><br />
+
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/markchweya/markchweya/output/github-contribution-grid-snake-dark.svg" />
+<img src="https://raw.githubusercontent.com/markchweya/markchweya/output/github-contribution-grid-snake.svg" width="94%" />
+</picture>
 
 </div>
 
