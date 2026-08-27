@@ -1,0 +1,59 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7">
+        <animate attributeName="stop-color" values="#0284c7;#7c3aed;#0284c7" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#7c3aed">
+        <animate attributeName="stop-color" values="#7c3aed;#0284c7;#7c3aed" dur="8s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#cbd5e1" stroke-width="1" />
+    </pattern>
+    <radialGradient id="fade" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+    <mask id="gridmask">
+      <rect width="1200" height="320" fill="url(#fade)" />
+    </mask>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.13" />
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="320" fill="url(#grid)" mask="url(#gridmask)" />
+  <circle cx="980" cy="60" r="280" fill="url(#glow1)" />
+  <circle cx="210" cy="270" r="260" fill="url(#glow2)" />
+
+  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">
+    <text x="600" y="118" font-size="15" font-weight="600" letter-spacing="7" fill="#64748b">~ / MARKCHWEYA</text>
+
+    <text x="600" y="188" font-size="76" font-weight="800" letter-spacing="1" fill="#0f172a">MARK CHWEYA</text>
+
+    <rect x="540" y="208" width="120" height="4" rx="2" fill="url(#accent)" />
+
+    <text x="600" y="248" font-size="19" fill="#475569">Building AI products and modern digital experiences</text>
+
+    <g font-size="14" font-weight="600" letter-spacing="5" fill="url(#accent)">
+      <text x="600" y="288" opacity="0">SOFTWARE DEVELOPER
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.22;0.25;1" dur="16s" begin="0s" repeatCount="indefinite" />
+      </text>
+      <text x="600" y="288" opacity="0">AI BUILDER
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.22;0.25;1" dur="16s" begin="4s" repeatCount="indefinite" />
+      </text>
+      <text x="600" y="288" opacity="0">DATA SCIENTIST
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.22;0.25;1" dur="16s" begin="8s" repeatCount="indefinite" />
+      </text>
+      <text x="600" y="288" opacity="0">DATA ANALYST
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.22;0.25;1" dur="16s" begin="12s" repeatCount="indefinite" />
+      </text>
+    </g>
+  </g>
+</svg>
