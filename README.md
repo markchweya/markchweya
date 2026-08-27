@@ -1,34 +1,23 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=blur&height=300&color=gradient&customColorList=6,12,20,24,30&text=MARK%20CHWEYA&fontSize=64&fontColor=ffffff&animation=fadeIn&desc=Building%20AI%20products%20and%20modern%20digital%20experiences&descSize=18&descAlignY=63" />
-
-<br />
-
-<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=20&duration=2800&pause=900&color=7DD3FC&center=true&vCenter=true&width=850&lines=Software+Developer;AI+Builder;Data+Scientist;Data+Analyst;Turning+ideas+into+useful+products" />
-
-<br /><br />
-
-<img src="https://komarev.com/ghpvc/?username=markchweya&style=for-the-badge&color=0ea5e9&label=PROFILE+VIEWS" />
-&nbsp;
-<a href="https://github.com/markchweya?tab=followers"><img src="https://img.shields.io/github/followers/markchweya?style=for-the-badge&logo=github&color=8b5cf6&labelColor=1f2937&label=FOLLOWERS" /></a>
-&nbsp;
-<img src="https://img.shields.io/badge/FOCUS-AI%20%C3%97%20PRODUCT-38bdf8?style=for-the-badge&labelColor=1f2937" />
-
-<br /><br />
-
-Building useful software with a focus on AI, product design, automation, analytics, and clean digital experiences.
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/markchweya/markchweya/main/assets/header-dark.svg" />
+<img src="https://raw.githubusercontent.com/markchweya/markchweya/main/assets/header-light.svg" width="100%" alt="Mark Chweya — Building AI products and modern digital experiences" />
+</picture>
 
 <br />
 
 <a href="mailto:chweyamark@gmail.com"><img src="https://img.shields.io/badge/Email-chweyamark%40gmail.com-0ea5e9?style=flat-square&logo=gmail&logoColor=white&labelColor=1f2937" /></a>
 &nbsp;
 <a href="https://github.com/markchweya"><img src="https://img.shields.io/badge/GitHub-markchweya-8b5cf6?style=flat-square&logo=github&logoColor=white&labelColor=1f2937" /></a>
+&nbsp;
+<a href="https://github.com/markchweya?tab=followers"><img src="https://img.shields.io/github/followers/markchweya?style=flat-square&logo=github&color=8b5cf6&labelColor=1f2937&label=Followers" /></a>
+
+<br /><br />
+
+<img src="https://raw.githubusercontent.com/markchweya/markchweya/main/assets/divider.svg" width="70%" />
 
 </div>
-
-<br />
-
----
 
 <br />
 
@@ -205,11 +194,11 @@ Building useful software with a focus on AI, product design, automation, analyti
 
 <br />
 
----
-
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=130&section=footer&color=gradient&customColorList=6,12,20,24,30" />
+<img src="https://raw.githubusercontent.com/markchweya/markchweya/main/assets/divider.svg" width="70%" />
+
+<br /><br />
 
 ### Build useful things. Make them feel intentional.
 
