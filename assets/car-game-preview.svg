@@ -1,0 +1,64 @@
+<svg width="900" height="360" viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pcar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#a78bfa" />
+    </linearGradient>
+    <linearGradient id="ttl" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8">
+        <animate attributeName="stop-color" values="#38bdf8;#a78bfa;#38bdf8" dur="6s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#a78bfa">
+        <animate attributeName="stop-color" values="#a78bfa;#38bdf8;#a78bfa" dur="6s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="360" rx="18" fill="#0d1117" />
+
+  <!-- road (vertical, on the left side of the card) -->
+  <g>
+    <rect x="60" y="0" width="300" height="360" fill="#161b22" />
+    <rect x="52" y="0" width="5" height="360" fill="#38bdf8" />
+    <rect x="363" y="0" width="5" height="360" fill="#a78bfa" />
+    <g stroke="#30363d" stroke-width="5" stroke-dasharray="26 24">
+      <line x1="160" y1="-50" x2="160" y2="410">
+        <animate attributeName="y1" values="-50;0" dur="0.4s" repeatCount="indefinite" />
+        <animate attributeName="y2" values="410;460" dur="0.4s" repeatCount="indefinite" />
+      </line>
+      <line x1="260" y1="-50" x2="260" y2="410">
+        <animate attributeName="y1" values="-50;0" dur="0.4s" repeatCount="indefinite" />
+        <animate attributeName="y2" values="410;460" dur="0.4s" repeatCount="indefinite" />
+      </line>
+    </g>
+    <!-- oncoming obstacle cars -->
+    <g>
+      <rect x="83" y="-90" width="54" height="88" rx="12" fill="#ef4444" />
+      <rect x="93" y="-76" width="34" height="20" rx="5" fill="#0d1117" opacity="0.55" />
+      <animateTransform attributeName="transform" type="translate" values="0 -40; 0 460" dur="2.6s" repeatCount="indefinite" />
+    </g>
+    <g>
+      <rect x="283" y="-90" width="54" height="88" rx="12" fill="#f59e0b" />
+      <rect x="293" y="-76" width="34" height="20" rx="5" fill="#0d1117" opacity="0.55" />
+      <animateTransform attributeName="transform" type="translate" values="0 -220; 0 460" dur="3.4s" repeatCount="indefinite" />
+    </g>
+    <!-- player car, weaving between lanes -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 100 0; 100 0; 0 0; 0 0" keyTimes="0;0.22;0.5;0.72;1" calcMode="spline" keySplines="0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1;0 0 1 1" dur="5.2s" repeatCount="indefinite" />
+      <rect x="156" y="238" width="58" height="96" rx="13" fill="url(#pcar)" />
+      <rect x="166" y="254" width="38" height="22" rx="6" fill="#0d1117" opacity="0.55" />
+      <rect x="166" y="304" width="38" height="18" rx="6" fill="#0d1117" opacity="0.55" />
+    </g>
+  </g>
+
+  <!-- panel -->
+  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+    <text x="640" y="120" text-anchor="middle" font-size="52" font-weight="800" fill="url(#ttl)">CHWEYA DRIFT</text>
+    <text x="640" y="162" text-anchor="middle" font-size="19" fill="#94a3b8">Switch lanes. Dodge traffic. Beat the record.</text>
+
+    <rect x="530" y="205" width="220" height="58" rx="29" fill="url(#ttl)" />
+    <text x="640" y="242" text-anchor="middle" font-size="24" font-weight="800" fill="#0d1117">&#9654;&#160; PLAY NOW</text>
+
+    <text x="640" y="305" text-anchor="middle" font-size="14" font-weight="600" letter-spacing="2" fill="#64748b">&#8592; &#8594; TO STEER &#183; WORKS ON MOBILE</text>
+  </g>
+</svg>

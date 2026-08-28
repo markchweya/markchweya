@@ -23,7 +23,6 @@
   <rect width="1200" height="320" fill="url(#grid)" mask="url(#gridmask)" />
 
   <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">
-    <text x="600" y="56" font-size="15" font-weight="600" letter-spacing="7" fill="#64748b">~ / MARKCHWEYA</text>
 
     <!-- jigsaw pieces: MARK | CHWEYA, tabs interlock into neighbouring sockets -->
     <g font-size="44" font-weight="800" fill="#f0f6fc" stroke-width="1.5">
