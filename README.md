@@ -21,6 +21,32 @@
 
 <br />
 
+## Solve My Puzzle
+
+Yes, it's a real game — played right here on GitHub. Click a numbered piece below: it opens a pre-filled issue, you press **Create**, and a bot places your piece on the board, revealing part of the picture. Place the **final** piece and you join the Hall of Fame. When the puzzle is done, a fresh board is laid out for the next round.
+
+<!-- PUZZLE:START -->
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/markchweya/markchweya/main/assets/puzzle-board.svg" width="72%" alt="Community jigsaw board" />
+
+<br /><br />
+
+<b>Pick a piece to place it:</b>
+
+<br /><br />
+
+<a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C1&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%201%20for%20you%20%F0%9F%A7%A9"><code>01</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C2&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%202%20for%20you%20%F0%9F%A7%A9"><code>02</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C3&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%203%20for%20you%20%F0%9F%A7%A9"><code>03</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C4&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%204%20for%20you%20%F0%9F%A7%A9"><code>04</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C5&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%205%20for%20you%20%F0%9F%A7%A9"><code>05</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C6&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%206%20for%20you%20%F0%9F%A7%A9"><code>06</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C7&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%207%20for%20you%20%F0%9F%A7%A9"><code>07</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C8&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%208%20for%20you%20%F0%9F%A7%A9"><code>08</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C9&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%209%20for%20you%20%F0%9F%A7%A9"><code>09</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C10&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%2010%20for%20you%20%F0%9F%A7%A9"><code>10</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C11&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%2011%20for%20you%20%F0%9F%A7%A9"><code>11</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C12&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%2012%20for%20you%20%F0%9F%A7%A9"><code>12</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C13&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%2013%20for%20you%20%F0%9F%A7%A9"><code>13</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C14&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%2014%20for%20you%20%F0%9F%A7%A9"><code>14</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C15&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%2015%20for%20you%20%F0%9F%A7%A9"><code>15</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C16&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%2016%20for%20you%20%F0%9F%A7%A9"><code>16</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C17&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%2017%20for%20you%20%F0%9F%A7%A9"><code>17</code></a> <a href="https://github.com/markchweya/markchweya/issues/new?title=puzzle%7Cplace%7C18&body=Just%20press%20%22Create%22%20and%20the%20bot%20will%20place%20piece%2018%20for%20you%20%F0%9F%A7%A9"><code>18</code></a>
+
+<br /><br />
+
+<sub>🧩 0/18 placed &nbsp;·&nbsp; 0 puzzles completed</sub>
+
+</div>
+<!-- PUZZLE:END -->
+
+<br />
+
 ## Featured Work
 
 <div align="center">
