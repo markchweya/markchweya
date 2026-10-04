@@ -23,17 +23,17 @@
 
 ## Play Chweya Drift
 
-My profile ships with an actual arcade game. Three lanes, climbing speed, and traffic that does not care about you. Click the card � it runs right in your browser.
+My profile ships with a real-time 3D street racer. A Ferrari 458 against 11 rival ghosts through a photo-real city, with recorded engine audio, a working tachometer and nitro. Rendered with three.js, while the game itself runs on 7 technologies developers abandoned: CoffeeScript, AngularJS 1.x, Backbone, Raphaël, Underscore, jQuery 1.x and LESS.
 
 <div align="center">
 
 <a href="https://markchweya.github.io/markchweya/">
-<img src="https://raw.githubusercontent.com/markchweya/markchweya/main/assets/car-game-preview.svg" width="72%" alt="Chweya Drift - playable arcade game" />
+<img src="https://raw.githubusercontent.com/markchweya/markchweya/main/assets/drift-card.jpg" width="88%" alt="Chweya Drift — a 3D street racer, playable in the browser" />
 </a>
 
 <br /><br />
 
-<sub>&#8592; &#8594; or A/D to steer &nbsp;&#183;&nbsp; tap left/right on mobile &nbsp;&#183;&nbsp; your best score is saved</sub>
+<sub>&#8592; &#8594; switch lanes &nbsp;&#183;&nbsp; &#8593; / Space nitro &nbsp;&#183;&nbsp; tap left/right and hold the nitro bottle on mobile</sub>
 
 </div>
 
