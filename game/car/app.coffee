@@ -46,6 +46,7 @@ RaceState = Backbone.Model.extend
     nitro: 1
     crashes: 0
     car: 'rosso'
+    model: 'ferrari'
     best: null
     muted: false
 
@@ -63,6 +64,10 @@ class Game
     audio.muted = muted
     state.set car: car, best: store.get('drift.best', null), muted: muted
     world.setPaint car
+    model = store.get 'drift.model', 'ferrari'
+    model = 'ferrari' unless _.findWhere(D.CARS, id: model)
+    state.set 'model', model
+    world.setCar model
     @race = new D.Race autopilot: true
     @resultsIn = 0
     @resumeTo = 'race'
@@ -81,6 +86,12 @@ class Game
     store.set 'drift.paint', id
     state.set 'car', id
     world.setPaint id
+    return
+
+  setModel: (id) ->
+    store.set 'drift.model', id
+    state.set 'model', id
+    world.setCar id
     return
 
   toggleMute: ->
@@ -280,21 +291,24 @@ $('#graveyard').html graveTpl(techs: D.TECHS)
 angular.module('drift', []).controller 'HudCtrl', ['$scope', ($scope) ->
   vm = this
   vm.cars = D.PAINTS
+  vm.models = D.CARS
   vm.s = state.toJSON()
   vm.r = {}
   vm.fmt = fmt
   pull = -> vm.s = state.toJSON()
   state.on 'change', _.throttle((-> $scope.$applyAsync pull), 90)
-  state.on 'change:phase change:banner change:car change:muted', -> $scope.$applyAsync pull
+  state.on 'change:phase change:banner change:car change:model change:muted', -> $scope.$applyAsync pull
   bus.on 'results', (res) -> $scope.$applyAsync -> vm.r = res
   vm.inRace = -> vm.s.phase in ['countdown', 'race', 'finished', 'paused']
   vm.kmLeft = -> ((100 - vm.s.progress) * C.FINISH_Z / C.SEG * 1.1 / 100000).toFixed(1)
   vm.carName = -> (_.findWhere(D.PAINTS, id: vm.s.car) or {}).name
+  vm.modelName = -> (_.findWhere(D.CARS, id: vm.s.model) or {}).name
   vm.start = -> game.start()
   vm.pause = -> game.pause()
   vm.resume = -> game.resume()
   vm.quit = -> game.quit()
   vm.pick = (c) -> game.setCar c.id
+  vm.pickModel = (m) -> game.setModel m.id
   vm.mute = -> game.toggleMute()
   return
 ]

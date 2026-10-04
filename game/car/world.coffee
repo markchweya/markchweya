@@ -18,10 +18,20 @@ CHUNK = 40
 UNITS = C.SEG / SEG_M  # engine units per metre
 
 asset = (p) -> 'assets/models/' + p
+
+# Real cars. Each has a full model (player and the closest rivals) and a light
+# model for distant rivals; `paint` matches the body material that gets recoloured.
+CARS = [
+  {id: 'ferrari', name: 'Ferrari 458 Italia', file: 'real/ferrari.glb', near: 'real/ferrari_near.glb', lod: 'real/ferrari_lod.glb', paint: /^Body_Color$/, len: 4.53}
+  {id: 'bmw_m4', name: 'BMW M4 CSL', file: 'real/bmw_m4.glb', lod: 'real/bmw_m4_lod.glb', paint: /Paint/, len: 4.8, yaw: Math.PI}
+  {id: 'bmw_m8', name: 'BMW M8 Competition', file: 'real/bmw_m8.glb', lod: 'real/bmw_m8_lod.glb', paint: /CarPaint/, len: 4.87, yaw: Math.PI}
+  {id: 'merc_e', name: 'Mercedes-Benz E-Class', file: 'real/merc_e.glb', lod: 'real/merc_e_lod.glb', paint: /^mat_body$/, len: 4.87}
+  {id: 'merc_190', name: 'Mercedes-Benz 190E Evo', file: 'real/merc_190.glb', lod: 'real/merc_190_lod.glb', paint: /Car_body_color/, len: 4.43, yaw: Math.PI}
+]
+CARS_BY_KEY = {}
+RIVAL_CARS = ['bmw_m4', 'merc_e', 'bmw_m8', 'merc_190', 'ferrari']
+
 MODELS =
-  ferrari: asset 'real/ferrari.glb'
-  ferrariLod: asset 'real/ferrari_lod.glb'
-  ferrariNear: asset 'real/ferrari_near.glb'
   covered: asset 'real/covered_car/covered_car_1k.gltf'
   lamp: asset 'real/street_lamp/street_lamp.glb'
   cone: asset 'cars/cone.glb'
@@ -102,7 +112,15 @@ impostorGeometry = (list, view, height, aspect) ->
   geo.computeVertexNormals()
   geo
 
-CAR_KEYS = ['ferrari', 'ferrariLod', 'ferrariNear', 'covered']
+# Registered inside a function: CoffeeScript has no shadowing, so a top-level
+# loop variable would be shared with every method that uses the same name.
+CARS.forEach (car) ->
+  MODELS[car.id] = asset car.file
+  MODELS[car.id + 'Lod'] = asset car.lod
+  MODELS[car.id + 'Near'] = asset car.near if car.near
+  CARS_BY_KEY[key] = car for key in [car.id, car.id + 'Lod', car.id + 'Near']
+  return
+nearKey = (id) -> if CARS_BY_KEY[id].near then id + 'Near' else id
 PAINTS = [
   {id: 'rosso', name: 'Rosso Corsa', hex: '#a3000f'}
   {id: 'giallo', name: 'Giallo Modena', hex: '#f2b600'}
@@ -121,7 +139,6 @@ SIZE =
   worklight: ['y', 2.2]
   gantry: ['x', 15]
   billboard: ['x', 10]
-CAR_MODEL_YAW = {ferrari: 0, ferrariLod: 0, ferrariNear: 0, covered: 0}
 ADS = [
   ['GET FLASH PLAYER', 'Required to view this content', '#b71c1c', '#ff5252']
   ['BEST VIEWED IN IE6', 'at 800 × 600', '#0d47a1', '#42a5f5']
@@ -225,6 +242,7 @@ class World
     @look = new THREE.Vector3()
     @glowTex = glowTexture()
     @paintId = 'rosso'
+    @carId = 'ferrari'
     @ready = false
     @resize()
 
@@ -273,10 +291,10 @@ class World
     t
 
   prep: (key, scene) ->
-    isCar = key in CAR_KEYS
+    spec = CARS_BY_KEY[key]
+    isCar = spec? or key is 'covered'
     paint = null
-    isFerrari = key in ['ferrari', 'ferrariLod', 'ferrariNear']
-    if isFerrari
+    if spec
       paint = new THREE.MeshPhysicalMaterial
         color: 0x8c0007
         metalness: 0.3
@@ -287,32 +305,34 @@ class World
       paint.userData.paint = true
     scene.traverse (o) ->
       return unless o.isMesh
-      o.castShadow = not isFerrari
-      o.receiveShadow = not isFerrari
-      o.material = paint if paint and o.material.name is 'Body_Color'
+      o.castShadow = not spec
+      o.receiveShadow = not spec
+      o.material = paint if paint and spec.paint.test(o.material.name)
       return
     box = new THREE.Box3().setFromObject scene
-    if key is 'ferrari'
-      ao = new THREE.Mesh new THREE.PlaneGeometry(0.655 * 4, 1.3 * 4), new THREE.MeshBasicMaterial
+    size = box.getSize new THREE.Vector3()
+    center = box.getCenter new THREE.Vector3()
+    # Soft contact shadow under every real car (ferrari_ao.png is a generic blurred footprint).
+    if spec and not /Lod$/.test(key)
+      ao = new THREE.Mesh new THREE.PlaneGeometry(size.x * 1.2, size.z * 1.15), new THREE.MeshBasicMaterial
         map: @aoTex
         blending: THREE.MultiplyBlending
         toneMapped: false
         transparent: true
         depthWrite: false
       ao.rotation.x = -Math.PI / 2
-      ao.position.y = 0.02
+      ao.position.set center.x, box.min.y + 0.02, center.z
       ao.renderOrder = 2
       scene.add ao
-    size = box.getSize new THREE.Vector3()
-    s = if isCar then 4.6 / Math.max(size.z, size.x)
+    s = if spec then spec.len / Math.max(size.z, size.x)
+    else if isCar then 4.6 / Math.max(size.z, size.x)
     else if SIZE[key] then SIZE[key][1] / size[SIZE[key][0]]
     else 1
     holder = new THREE.Group()
-    center = box.getCenter new THREE.Vector3()
     scene.position.set -center.x, -box.min.y, -center.z
     holder.add scene
     holder.scale.setScalar s
-    holder.rotation.y = CAR_MODEL_YAW[key] if isCar
+    holder.rotation.y = spec.yaw or 0 if spec
     wrap = new THREE.Group()
     wrap.add holder
     wrap.userData.size = size.clone().multiplyScalar s
@@ -400,6 +420,11 @@ class World
 
   setPaint: (id) ->
     @paintId = id
+    @spawnPlayer() if @root
+    return
+
+  setCar: (id) ->
+    @carId = id if CARS_BY_KEY[id]
     @spawnPlayer() if @root
     return
 
@@ -718,8 +743,9 @@ class World
     @rivals = for rv in race.rivals
       paint = RIVAL_PAINTS[rv.index % RIVAL_PAINTS.length]
       holder = new THREE.Group()
-      near = @vehicle 'ferrariNear', paint: paint, fade: true
-      far = @vehicle 'ferrariLod', paint: paint, fade: true
+      car = RIVAL_CARS[rv.index % RIVAL_CARS.length]
+      near = @vehicle nearKey(car), paint: paint, fade: true
+      far = @vehicle car + 'Lod', paint: paint, fade: true
       label = new THREE.Sprite new THREE.SpriteMaterial(map: labelTexture(rv.name), transparent: true, depthWrite: false)
       label.scale.set 3.6, 0.9, 1
       label.position.y = 2.5
@@ -732,10 +758,10 @@ class World
   spawnPlayer: ->
     @player?.parent?.remove @player
     paint = _.findWhere(PAINTS, id: @paintId) or PAINTS[0]
-    @player = @vehicle 'ferrari', paint: paint.hex
-    size = @models.ferrari.userData.size
+    @player = @vehicle @carId, paint: paint.hex
+    size = @models[@carId].userData.size
     @wheels = []
-    @player.traverse (o) => @wheels.push o if /^wheel_(fl|fr|rl|rr)$/.test(o.name)
+    @player.traverse (o) => @wheels.push o if /^(wheel_(fl|fr|rl|rr)|Wheel(FL|FR|RL|RR))$/.test(o.name)
     @flames = for side in [-1, 1]
       f = @glow 0x6fa8ff, 0.9, 1
       f.position.set side * 0.35, 0.35, size.z / 2 + 0.25
@@ -836,3 +862,4 @@ class World
 
 D.World = World
 D.PAINTS = PAINTS
+D.CARS = CARS.map (car) -> {id: car.id, name: car.name}

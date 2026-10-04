@@ -58,11 +58,13 @@
       <div class="brand">
         <small>Graveyard Sprint &middot; 3.3 km</small>
         <h1>CHWEYA<br><span>DRIFT</span></h1>
-        <p>Eleven rival Ferraris, each driven by a technology the industry left behind. Thread the traffic, save nitro for the straights, take P1.</p>
+        <p>Eleven rivals in BMWs, Mercedes and Ferraris, each one a technology the industry left behind. Thread the traffic, save nitro for the straights, take P1.</p>
       </div>
       <button class="cta" ng-click="hud.start()">Start race</button>
       <div class="garage">
-        <h3>Ferrari 458 Italia &mdash; {{hud.carName()}}</h3>
+        <h3>Garage &mdash; {{hud.modelName()}}</h3>
+        <div class="models"><button ng-repeat="m in hud.models" class="car-pick" ng-class="{on: hud.s.model == m.id}" ng-click="hud.pickModel(m)">{{m.name}}</button></div>
+        <h3>Paint &mdash; {{hud.carName()}}</h3>
         <button ng-repeat="c in hud.cars" class="swatch" ng-class="{on: hud.s.car == c.id}" ng-style="{background: c.hex}" ng-click="hud.pick(c)" title="{{c.name}}"></button>
       </div>
       <ul class="controls">
@@ -77,7 +79,7 @@
       <h3>Under the hood</h3>
       <p class="sub">Game logic, state, HUD, menus, input and styles all run on 7 technologies developers abandoned:</p>
       <ol id="graveyard"></ol>
-      <p class="credits">3D rendering by three.js. Ferrari 458 Italia model by vicent091036 (via the three.js examples). Building facades by ambientCG (CC0). Trees, street lamps, covered car, sky and road textures by Poly Haven (CC0). Props by Kenney (CC0). Engine recordings from OpenGameArt (CC0).</p>
+      <p class="credits">3D rendering by three.js. Ferrari 458 Italia by vicent091036 (via the three.js examples); BMW M4 CSL by Black Snow, BMW M8 Competition by kevin (ケビン), Mercedes-Benz E-Class W212 by Peter_D and Mercedes 190E Evo by Betier Models (all CC-BY 4.0, via Sketchfab). Building facades by ambientCG (CC0). Trees, street lamps, covered car, sky and road textures by Poly Haven (CC0). Props by Kenney (CC0). Engine recordings from OpenGameArt (CC0).</p>
     </div>
   </div>
 
