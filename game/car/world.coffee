@@ -1,5 +1,5 @@
 # Chweya Drift — 3D world.
-# three.js renders CC0 Kenney models along a road mesh generated from the
+# three.js renders real and CC0 models along a road mesh generated from the
 # race engine's track, lit by a Poly Haven HDR sky.
 
 D = window.Drift
@@ -21,19 +21,12 @@ asset = (p) -> 'assets/models/' + p
 MODELS =
   ferrari: asset 'real/ferrari.glb'
   ferrariLod: asset 'real/ferrari_lod.glb'
+  ferrariNear: asset 'real/ferrari_near.glb'
   covered: asset 'real/covered_car/covered_car_1k.gltf'
+  lamp: asset 'real/street_lamp/street_lamp.glb'
   cone: asset 'cars/cone.glb'
-  lamp: asset 'roads/light-curved.glb'
   barrier: asset 'roads/construction-barrier.glb'
   worklight: asset 'roads/construction-light.glb'
-  sign: asset 'roads/sign-highway.glb'
-  oak: asset 'nature/tree_oak.glb'
-  tree: asset 'nature/tree_default.glb'
-  detailed: asset 'nature/tree_detailed.glb'
-  pine: asset 'nature/tree_pineTallA_detailed.glb'
-  palm: asset 'nature/tree_palmTall.glb'
-  palm2: asset 'nature/tree_palmDetailedTall.glb'
-  bush: asset 'nature/plant_bushLarge.glb'
   gantry: asset 'racing/overheadLights.glb'
   billboard: asset 'racing/billboard.glb'
 # CC0 photo facades from ambientCG; tile is the real-world size of one texture repeat in metres.
@@ -45,6 +38,12 @@ FACADES =
   Facade001: {tile: 16, glass: true}
   Facade005: {tile: 14, glass: true}
 STREET_FACADES = ['Facade006', 'Facade018A', 'Facade018A', 'Facade019A', 'Facade020A']
+# Photoscanned Poly Haven trees baked to cross-billboard impostors (front + side view).
+TREE_TYPES =
+  island: {h: 9.5}
+  island1: {h: 11}
+  island3: {h: 8.5}
+  hedge: {h: 2.6, file: 'searsia'}
 TOWER_FACADES = ['Facade001', 'Facade005', 'Facade019A', 'Facade020A', 'Facade006']
 
 buildingParts = (w, h, d, tile, uOff) ->
@@ -74,7 +73,36 @@ buildingParts = (w, h, d, tile, uOff) ->
     geo
   {walls: toGeo(walls), roof: toGeo(roof)}
 
-CAR_KEYS = ['ferrari', 'ferrariLod', 'covered']
+# One textured quad per tree for the given view; the two views cross at 90 degrees.
+impostorGeometry = (list, view, height, aspect) ->
+  n = list.length
+  pos = new Float32Array(n * 12)
+  uv = new Float32Array(n * 8)
+  col = new Float32Array(n * 12)
+  idx = []
+  for t, i in list
+    hh = height * t.s
+    hw = hh * aspect / 2
+    a = t.rot + view * Math.PI / 2
+    dx = Math.cos(a) * hw
+    dz = Math.sin(a) * hw
+    y0 = t.y - hh * 0.03
+    y1 = y0 + hh
+    p = i * 12
+    pos.set [t.x - dx, y0, t.z - dz, t.x + dx, y0, t.z + dz, t.x + dx, y1, t.z + dz, t.x - dx, y1, t.z - dz], p
+    uv.set [0, 0, 1, 0, 1, 1, 0, 1], i * 8
+    col.set [t.shade, t.shade, t.shade, t.shade, t.shade, t.shade, t.shade, t.shade, t.shade, t.shade, t.shade, t.shade], p
+    v = i * 4
+    idx.push v, v + 1, v + 2, v, v + 2, v + 3
+  geo = new THREE.BufferGeometry()
+  geo.setAttribute 'position', new THREE.BufferAttribute(pos, 3)
+  geo.setAttribute 'uv', new THREE.BufferAttribute(uv, 2)
+  geo.setAttribute 'color', new THREE.BufferAttribute(col, 3)
+  geo.setIndex idx
+  geo.computeVertexNormals()
+  geo
+
+CAR_KEYS = ['ferrari', 'ferrariLod', 'ferrariNear', 'covered']
 PAINTS = [
   {id: 'rosso', name: 'Rosso Corsa', hex: '#a3000f'}
   {id: 'giallo', name: 'Giallo Modena', hex: '#f2b600'}
@@ -88,20 +116,12 @@ RIVAL_PAINTS = ['#f2b600', '#0d0d0f', '#e9e9e6', '#14306e', '#0d3b2a', '#8d949b'
 DRACO_PATH = 'https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/libs/draco/gltf/'
 SIZE =
   cone: ['y', 0.8]
-  lamp: ['y', 8.5]
+  lamp: ['y', 5.4]
   barrier: ['z', 2.8]
   worklight: ['y', 2.2]
-  sign: ['y', 6]
-  oak: ['y', 11]
-  tree: ['y', 10]
-  detailed: ['y', 12]
-  pine: ['y', 15]
-  palm: ['y', 13]
-  palm2: ['y', 12]
-  bush: ['y', 1.6]
   gantry: ['x', 15]
   billboard: ['x', 10]
-CAR_MODEL_YAW = {ferrari: 0, ferrariLod: 0, covered: 0}
+CAR_MODEL_YAW = {ferrari: 0, ferrariLod: 0, ferrariNear: 0, covered: 0}
 ADS = [
   ['GET FLASH PLAYER', 'Required to view this content', '#b71c1c', '#ff5252']
   ['BEST VIEWED IN IE6', 'at 800 × 600', '#0d47a1', '#42a5f5']
@@ -230,6 +250,10 @@ class World
         map: @texture texLoader, "assets/tex/#{name}_diff_1k.jpg", true
         normalMap: @texture texLoader, "assets/tex/#{name}_nor_gl_1k.jpg", false
         roughnessMap: @texture texLoader, "assets/tex/#{name}_rough_1k.jpg", false
+    @treeTex = {}
+    for id, spec of TREE_TYPES
+      file = spec.file or id
+      @treeTex[id] = (texLoader.load("assets/tex/trees/#{file}_#{v}.png", ((t) -> t.encoding = THREE.sRGBEncoding)) for v in ['a', 'b'])
     @facadeTex = {}
     for id, spec of FACADES
       dir = "assets/tex/facades/#{id}"
@@ -251,7 +275,8 @@ class World
   prep: (key, scene) ->
     isCar = key in CAR_KEYS
     paint = null
-    if key in ['ferrari', 'ferrariLod']
+    isFerrari = key in ['ferrari', 'ferrariLod', 'ferrariNear']
+    if isFerrari
       paint = new THREE.MeshPhysicalMaterial
         color: 0x8c0007
         metalness: 0.3
@@ -262,23 +287,10 @@ class World
       paint.userData.paint = true
     scene.traverse (o) ->
       return unless o.isMesh
-      ferrari = key in ['ferrari', 'ferrariLod']
-      o.castShadow = not ferrari
-      o.receiveShadow = not ferrari
+      o.castShadow = not isFerrari
+      o.receiveShadow = not isFerrari
       o.material = paint if paint and o.material.name is 'Body_Color'
       return
-    if key in ['oak', 'tree', 'detailed', 'pine', 'palm', 'palm2', 'bush']
-      scene.traverse (o) ->
-        return unless o.isMesh
-        o.material = o.material.clone()
-        n = o.material.name
-        dark = /dark/i.test n
-        if /leaf|grass/i.test n
-          o.material.color.set(if dark then '#24391c' else '#355224').convertSRGBToLinear()
-        else if /bark|wood/i.test n
-          o.material.color.set(if dark then '#33271d' else '#4d3b2b').convertSRGBToLinear()
-        o.material.roughness = 0.92
-        return
     box = new THREE.Box3().setFromObject scene
     if key is 'ferrari'
       ao = new THREE.Mesh new THREE.PlaneGeometry(0.655 * 4, 1.3 * 4), new THREE.MeshBasicMaterial
@@ -296,21 +308,15 @@ class World
     else if SIZE[key] then SIZE[key][1] / size[SIZE[key][0]]
     else 1
     holder = new THREE.Group()
-    if key is 'lamp'
-      scene.position.set 0, -box.min.y, 0
-    else
-      center = box.getCenter new THREE.Vector3()
-      scene.position.set -center.x, -box.min.y, -center.z
+    center = box.getCenter new THREE.Vector3()
+    scene.position.set -center.x, -box.min.y, -center.z
     holder.add scene
     holder.scale.setScalar s
     holder.rotation.y = CAR_MODEL_YAW[key] if isCar
     wrap = new THREE.Group()
     wrap.add holder
     wrap.userData.size = size.clone().multiplyScalar s
-    if key is 'lamp'
-      arm = if box.max.z + box.min.z >= 0 then 1 else -1
-      wrap.userData.arm = arm
-      wrap.userData.tip = new THREE.Vector3 0, box.max.y * s - 0.25, (if arm > 0 then box.max.z else box.min.z) * s * 0.92
+    wrap.userData.tip = new THREE.Vector3 0, size.y * s * 0.86, 0 if key is 'lamp'
     wrap
 
   setup: ->
@@ -356,6 +362,13 @@ class World
         metalness: if spec.glass then 1 else 0
         envMapIntensity: if spec.glass then 1.3 else 0.8
     @mat.roof = new THREE.MeshStandardMaterial color: 0x55585c, roughness: 0.9
+    @mat.trees = {}
+    for id of TREE_TYPES
+      @mat.trees[id] = for t in @treeTex[id]
+        t.anisotropy = 4
+        m = new THREE.MeshBasicMaterial map: t, alphaTest: 0.45, side: THREE.DoubleSide, vertexColors: true, alphaToCoverage: true
+        m.userData.depth = new THREE.MeshDepthMaterial depthPacking: THREE.RGBADepthPacking, map: t, alphaTest: 0.45
+        m
     @ads = (adTexture(ad) for ad in ADS)
     return
 
@@ -365,6 +378,24 @@ class World
     @renderer.setSize w, h, false
     @camera.aspect = w / h
     @camera.updateProjectionMatrix()
+    return
+
+  # Drops render resolution, then shadows, when the frame rate stays under 40 FPS.
+  adapt: (dt) ->
+    @frameAvg = (@frameAvg ? dt) * 0.95 + dt * 0.05
+    @adaptTimer = (@adaptTimer or 0) + dt
+    return if @adaptTimer < 4 or @quality is 0
+    @adaptTimer = 0
+    return unless @frameAvg > 1 / 40
+    @quality = (@quality ? 2) - 1
+    if @quality is 1
+      @renderer.setPixelRatio 1
+      @resize()
+    else
+      @renderer.shadowMap.enabled = false
+      @scene.traverse (o) ->
+        o.material.needsUpdate = true if o.material?.isMaterial
+        return
     return
 
   setPaint: (id) ->
@@ -512,7 +543,8 @@ class World
     return
 
   placeScenery: (track) ->
-    face = (side) -> if side < 0 then ((h) -> Math.PI / 2 - h) else ((h) -> -Math.PI / 2 - h)
+    trees = {}
+    pos = new THREE.Vector3()
     for seg in track.segments
       z = seg.p1.world.z
       for sp in seg.sprites
@@ -520,12 +552,11 @@ class World
         side = if lat < 0 then -1 else 1
         switch sp.kind
           when 'lamp'
-            src = @models.lamp
-            yaw = face side
-            obj = @put 'lamp', z, lat, (if src.userData.arm > 0 then yaw else (h) -> yaw(h) + Math.PI)
+            obj = @put 'lamp', z, lat, ((h) -> -h)
             if obj
-              light = @glow 0xffb56b, 3.2, 0.9
-              light.position.copy src.userData.tip
+              obj.position.y += 0.16
+              light = @glow 0xffc27a, 2.2, 0.8
+              light.position.copy @models.lamp.userData.tip
               obj.add light
           when 'start', 'finish'
             @put 'gantry', z, 0, ((h) -> -h), @root
@@ -540,14 +571,32 @@ class World
                   o.material.emissive = new THREE.Color 0x222222
                   o.material.emissiveMap = ad
                 return
-          when 'sign'
-            @put 'sign', z, lat, ((h) -> -h + Math.PI / 2)
-          else
-            spin = Math.random() * Math.PI * 2
-            @put sp.kind, z, lat, ((h) -> spin)
+          when 'tree', 'hedge'
+            type = if sp.kind is 'hedge' then 'hedge' else sp.variant
+            @at z, lat, pos
+            d = Math.abs lat
+            pos.y += if d <= WALK then 0.16 else 0.12 - Math.min(1, (d - WALK) / (GRASS - WALK)) * 1.72
+            c = Math.max 0, Math.floor(z / C.SEG / CHUNK)
+            ((trees[c] ?= {})[type] ?= []).push
+              x: pos.x
+              y: pos.y
+              z: pos.z
+              s: sp.scale or 1
+              rot: Math.random() * Math.PI
+              shade: 0.8 + Math.random() * 0.22
+    for c, groups of trees
+      for type, list of groups
+        for view in [0, 1]
+          tex = @treeTex[type][view]
+          geo = impostorGeometry list, view, TREE_TYPES[type].h, tex.image.width / tex.image.height
+          @disposables.push geo
+          mat = @mat.trees[type][view]
+          mesh = new THREE.Mesh geo, mat
+          mesh.castShadow = true
+          mesh.customDepthMaterial = mat.userData.depth
+          @chunk(c * CHUNK * C.SEG).add mesh
     return
 
-  # Buildings are laid out as continuous street walls so they never overlap.
   # Buildings are generated boxes wearing CC0 photo facades, laid out as
   # continuous street walls, then merged per chunk and facade to keep draw calls low.
   placeCity: (seed) ->
@@ -565,7 +614,8 @@ class World
         limit = (C.RACE_SEGS + C.RUNOFF_SEGS - 40) * C.SEG
         while z < limit
           i = Math.floor z / C.SEG
-          if zoneOf(i) isnt 'city'
+          park = zoneOf(i) isnt 'city'
+          if park and row is 0
             z += toUnits 25
             continue
           pool = if row is 0 then STREET_FACADES else TOWER_FACADES
@@ -573,7 +623,7 @@ class World
           width = if row is 0 then 14 + r() * 16 else 22 + r() * 14
           depth = if row is 0 then 14 + r() * 8 else 20 + r() * 12
           height = if row is 0 then 12 + Math.floor(r() * 9) * 3.3 else 55 + r() * 90
-          setback = if row is 0 then WALK + 1.5 + depth / 2 + r() * 2 else WALK + 42 + depth / 2 + r() * 40
+          setback = if row is 0 then WALK + 1.5 + depth / 2 + r() * 2 else WALK + (if park then 95 else 42) + depth / 2 + r() * 40
           zc = z + toUnits(width / 2)
           h = @at zc, side * setback, pos
           yaw = if side < 0 then Math.PI / 2 - h else -Math.PI / 2 - h
@@ -599,25 +649,26 @@ class World
     src = @models[key]
     obj = src.clone()
     size = src.userData.size
+    mats = []
     obj.traverse (o) ->
       return unless o.isMesh
       if opts.paint and o.material.userData.paint
         o.material = o.material.clone()
         o.material.color.set(opts.paint).convertSRGBToLinear()
-      if opts.ghost
+      if opts.fade
         o.material = o.material.clone()
         o.material.transparent = true
-        o.material.opacity = 0.42
-        o.material.depthWrite = false
         o.castShadow = false
+        mats.push o.material
       return
     tails = []
     for side in [-1, 1] when not opts.dark
-      t = @glow 0xff2a1f, 0.7, (if opts.ghost then 0.5 else 0.9)
+      t = @glow 0xff2a1f, 0.7, 0.9
       t.position.set side * size.x * 0.32, size.y * 0.5, size.z / 2 + 0.05
       obj.add t
       tails.push t
     obj.userData.tails = tails
+    obj.userData.mats = mats
     obj
 
   placeHazards: (track) ->
@@ -665,14 +716,17 @@ class World
 
   placeRivals: (race) ->
     @rivals = for rv in race.rivals
-      obj = @vehicle 'ferrariLod', ghost: true, paint: RIVAL_PAINTS[rv.index % RIVAL_PAINTS.length]
+      paint = RIVAL_PAINTS[rv.index % RIVAL_PAINTS.length]
+      holder = new THREE.Group()
+      near = @vehicle 'ferrariNear', paint: paint, fade: true
+      far = @vehicle 'ferrariLod', paint: paint, fade: true
       label = new THREE.Sprite new THREE.SpriteMaterial(map: labelTexture(rv.name), transparent: true, depthWrite: false)
       label.scale.set 3.6, 0.9, 1
-      label.position.y = obj.userData.size?.y + 1.3 or 2.6
-      obj.add label
-      obj.userData.label = label
-      @root.add obj
-      obj
+      label.position.y = 2.5
+      holder.add near, far, label
+      holder.userData = {near: near, far: far, label: label, mats: near.userData.mats.concat(far.userData.mats), faded: false}
+      @root.add holder
+      holder
     return
 
   spawnPlayer: ->
@@ -717,12 +771,26 @@ class World
       s = 0.7 + Math.random() * 0.7
       f.scale.set s, s, 1
 
+    # Full-detail models for the two closest rivals, light ones for the rest.
+    gaps = ((rv.z - pz) / UNITS for rv in race.rivals)
+    closest = (i for g, i in gaps when g > -5 and g < 25).sort((a, b) -> Math.abs(gaps[a]) - Math.abs(gaps[b]))[0...2]
     for rv, i in race.rivals
       obj = @rivals[i]
-      gap = (rv.z - pz) / UNITS
+      u = obj.userData
+      gap = gaps[i]
       obj.visible = gap > -5 and gap < 260
-      obj.userData.label.visible = gap > 14
-      obj.rotation.y = -@at(rv.z + C.CAR_LEN / 2, rv.x * HALF, obj.position) if obj.visible
+      continue unless obj.visible
+      u.label.visible = gap > 14
+      u.near.visible = i in closest
+      u.far.visible = not u.near.visible
+      # Rivals are ghosts in the physics; fade one only while you drive through it.
+      overlap = Math.abs(gap) < 5 and Math.abs(rv.x - race.x) * HALF < 2.3
+      if overlap isnt u.faded
+        u.faded = overlap
+        for m in u.mats
+          m.opacity = if overlap then 0.3 else 1
+          m.depthWrite = not overlap
+      obj.rotation.y = -@at(rv.z + C.CAR_LEN / 2, rv.x * HALF, obj.position)
 
     blinkOn = Math.floor(clock * 2.4) % 2 is 0
     for hz in @hazards

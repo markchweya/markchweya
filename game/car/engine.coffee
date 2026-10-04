@@ -46,7 +46,7 @@ approach = (speed, target, dt, boost = 1) ->
   else
     Math.max target, speed - 3500 * dt
 
-TREES = ['oak', 'tree', 'detailed', 'pine', 'oak', 'detailed']
+TREES = ['island', 'island1', 'island3', 'island1']
 zoneOf = (i) -> if Math.floor(i / 420) % 2 is 0 then 'city' else 'park'
 
 D.util = {clamp, lerp, rng, zoneOf}
@@ -107,27 +107,22 @@ class Track
 
   decorate: ->
     r = @rnd
+    tree = -> TREES[Math.floor(r() * TREES.length)]
     for seg in @segments
       i = seg.index
       city = zoneOf(i) is 'city'
       if i % C.LAMP_EVERY is 0
-        seg.sprites.push {kind: 'lamp', offset: -1.25}
-        seg.sprites.push {kind: 'lamp', offset: 1.25}
+        seg.sprites.push {kind: 'lamp', offset: -1.3}
+        seg.sprites.push {kind: 'lamp', offset: 1.3}
       for side in [-1, 1]
         if city
-          if r() < 0.025
-            seg.sprites.push {kind: (if r() < 0.6 then 'palm' else 'palm2'), offset: side * (2.05 + r() * 0.3)}
+          seg.sprites.push {kind: 'tree', variant: tree(), offset: side * 1.68, scale: 0.85 + r() * 0.25} if i % 14 is (if side < 0 then 7 else 0)
         else
-          if r() < 0.09
-            seg.sprites.push {kind: TREES[Math.floor(r() * TREES.length)], offset: side * (2.1 + r() * 2.5)}
-          else if r() < 0.04
-            seg.sprites.push {kind: 'bush', offset: side * (2 + r() * 1.5)}
-          if r() < 0.06
-            seg.sprites.push {kind: TREES[Math.floor(r() * TREES.length)], offset: side * (5 + r() * 9)}
+          seg.sprites.push {kind: 'tree', variant: tree(), offset: side * (2.1 + r() * 2.6), scale: 0.8 + r() * 0.5} if r() < 0.3
+          seg.sprites.push {kind: 'tree', variant: tree(), offset: side * (5 + r() * 12), scale: 0.9 + r() * 0.6} if r() < 0.32
+          seg.sprites.push {kind: 'hedge', offset: side * (1.95 + r() * 0.6), scale: 0.8 + r() * 0.4} if r() < 0.07
       if i % 150 is 75
         seg.sprites.push {kind: 'board', variant: Math.floor(r() * 4), offset: (if r() < 0.5 then -2.4 else 2.4)}
-      if i % 97 is 40
-        seg.sprites.push {kind: 'sign', offset: (if r() < 0.5 then -1.38 else 1.38)}
     @segments[C.START_SEG].sprites.push {kind: 'start', offset: 0}
     @segments[C.RACE_SEGS].sprites.push {kind: 'finish', offset: 0}
     return
