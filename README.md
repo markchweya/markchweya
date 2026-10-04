@@ -23,7 +23,7 @@
 
 ## Play Chweya Drift
 
-My profile ships with a real-time 3D street racer. A Ferrari 458 against 11 rival ghosts through a photo-real city, with recorded engine audio, a working tachometer and nitro. Rendered with three.js, while the game itself runs on 7 technologies developers abandoned: CoffeeScript, AngularJS 1.x, Backbone, Raphaël, Underscore, jQuery 1.x and LESS.
+My profile ships with a real-time 3D street racer. A Ferrari 458 against 11 rival Ferraris through a photo-real, tree-lined city, with recorded engine audio, a working tachometer and nitro. Rendered with three.js, while the game itself runs on 7 technologies developers abandoned: CoffeeScript, AngularJS 1.x, Backbone, Raphaël, Underscore, jQuery 1.x and LESS.
 
 <div align="center">
 

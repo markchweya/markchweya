@@ -312,6 +312,7 @@ tick = (now) ->
   game.frame dt
   if world.ready and state.get('phase') isnt 'loading'
     world.update game.race, dt
+    world.adapt dt
     game.speedo.update game.race, audio
     game.minimap.update game.race
   requestAnimationFrame tick
