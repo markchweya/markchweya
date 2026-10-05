@@ -24,22 +24,15 @@
   </div>
 
   <div class="hud" ng-class="{on: hud.inRace()}">
-    <button class="pause" ng-click="hud.pause()" aria-label="Pause"><i></i><i></i></button>
+    <div class="corner">
+      <button class="icon" ng-click="hud.pause()" aria-label="Pause" title="Pause (P)"><svg viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+    </div>
     <div class="stage">
-      <h4>Graveyard Sprint</h4>
-      <div class="row"><b>{{hud.fmt(hud.s.time)}}</b><svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.96 8.96 0 0 0 12 4a9 9 0 1 0 9 9c0-2.12-.74-4.07-1.97-5.61zM12 20a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg></div>
-      <div class="row"><b>{{hud.s.progress}}%</b><svg viewBox="0 0 24 24"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/></svg></div>
       <div class="pos"><span>POS</span><b>{{hud.s.rank}}<i>/{{hud.s.field}}</i></b></div>
+      <div class="meta"><span>{{hud.fmt(hud.s.time)}}</span><span class="dot"></span><span>{{hud.kmLeft()}} km left</span></div>
+      <div class="progress"><i ng-style="{width: hud.s.progress + '%'}"></i></div>
     </div>
-    <div class="tip" ng-show="hud.s.phase == 'countdown'">
-      <small>Race tip</small>
-      <h5>Save nitro for the straights</h5>
-      <p>Hold <kbd>&uarr;</kbd> or <kbd>Space</kbd> to boost. Every crash costs you places &mdash; the 11 rivals never crash.</p>
-    </div>
-    <div class="map">
-      <div class="minimap"><div id="minimap"></div></div>
-      <p>{{hud.kmLeft()}} km</p>
-    </div>
+    <div class="map"><div class="minimap"><div id="minimap"></div></div></div>
     <button id="nitro" class="nitro" ng-class="{ready: hud.s.nitro > 0.15}" aria-label="Nitro">
       <span class="charge" ng-style="{height: (hud.s.nitro * 100) + '%'}"></span>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6v2h-1v2.1c2.3.5 4 2.5 4 4.9v9a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-9c0-2.4 1.7-4.4 4-4.9V4H9V2zm3.5 8L9 15h2.5l-1 5 4.5-6h-2.6l1.1-4h-1z"/></svg>
@@ -47,40 +40,41 @@
     <div class="speedo"><div id="speedo"></div></div>
   </div>
 
-  <button class="mute" ng-click="hud.mute()" ng-hide="hud.s.phase == 'loading'" title="Toggle sound (M)">{{hud.s.muted ? 'Sound off' : 'Sound on'}}</button>
+  <button class="icon sound" ng-click="hud.mute()" ng-hide="hud.s.phase == 'loading'" aria-label="Toggle sound" title="Sound (M)">
+    <svg viewBox="0 0 24 24" ng-show="!hud.s.muted"><path d="M4 9h4l5-4v14l-5-4H4zM16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg>
+    <svg viewBox="0 0 24 24" ng-show="hud.s.muted"><path d="M4 9h4l5-4v14l-5-4H4zM16 9l5 6M21 9l-5 6"/></svg>
+  </button>
 
   <div class="banner" ng-show="hud.s.banner">
     <span class="slash l"></span><div class="plate">{{hud.s.banner}}</div><span class="slash r"></span>
   </div>
 
   <div class="menu" ng-show="hud.s.phase == 'menu'">
-    <div class="menu-col">
-      <div class="brand">
-        <small>Graveyard Sprint &middot; 3.3 km</small>
-        <h1>CHWEYA<br><span>DRIFT</span></h1>
-        <p>Eleven rivals in BMWs, Mercedes and Ferraris, each one a technology the industry left behind. Thread the traffic, save nitro for the straights, take P1.</p>
+    <div class="menu-main">
+      <small class="kicker">Graveyard Sprint &middot; 3.3 km &middot; 11 rivals</small>
+      <h1>CHWEYA <span>DRIFT</span></h1>
+      <div class="garage">
+        <div class="car-switch">
+          <button class="arrow" ng-click="hud.cycle(-1)" aria-label="Previous car">&lsaquo;</button>
+          <div class="car-name"><small>{{hud.modelIndex() + 1}} / {{hud.models.length}}</small><b>{{hud.modelName()}}</b></div>
+          <button class="arrow" ng-click="hud.cycle(1)" aria-label="Next car">&rsaquo;</button>
+        </div>
+        <div class="paints">
+          <button ng-repeat="c in hud.cars" class="swatch" ng-class="{on: hud.s.car == c.id}" ng-style="{background: c.hex}" ng-click="hud.pick(c)" title="{{c.name}}"></button>
+          <span>{{hud.carName()}}</span>
+        </div>
       </div>
       <button class="cta" ng-click="hud.start()">Start race</button>
-      <div class="garage">
-        <h3>Garage &mdash; {{hud.modelName()}}</h3>
-        <div class="models"><button ng-repeat="m in hud.models" class="car-pick" ng-class="{on: hud.s.model == m.id}" ng-click="hud.pickModel(m)">{{m.name}}</button></div>
-        <h3>Paint &mdash; {{hud.carName()}}</h3>
-        <button ng-repeat="c in hud.cars" class="swatch" ng-class="{on: hud.s.car == c.id}" ng-style="{background: c.hex}" ng-click="hud.pick(c)" title="{{c.name}}"></button>
-      </div>
-      <ul class="controls">
-        <li><kbd>&larr;</kbd><kbd>&rarr;</kbd> switch lanes</li>
-        <li><kbd>&uarr;</kbd> or <kbd>Space</kbd> nitro &nbsp; <kbd>&darr;</kbd> brake</li>
-        <li><kbd>P</kbd> pause &nbsp; <kbd>M</kbd> sound</li>
-        <li class="touch-hint">On mobile: tap left or right, hold the nitro bottle</li>
-      </ul>
-      <p class="best" ng-show="hud.s.best">Personal best &middot; P{{hud.s.best.rank}} in {{hud.fmt(hud.s.best.time)}}</p>
+      <p class="best" ng-show="hud.s.best">Best &middot; P{{hud.s.best.rank}} in {{hud.fmt(hud.s.best.time)}}</p>
     </div>
-    <div class="grave">
+    <p class="controls-line"><kbd>&larr;</kbd><kbd>&rarr;</kbd> lanes <kbd>&uarr;</kbd> nitro <kbd>&darr;</kbd> brake <kbd>P</kbd> pause <kbd>M</kbd> sound<span class="touch-only"> &middot; tap left/right, hold the nitro bottle</span></p>
+    <button class="about-toggle" ng-click="hud.about = !hud.about">{{hud.about ? 'Close' : 'Under the hood'}}</button>
+    <aside class="about" ng-show="hud.about">
       <h3>Under the hood</h3>
-      <p class="sub">Game logic, state, HUD, menus, input and styles all run on 7 technologies developers abandoned:</p>
+      <p class="sub">Game logic, state, HUD, menus, input and styles run on 7 technologies developers abandoned.</p>
       <ol id="graveyard"></ol>
       <p class="credits">3D rendering by three.js. Ferrari 458 Italia by vicent091036 (via the three.js examples); BMW M4 CSL by Black Snow, BMW M8 Competition by kevin (ケビン), Mercedes-Benz E-Class W212 by Peter_D and Mercedes 190E Evo by Betier Models (all CC-BY 4.0, via Sketchfab). Building facades by ambientCG (CC0). Trees, street lamps, covered car, sky and road textures by Poly Haven (CC0). Props by Kenney (CC0). Engine recordings from OpenGameArt (CC0).</p>
-    </div>
+    </aside>
   </div>
 
   <div class="overlay" ng-show="hud.s.phase == 'paused'">

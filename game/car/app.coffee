@@ -114,6 +114,7 @@ class Game
     @newRace {}
     @race.onFinish = => @finished()
     @race.onCrash = -> audio.crash()
+    @race.onBump = (s) -> audio.thud s
     @resultsIn = 0
     @lastBeep = null
     keys.boost = keys.brake = false
@@ -309,6 +310,11 @@ angular.module('drift', []).controller 'HudCtrl', ['$scope', ($scope) ->
   vm.quit = -> game.quit()
   vm.pick = (c) -> game.setCar c.id
   vm.pickModel = (m) -> game.setModel m.id
+  vm.modelIndex = -> Math.max 0, _.findIndex(D.CARS, id: vm.s.model)
+  vm.cycle = (dir) ->
+    n = D.CARS.length
+    game.setModel D.CARS[(vm.modelIndex() + dir + n) % n].id
+  vm.about = false
   vm.mute = -> game.toggleMute()
   return
 ]

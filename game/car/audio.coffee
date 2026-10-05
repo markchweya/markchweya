@@ -152,6 +152,10 @@ class EngineAudio
     src.start()
     return
 
+  thud: (strength) ->
+    @burst 0.25, 500, Math.min(0.7, strength * 1.4)
+    return
+
   crash: ->
     @burst 0.6, 900, 0.9
     @burst 0.25, 4000, 0.4
