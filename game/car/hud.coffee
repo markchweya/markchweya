@@ -4,7 +4,6 @@ D = window.Drift
 C = D.C
 
 FONT = "'Saira Condensed', 'Arial Narrow', sans-serif"
-MAX_RPM = 9000
 deg = (v, max) -> 135 + 270 * v / max
 rad = (v, max) -> deg(v, max) * Math.PI / 180
 pt = (cx, cy, r, a) -> "#{(cx + Math.cos(a) * r).toFixed(2)},#{(cy + Math.sin(a) * r).toFixed(2)}"
@@ -14,69 +13,50 @@ arc = (cx, cy, r, a0, a1) ->
 txt = (p, x, y, s, size, weight = 600, color = '#ffffff') ->
   p.text(x, y, s).attr fill: color, 'font-size': size, 'font-family': FONT, 'font-weight': weight
 
-# Tachometer with digital speed and gear, plus an N2O dial, in the style of
-# modern racing-game HUDs.
+# Racing-game cluster: RPM arc with redline, big speed and gear in the middle.
 class Speedo
   constructor: (el) ->
-    p = @p = Raphael el, '100%', '100%'
-    p.setViewBox 0, 0, 340, 250, true
-    @cx = cx = 222
-    @cy = cy = 122
-    R = 100
-    p.circle(cx, cy, 113).attr fill: '#0a0f15', 'fill-opacity': 0.38, stroke: '#ffffff', 'stroke-opacity': 0.12, 'stroke-width': 1
-    p.path(arc(cx, cy, R + 6, rad(7000, MAX_RPM), rad(MAX_RPM, MAX_RPM))).attr stroke: '#ff3b30', 'stroke-width': 5, fill: 'none'
-    for v in [0..MAX_RPM] by 250
-      a = rad v, MAX_RPM
+    p = @p = Raphael el, "100%", "100%"
+    p.setViewBox 0, 0, 260, 260, true
+    @cx = cx = 130
+    @cy = cy = 130
+    @R = R = 104
+    p.circle(cx, cy, 120).attr fill: "#06090d", "fill-opacity": 0.42, stroke: "#ffffff", "stroke-opacity": 0.1
+    p.path(arc(cx, cy, R, rad(0, 10000), rad(10000, 10000))).attr stroke: "#ffffff", "stroke-opacity": 0.12, "stroke-width": 10, fill: "none"
+    p.path(arc(cx, cy, R, rad(8000, 10000), rad(10000, 10000))).attr stroke: "#ff2d3b", "stroke-opacity": 0.35, "stroke-width": 10, fill: "none"
+    for v in [0..10000] by 500
+      a = rad v, 10000
       major = v % 1000 is 0
-      half = v % 500 is 0
-      r1 = R - (if major then 15 else if half then 9 else 5)
-      p.path("M#{pt(cx, cy, r1, a)}L#{pt(cx, cy, R, a)}").attr
-        stroke: if v >= 7000 then '#ff3b30' else '#ffffff'
-        'stroke-width': if major then 3.5 else 1.4
-        'stroke-linecap': 'round'
-      txt p, cx + Math.cos(a) * (R - 30), cy + Math.sin(a) * (R - 30), String(v / 1000), 19, 700 if major
-    txt p, cx, cy - 34, 'RPM', 13, 700
-    txt p, cx, cy - 21, '×1000', 10, 600, '#b6c0cb'
-    @gearText = txt p, cx, cy + 30, 'N', 30, 800, '#38c5ef'
-    @needle = p.path("M#{cx - 18},#{cy - 4}L#{cx + R - 10},#{cy}L#{cx - 18},#{cy + 4}Z").attr fill: '#ff3b30', stroke: 'none'
-    p.circle(cx, cy, 10).attr fill: '#141a22', stroke: '#ff3b30', 'stroke-width': 2.5
-    p.rect(cx - 44, cy + 62, 88, 40, 5).attr fill: '#9fb7cf', 'fill-opacity': 0.22, stroke: '#cfe3f5', 'stroke-opacity': 0.55, 'stroke-width': 1.5
-    @speedText = txt p, cx, cy + 82, '0', 34, 700
-    txt p, cx, cy + 112, 'KM/H', 12, 700, '#b6c0cb'
-
-    @nx = nx = 58
-    @ny = ny = 186
-    nr = 44
-    p.circle(nx, ny, nr + 8).attr fill: '#0a0f15', 'fill-opacity': 0.38, stroke: '#ffffff', 'stroke-opacity': 0.12
-    p.path(arc(nx, ny, nr, rad(0, 1), rad(1, 1))).attr stroke: '#ffffff', 'stroke-opacity': 0.25, 'stroke-width': 7, fill: 'none'
-    @nitroArc = p.path(arc(nx, ny, nr, rad(0, 1), rad(1, 1))).attr stroke: '#ffb02e', 'stroke-width': 7, fill: 'none'
-    @nitroNeedle = p.path("M#{nx - 8},#{ny - 3}L#{nx + nr - 6},#{ny}L#{nx - 8},#{ny + 3}Z").attr fill: '#ffffff', stroke: 'none'
-    p.circle(nx, ny, 6).attr fill: '#141a22', stroke: '#ffb02e', 'stroke-width': 2
-    txt p, nx, ny + 30, 'N₂O', 15, 800
-    @rpm = 0
-    @lastSpeed = ''
-    @lastGear = ''
-    @lastNitro = -1
+      r1 = R - (if major then 22 else 15)
+      r2 = R - 9
+      p.path("M#{pt(cx, cy, r1, a)}L#{pt(cx, cy, r2, a)}").attr
+        stroke: if v >= 8000 then "#ff2d3b" else "#ffffff"
+        "stroke-width": if major then 3 else 1.3
+        "stroke-opacity": if major then 0.95 else 0.6
+      txt p, cx + Math.cos(a) * (R - 36), cy + Math.sin(a) * (R - 36), String(v / 1000), 17, 600, (if v >= 8000 then "#ff4b57" else "#ffffff") if major
+    @rpmArc = p.path("M0,0").attr stroke: "#ffffff", "stroke-width": 10, fill: "none", "stroke-linecap": "butt"
+    @speedText = txt p, cx, cy - 6, "0", 64, 700
+    txt p, cx, cy + 28, "km/h", 14, 600, "#aab4bf"
+    @gearText = txt p, cx, cy + 62, "N", 40, 800
+    for label, i in ["ABS", "TCS", "STM"]
+      txt p, cx - 74, cy + 30 + i * 15, label, 11, 700, "#7f8a96"
+    @rpm = 900
+    @lastSpeed = ""
+    @lastGear = ""
 
   update: (race, audio) ->
     target = if race.speed < 1 and audio.rpm < 1000 then 900 else audio.rpm
     @rpm += (target - @rpm) * 0.3
-    @needle.transform "r#{deg(Math.min(@rpm, MAX_RPM), MAX_RPM)},#{@cx},#{@cy}"
+    end = rad Math.min(@rpm, 9990), 10000
+    @rpmArc.attr path: arc(@cx, @cy, @R, rad(0, 10000), end), stroke: (if @rpm > 8000 then "#ff2d3b" else "#ffffff")
     speed = String Math.round(race.speed * C.KMH)
     if speed isnt @lastSpeed
-      @speedText.attr 'text', speed
+      @speedText.attr "text", speed
       @lastSpeed = speed
-    gear = if race.speed < 30 then 'N' else String(audio.gear)
+    gear = if race.speed < 30 then "N" else String(audio.gear)
     if gear isnt @lastGear
-      @gearText.attr 'text', gear
+      @gearText.attr "text", gear
       @lastGear = gear
-    n = Math.round(race.nitro * 100) / 100
-    if n isnt @lastNitro
-      @lastNitro = n
-      end = rad Math.max(0.001, n), 1
-      @nitroArc.attr 'path', arc(@nx, @ny, 44, rad(0, 1), end)
-      @nitroArc.attr 'stroke', if race.boosting then '#6fb2ff' else '#ffb02e'
-      @nitroNeedle.transform "r#{deg(n, 1)},#{@nx},#{@ny}"
     return
 
 class MiniMap

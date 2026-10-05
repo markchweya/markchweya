@@ -26,6 +26,10 @@ C.FINISH_Z = C.RACE_SEGS * C.SEG
 C.KMH = 240 / C.TOP
 C.START_SEG = 13
 C.LAMP_EVERY = 18
+C.SECTORS = 3
+C.TRAPS = [0.21, 0.52, 0.83]     # speed-trap cameras, as fractions of the race
+C.TRAP_KMH = 220
+C.CHAIN_TIME = 4                  # seconds a skill chain stays open
 
 clamp = (v, lo, hi) -> Math.max lo, Math.min(hi, v)
 lerp = (a, b, t) -> a + (b - a) * t
@@ -195,6 +199,19 @@ class Race
     @phase = if @autopilot then 'race' else 'countdown'
     @finishTime = null
     @input = {boost: false, brake: false}
+    # scoring, sectors and speed traps
+    @score = 0
+    @chain = 0
+    @chainCount = 0
+    @mult = 1
+    @chainTimer = 0
+    @cleanTimer = 0
+    @skill = null
+    @sector = 1
+    @sectorStart = 0
+    @sectorTimes = []
+    @traps = ({z: f * C.FINISH_Z, kmh: null} for f in C.TRAPS)
+    @rowsScored = 0
     pace = _u.shuffle PACE
     @rivals = (@makeRival(name, i, pace[i]) for name, i in RIVALS)
 
@@ -268,6 +285,7 @@ class Race
     @shake = Math.max 0, @shake - dt
     @flash = Math.max 0, @flash - dt
     @collide() if racing
+    @scoreSkills dt if racing and not @autopilot
     @moveRivals dt
     @collideRivals dt if racing
     @finish() if racing and @playerZ() >= C.FINISH_Z
@@ -292,6 +310,7 @@ class Race
     @crashes += 1
     @shake = 0.6
     @flash = 0.35
+    @dropChain()
     @onCrash?(item)
     return
 
@@ -380,12 +399,15 @@ class Race
 
   bump: (strength) ->
     @shake = Math.max @shake, strength
+    @cleanTimer = 0 if strength >= 0.4
     @onBump?(strength)
     return
 
   # Rivals still on track when the player finishes get their times projected.
   finish: ->
     @finishTime = @time
+    @sectorTimes[C.SECTORS - 1] ?= @time - @sectorStart
+    @bankChain()
     @phase = 'finished'
     step = 1 / 30
     for r in @rivals when not r.finishTime?
@@ -399,6 +421,75 @@ class Race
       r.finishTime = t
     @onFinish?()
     return
+
+  # ---------- skills ----------
+  addSkill: (name, points) ->
+    @chain += points
+    @chainCount += 1
+    @mult = Math.min 2, 1 + 0.1 * (@chainCount - 1)
+    @chainTimer = C.CHAIN_TIME
+    @skill = {name: name, points: points, at: @time}
+    return
+
+  bankChain: ->
+    @score += Math.round(@chain * @mult) if @chain > 0
+    @chain = 0
+    @chainCount = 0
+    @mult = 1
+    return
+
+  dropChain: ->
+    @skill = {name: 'CHAIN LOST', points: 0, at: @time, lost: true} if @chain > 0
+    @chain = 0
+    @chainCount = 0
+    @mult = 1
+    @cleanTimer = 0
+    return
+
+  scoreSkills: (dt) ->
+    pz = @playerZ()
+    kmh = @speed * C.KMH
+    # sectors
+    boundary = @sector * C.FINISH_Z / C.SECTORS
+    if @sector < C.SECTORS and pz >= boundary
+      @sectorTimes[@sector - 1] = @time - @sectorStart
+      @sectorStart = @time
+      @sector += 1
+    # speed traps
+    for trap in @traps when not trap.kmh? and pz >= trap.z
+      trap.kmh = Math.round kmh
+      @addSkill 'SPEED TRAP', trap.kmh * 2
+    # overtakes: a rival that was ahead is now a full car length behind
+    for r in @rivals
+      if r.z > pz + C.CAR_LEN
+        r.ahead = true
+      else if r.ahead and r.z + C.CAR_LEN < pz
+        r.ahead = false
+        @addSkill 'OVERTAKE', 250
+    # near misses: passing a hazard row at speed in the lane right next to a blocked one
+    rows = @track.rows
+    while @rowsScored < rows.length and rows[@rowsScored].z + C.CAR_LEN < pz
+      row = rows[@rowsScored]
+      @rowsScored += 1
+      hit = (h for h in @track.hazards when h.z is row.z and h.hit).length > 0
+      close = (l for l in row.blocked when Math.abs(C.LANES[l] - @x) < 0.8).length > 0
+      @addSkill 'NEAR MISS', 150 if close and not hit and kmh > 150
+    # clean racing
+    @cleanTimer += dt
+    if @cleanTimer >= 10
+      @cleanTimer -= 10
+      @addSkill 'CLEAN RACING', 100
+    # chains bank after a quiet spell
+    if @chain > 0
+      @chainTimer -= dt
+      @bankChain() if @chainTimer <= 0
+    return
+
+  # Time gap from you to each car in seconds, positive when it is ahead of you.
+  gapTo: (row) ->
+    if row.time? and @finishTime?
+      return @finishTime - row.time
+    (row.z - @playerZ()) / Math.max(@speed, 4000)
 
   standings: ->
     rows = ({name: r.name, z: r.z, time: r.finishTime, me: false, index: r.index} for r in @rivals)
