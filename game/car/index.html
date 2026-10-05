@@ -24,15 +24,42 @@
   </div>
 
   <div class="hud" ng-class="{on: hud.inRace()}">
-    <div class="corner">
-      <button class="icon" ng-click="hud.pause()" aria-label="Pause" title="Pause (P)"><svg viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+    <div class="board">
+      <div class="big"><small>Position</small><b>{{hud.s.rank}}<i>/{{hud.s.field}}</i></b></div>
+      <ol class="standings">
+        <li ng-repeat="row in hud.s.rows" ng-class="{me: row.me}"><span class="p">{{row.pos}}</span><span class="n">{{row.name}}</span><span class="g">{{row.gap}}</span></li>
+      </ol>
     </div>
-    <div class="stage">
-      <div class="pos"><span>POS</span><b>{{hud.s.rank}}<i>/{{hud.s.field}}</i></b></div>
-      <div class="meta"><span>{{hud.fmt(hud.s.time)}}</span><span class="dot"></span><span>{{hud.kmLeft()}} km left</span></div>
-      <div class="progress"><i ng-style="{width: hud.s.progress + '%'}"></i></div>
+
+    <div class="mirror-wrap"><div id="mirror"></div></div>
+    <div class="skill" ng-show="hud.s.chain || hud.s.skill">
+      <div class="chain" ng-show="hud.s.chain">{{hud.num(hud.s.chain)}} <i>&times;{{hud.s.mult.toFixed(1)}}</i></div>
+      <div class="badge" ng-show="hud.s.skill" ng-class="{lost: hud.s.skill.lost}"><span class="star">&#9733;</span>{{hud.s.skill.name}}<b ng-show="hud.s.skill.points">{{hud.s.skill.points}}</b></div>
     </div>
-    <div class="map"><div class="minimap"><div id="minimap"></div></div></div>
+
+    <button class="icon pause" ng-click="hud.pause()" aria-label="Pause" title="Pause (P)"><svg viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+    <div class="right">
+      <div class="big"><small>Sector</small><b>{{hud.s.sector}}<i>/3</i></b></div>
+      <table class="times">
+        <tr><td>Time</td><td>{{hud.split(hud.s.time)}}</td></tr>
+        <tr><td>Sector</td><td>{{hud.split(hud.s.sectorTime)}}</td></tr>
+        <tr class="best"><td>Best</td><td>{{hud.split(hud.s.bestSector)}}</td></tr>
+      </table>
+      <div class="objectives">
+        <h6>Objectives</h6>
+        <ul><li ng-repeat="o in hud.s.objectives" ng-class="o.state"><span class="mark"></span><span class="l">{{o.label}}</span><em ng-show="o.note">{{o.note}}</em></li></ul>
+      </div>
+      <div class="score"><small>Score</small><b>{{hud.num(hud.s.score)}}</b></div>
+    </div>
+
+    <div class="map">
+      <div class="minimap"><div id="minimap"></div></div>
+      <p><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>{{hud.s.distNext}} m</p>
+    </div>
+    <div class="nitrobar">
+      <div class="segs"><i ng-repeat="n in hud.segs" ng-class="{on: n < hud.s.nitroSegs}"></i></div>
+      <p>Nitro <kbd>Space</kbd></p>
+    </div>
     <button id="nitro" class="nitro" ng-class="{ready: hud.s.nitro > 0.15}" aria-label="Nitro">
       <span class="charge" ng-style="{height: (hud.s.nitro * 100) + '%'}"></span>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6v2h-1v2.1c2.3.5 4 2.5 4 4.9v9a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-9c0-2.4 1.7-4.4 4-4.9V4H9V2zm3.5 8L9 15h2.5l-1 5 4.5-6h-2.6l1.1-4h-1z"/></svg>
@@ -62,6 +89,9 @@
         <div class="paints">
           <button ng-repeat="c in hud.cars" class="swatch" ng-class="{on: hud.s.car == c.id}" ng-style="{background: c.hex}" ng-click="hud.pick(c)" title="{{c.name}}"></button>
           <span>{{hud.carName()}}</span>
+        </div>
+        <div class="weather">
+          <button ng-repeat="w in hud.weathers" ng-class="{on: hud.s.weather == w.id}" ng-click="hud.pickWeather(w)">{{w.name}}</button>
         </div>
       </div>
       <button class="cta" ng-click="hud.start()">Start race</button>
@@ -94,9 +124,12 @@
       <div class="stats">
         <div><span>Time</span><b>{{hud.r.time}}</b></div>
         <div><span>Crashes</span><b>{{hud.r.crashes}}</b></div>
+        <div><span>Score</span><b>{{hud.num(hud.r.score)}}</b></div>
         <div><span>Best</span><b>{{hud.fmt(hud.s.best.time)}}</b></div>
       </div>
       <p class="pb" ng-show="hud.r.newBest">New personal best</p>
+      <ul class="obj-results"><li ng-repeat="o in hud.r.objectives" ng-class="o.state"><span class="mark"></span>{{o.label}}</li></ul>
+      <p class="splits">Sectors &middot; <span ng-repeat="t in hud.r.sectors">{{t}}<i ng-if="!$last"> / </i></span></p>
       <table>
         <tr ng-repeat="row in hud.r.rows" ng-class="{me: row.me}">
           <td class="pos">{{row.pos}}</td><td>{{row.name}}</td><td class="t">{{row.time}}</td><td class="gap">{{row.gap}}</td>

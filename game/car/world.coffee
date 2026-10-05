@@ -120,6 +120,57 @@ CARS.forEach (car) ->
   CARS_BY_KEY[key] = car for key in [car.id, car.id + 'Lod', car.id + 'Near']
   return
 nearKey = (id) -> if CARS_BY_KEY[id].near then id + 'Near' else id
+# Two moods: a clear sunset, and a rainy night in the style of night street racers.
+WEATHER =
+  golden: {name: 'Golden hour', sky: 'kloppenheim_06_puresky', exposure: 0.82, sun: 2.3, sunColor: 0xffd9b0, hemi: 0.3, fog: [90, 470], wet: false, glow: [2.2, 0.8], peaks: 1}
+  rain: {name: 'Rainy night', sky: 'kloppenheim_07_puresky', exposure: 0.72, sun: 0.12, sunColor: 0x9fb4d6, hemi: 0.2, fog: [30, 300], wet: true, glow: [5, 1], peaks: 0.22}
+
+chevronTexture = (flip) -> canvasTex 256, 192, (g, w, h) ->
+  g.fillStyle = '#111'
+  g.fillRect 0, 0, w, h
+  g.fillStyle = '#f5c000'
+  g.fillRect 10, 10, w - 20, h - 20
+  g.fillStyle = '#111'
+  g.save()
+  if flip
+    g.translate w, 0
+    g.scale -1, 1
+  for x in [52, 122]
+    g.beginPath()
+    g.moveTo x, 34
+    g.lineTo x + 44, h / 2
+    g.lineTo x, h - 34
+    g.lineTo x + 26, h - 34
+    g.lineTo x + 70, h / 2
+    g.lineTo x + 26, 34
+    g.closePath()
+    g.fill()
+  g.restore()
+
+trapTexture = -> canvasTex 512, 128, (g, w, h) ->
+  g.fillStyle = '#10161d'
+  g.fillRect 0, 0, w, h
+  g.fillStyle = '#e6007e'
+  g.fillRect 0, h - 10, w, 10
+  g.fillStyle = '#ffffff'
+  g.textAlign = 'center'
+  g.textBaseline = 'middle'
+  g.font = "900 64px Impact, 'Arial Black', sans-serif"
+  g.fillText 'SPEED TRAP', w / 2, h / 2 - 4
+
+# Elongated soft glow laid flat on the road: fakes light reflecting off wet asphalt.
+streakTexture = -> canvasTex 64, 256, (g, w, h) ->
+  img = g.createImageData w, h
+  for y in [0...h]
+    for x in [0...w]
+      dx = (x + 0.5 - w / 2) / (w / 2)
+      dy = (y + 0.5 - h / 2) / (h / 2)
+      a = Math.pow Math.max(0, 1 - (dx * dx + dy * dy)), 1.6
+      o = (y * w + x) * 4
+      img.data[o] = img.data[o + 1] = img.data[o + 2] = 255
+      img.data[o + 3] = Math.round a * 255
+  g.putImageData img, 0, 0
+
 PAINTS = [
   {id: 'rosso', name: 'Rosso Corsa', hex: '#a3000f'}
   {id: 'giallo', name: 'Giallo Modena', hex: '#f2b600'}
@@ -251,6 +302,11 @@ class World
     @look = new THREE.Vector3()
     @glowTex = glowTexture()
     @paintId = 'rosso'
+    @weatherId = 'golden'
+    @skies = {}
+    @envs = {}
+    @heading = 0
+    @mirrorOn = true
     @carId = 'ferrari'
     @ready = false
     @resize()
@@ -289,7 +345,8 @@ class World
         normalMap: @texture texLoader, "#{dir}_NormalGL.jpg", false
         roughnessMap: @texture texLoader, "#{dir}_Roughness.jpg", false
         metalnessMap: if spec.glass then @texture(texLoader, "#{dir}_Metalness.jpg", false) else null
-    new THREE.RGBELoader(manager).setDataType(THREE.FloatType).load 'assets/tex/kloppenheim_06_puresky_2k.hdr', (t) => @hdr = t
+    sky = WEATHER[@weatherId].sky
+    new THREE.RGBELoader(manager).setDataType(THREE.FloatType).load "assets/tex/#{sky}_2k.hdr", (t) => @skies[sky] = t
     return
 
   texture: (loader, url, color) ->
@@ -349,15 +406,9 @@ class World
     wrap
 
   setup: ->
-    pmrem = new THREE.PMREMGenerator @renderer
-    @hdr.mapping = THREE.EquirectangularReflectionMapping
-    @scene.background = @hdr
-    @scene.environment = pmrem.fromEquirectangular(@hdr).texture
-    pmrem.dispose()
-    sky = analyseSky @hdr
-    @sunDir = sky.sun
-    @scene.fog = new THREE.Fog sky.horizon, 90, 470
-    @scene.add new THREE.HemisphereLight(0xfff0de, 0x3d3529, 0.3)
+    @scene.fog = new THREE.Fog 0x000000, 90, 470
+    @hemi = new THREE.HemisphereLight 0xfff0de, 0x3d3529, 0.3
+    @scene.add @hemi
     @sun = new THREE.DirectionalLight 0xffd9b0, 2.3
     @sun.castShadow = true
     @sun.shadow.mapSize.set 2048, 2048
@@ -408,6 +459,177 @@ class World
       post: new THREE.CylinderGeometry 0.16, 0.2, 6.4, 12
       panel: new THREE.BoxGeometry 9, 3.6, 0.28
       lamp: new THREE.BoxGeometry 0.5, 0.12, 0.7
+      chevronPost: new THREE.CylinderGeometry 0.05, 0.05, 1.5, 8
+      chevron: new THREE.PlaneGeometry 1.1, 0.82
+      trapPost: new THREE.CylinderGeometry 0.2, 0.24, 7, 12
+      trapBeam: new THREE.BoxGeometry 15.4, 0.5, 0.5
+      trapSign: new THREE.PlaneGeometry 4.2, 1.05
+      trapCam: new THREE.BoxGeometry 0.5, 0.35, 0.7
+      streak: new THREE.PlaneGeometry 1.6, 10
+      tailStreak: new THREE.PlaneGeometry 1.3, 3
+    @mat.rail = new THREE.MeshStandardMaterial color: 0xb9bfc5, metalness: 0.85, roughness: 0.32, side: THREE.DoubleSide
+    @mat.chevrons = [new THREE.MeshStandardMaterial(map: chevronTexture(false), roughness: 0.5, side: THREE.DoubleSide), new THREE.MeshStandardMaterial(map: chevronTexture(true), roughness: 0.5, side: THREE.DoubleSide)]
+    @mat.trap = new THREE.MeshStandardMaterial map: trapTexture(), emissive: 0xffffff, emissiveMap: trapTexture(), emissiveIntensity: 0.4, side: THREE.DoubleSide
+    streak = streakTexture()
+    @mat.lampStreak = new THREE.MeshBasicMaterial map: streak, color: 0xffb46b, transparent: true, opacity: 0.55, blending: THREE.AdditiveBlending, depthWrite: false
+    @mat.tailStreak = new THREE.MeshBasicMaterial map: streak, color: 0xff2a1f, transparent: true, opacity: 0.32, blending: THREE.AdditiveBlending, depthWrite: false
+    @mirrorCam = new THREE.PerspectiveCamera 46, 3.6, 0.5, 700
+    @buildMountains()
+    @buildRain()
+    @applyWeather()
+    return
+
+  # ---------- weather ----------
+  setWeather: (id, done) ->
+    return unless WEATHER[id]
+    @weatherId = id
+    sky = WEATHER[id].sky
+    if not @ready or @skies[sky]
+      @applyWeather() if @ready
+      done?()
+      return
+    new THREE.RGBELoader().setDataType(THREE.FloatType).load "assets/tex/#{sky}_2k.hdr", (t) =>
+      @skies[sky] = t
+      @applyWeather()
+      done?()
+    return
+
+  applyWeather: ->
+    w = WEATHER[@weatherId]
+    hdr = @skies[w.sky]
+    return unless hdr
+    unless @envs[w.sky]
+      hdr.mapping = THREE.EquirectangularReflectionMapping
+      pmrem = new THREE.PMREMGenerator @renderer
+      @envs[w.sky] = {env: pmrem.fromEquirectangular(hdr).texture, info: analyseSky(hdr)}
+      pmrem.dispose()
+    e = @envs[w.sky]
+    @scene.background = hdr
+    @scene.environment = e.env
+    @sunDir = e.info.sun
+    @scene.fog.color.copy e.info.horizon
+    @scene.fog.near = w.fog[0]
+    @scene.fog.far = w.fog[1]
+    @renderer.toneMappingExposure = w.exposure
+    @sun.intensity = w.sun
+    @sun.color.setHex w.sunColor
+    @sun.castShadow = not w.wet
+    @hemi.intensity = w.hemi
+    @mat.road.roughness = if w.wet then 0.22 else 1
+    @mat.road.envMapIntensity = if w.wet then 1.7 else 1
+    @mat.road.color.setScalar(if w.wet then 0.62 else 1)
+    @mat.walk.roughness = if w.wet then 0.45 else 1
+    @mat.walk.color.setScalar(if w.wet then 0.7 else 1)
+    @rain.visible = w.wet
+    @mountains.material.color.setScalar w.peaks
+    @refreshWeatherFx()
+    return
+
+  refreshWeatherFx: ->
+    w = WEATHER[@weatherId]
+    for g in (@lampGlows or [])
+      g.scale.set w.glow[0], w.glow[0], 1
+      g.material.opacity = w.glow[1]
+    fx.visible = w.wet for fx in (@wetFx or [])
+    return
+
+  buildRain: ->
+    n = 1500
+    @drops = for i in [0...n]
+      {x: (Math.random() - 0.5) * 50, y: Math.random() * 24, z: -45 + Math.random() * 60}
+    geo = new THREE.BufferGeometry()
+    geo.setAttribute 'position', new THREE.BufferAttribute(new Float32Array(n * 6), 3)
+    @rain = new THREE.LineSegments geo, new THREE.LineBasicMaterial(color: 0xaab9cc, transparent: true, opacity: 0.35)
+    @rain.frustumCulled = false
+    @rain.visible = false
+    @scene.add @rain
+    return
+
+  updateRain: (dt, speedMs) ->
+    return unless @rain.visible
+    pos = @rain.geometry.attributes.position.array
+    slant = Math.min 2.5, speedMs * 0.03
+    for d, i in @drops
+      d.y -= 19 * dt
+      d.z += speedMs * dt
+      d.y += 24 if d.y < 0
+      d.z -= 60 if d.z > 15
+      o = i * 6
+      pos[o] = d.x
+      pos[o + 1] = d.y
+      pos[o + 2] = d.z
+      pos[o + 3] = d.x
+      pos[o + 4] = d.y - 0.85
+      pos[o + 5] = d.z + slant * 0.4
+    @rain.geometry.attributes.position.needsUpdate = true
+    @rain.position.copy @camera.position
+    @rain.position.y -= 6
+    @rain.rotation.y = -@heading
+    return
+
+  # A ring of snow-capped mountains that always sits on the horizon.
+  buildMountains: ->
+    n = 240
+    radius = 1250
+    r = rng 4242
+    ph = (r() * Math.PI * 2 for i in [0...6])
+    pos = []
+    col = []
+    idx = []
+    base = new THREE.Color 0x56677e
+    high = new THREE.Color 0x8796aa
+    snow = new THREE.Color 0xe9eef3
+    for i in [0..n]
+      a = i / n * Math.PI * 2
+      ridge = 0.5 + 0.5 * Math.sin(a * 3 + ph[0])
+      peaks = Math.abs(Math.sin(a * 7 + ph[1])) * 0.6 + Math.abs(Math.sin(a * 17 + ph[2])) * 0.3 + Math.abs(Math.sin(a * 41 + ph[3])) * 0.1
+      h = 60 + 300 * ridge * peaks + 40 * Math.sin(a * 5 + ph[4])
+      x = Math.cos(a) * radius
+      z = Math.sin(a) * radius
+      pos.push x, -60, z, x, h, z
+      top = high.clone()
+      top.lerp snow, Math.min(1, Math.max(0, (h - 210) / 80))
+      col.push base.r, base.g, base.b, top.r, top.g, top.b
+      if i < n
+        k = i * 2
+        idx.push k, k + 1, k + 2, k + 1, k + 3, k + 2
+    geo = new THREE.BufferGeometry()
+    geo.setAttribute 'position', new THREE.Float32BufferAttribute(pos, 3)
+    geo.setAttribute 'color', new THREE.Float32BufferAttribute(col, 3)
+    geo.setIndex idx
+    @mountains = new THREE.Mesh geo, new THREE.MeshBasicMaterial(vertexColors: true, fog: false, side: THREE.DoubleSide, depthWrite: false)
+    @mountains.renderOrder = -1
+    @mountains.frustumCulled = false
+    @scene.add @mountains
+    return
+
+  # Live rear-view mirror: a second camera rendered into the mirror frame's rectangle.
+  renderMirror: ->
+    el = document.getElementById 'mirror'
+    return unless @mirrorOn and el and @player and el.closest('.hud.on')
+    rect = el.getBoundingClientRect()
+    return if rect.width < 20
+    p = @player.position
+    fx = Math.sin @heading
+    fz = -Math.cos @heading
+    cam = @mirrorCam
+    cam.position.set p.x + fx * 0.2, p.y + 1.85, p.z + fz * 0.2
+    cam.lookAt p.x - fx * 40, p.y + 1.3, p.z - fz * 40
+    cam.aspect = rect.width / rect.height
+    cam.updateProjectionMatrix()
+    r = @renderer
+    W = r.domElement.clientWidth
+    H = r.domElement.clientHeight
+    x = rect.left
+    y = H - rect.bottom
+    r.shadowMap.autoUpdate = false
+    r.setScissorTest true
+    r.setScissor x, y, rect.width, rect.height
+    r.setViewport x, y, rect.width, rect.height
+    r.render @scene, cam
+    r.setScissorTest false
+    r.setViewport 0, 0, W, H
+    r.shadowMap.autoUpdate = true
     return
 
   resize: ->
@@ -428,6 +650,7 @@ class World
     @quality = (@quality ? 2) - 1
     if @quality is 1
       @renderer.setPixelRatio 1
+      @mirrorOn = false
       @resize()
     else
       @renderer.shadowMap.enabled = false
@@ -531,6 +754,8 @@ class World
     @scene.add @root
     @disposables = []
     @chunks = []
+    @lampGlows = []
+    @wetFx = []
     @camH = null
     @race = race
     track = race.track
@@ -582,6 +807,11 @@ class World
     @placeCity race.seed
     @placeHazards track
     @placeRivals race
+    @placeChevrons track
+    @placeTraps race
+    for s in [-1, 1]
+      @ribbon s * 10.15, s * 10.15, 0.42, 0.82, @mat.rail, 1, 1, (k) -> zoneOf(k) isnt 'city'
+    @refreshWeatherFx()
     @spawnPlayer()
     return
 
@@ -601,6 +831,12 @@ class World
               light = @glow 0xffc27a, 2.2, 0.8
               light.position.copy @models.lamp.userData.tip
               obj.add light
+              @lampGlows.push light
+              streak = new THREE.Mesh @geo.streak, @mat.lampStreak
+              streak.rotation.x = -Math.PI / 2
+              streak.position.set side * -2.6, -0.14, 0
+              obj.add streak
+              @wetFx.push streak
           when 'start', 'finish'
             @put 'gantry', z, 0, ((h) -> -h), @root
           when 'board'
@@ -724,6 +960,13 @@ class World
       obj.add t
       tails.push t
     obj.userData.tails = tails
+    if tails.length and @wetFx
+      tail = new THREE.Mesh @geo.tailStreak, @mat.tailStreak
+      tail.rotation.x = -Math.PI / 2
+      tail.position.set 0, 0.03, size.z / 2 + 1.3
+      tail.visible = WEATHER[@weatherId].wet
+      obj.add tail
+      @wetFx.push tail
     obj.userData.mats = mats
     obj
 
@@ -770,6 +1013,51 @@ class World
       @hazards.push {item: item, obj: obj}
     return
 
+  # Yellow chevron boards on the outside of every sharp bend.
+  placeChevrons: (track) ->
+    pos = new THREE.Vector3()
+    for seg in track.segments when Math.abs(seg.curve) >= 3 and seg.index % 18 is 0 and seg.index > C.START_SEG + 30
+      side = if seg.curve > 0 then -1 else 1
+      z = seg.p1.world.z
+      h = @at z, side * 7.1, pos
+      g = new THREE.Group()
+      g.position.copy pos
+      g.position.y += 0.16
+      g.rotation.y = -h
+      post = new THREE.Mesh @geo.chevronPost, @mat.steel
+      post.position.y = 0.75
+      board = new THREE.Mesh @geo.chevron, @mat.chevrons[if seg.curve > 0 then 0 else 1]
+      board.position.y = 1.35
+      board.position.z = 0.06
+      g.add post, board
+      @chunk(z).add g
+    return
+
+  placeTraps: (race) ->
+    for trap in race.traps
+      g = new THREE.Group()
+      h = @at trap.z, 0, g.position
+      g.rotation.y = -h
+      for x in [-7.5, 7.5]
+        post = new THREE.Mesh @geo.trapPost, @mat.steel
+        post.position.set x, 3.5, 0
+        post.castShadow = true
+        g.add post
+      beam = new THREE.Mesh @geo.trapBeam, @mat.frame
+      beam.position.y = 6.6
+      sign = new THREE.Mesh @geo.trapSign, @mat.trap
+      sign.position.set 0, 5.7, 0.3
+      g.add beam, sign
+      for x in [-3.6, 0, 3.6]
+        cam = new THREE.Mesh @geo.trapCam, @mat.frame
+        cam.position.set x, 6.15, 0.35
+        g.add cam
+        flash = @glow 0xff3048, 0.9, 0.9
+        flash.position.set x, 6.15, 0.75
+        g.add flash
+      @root.add g
+    return
+
   placeRivals: (race) ->
     @rivals = for rv in race.rivals
       paint = RIVAL_PAINTS[rv.index % RIVAL_PAINTS.length]
@@ -814,6 +1102,7 @@ class World
 
     zc = pz + C.CAR_LEN / 2
     h = @at zc, race.x * HALF, @player.position
+    @heading = h
     steer = C.LANES[race.lane] - race.x
     clock = performance.now() / 1000
     @player.position.y += Math.sin(clock * 31) * 0.012 * (race.speed / C.TOP)
@@ -858,7 +1147,10 @@ class World
     @updateCamera race, dt
     @sun.position.copy(@player.position).addScaledVector @sunDir, 150
     @sun.target.position.copy @player.position
+    @mountains.position.set @camera.position.x, @camera.position.y - 28, @camera.position.z
+    @updateRain dt, race.speed / UNITS
     @renderer.render @scene, @camera
+    @renderMirror()
     return
 
   updateCamera: (race, dt) ->

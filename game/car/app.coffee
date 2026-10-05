@@ -28,6 +28,16 @@ store =
       null
     return
 
+fmtGap = (g) ->
+  return '' unless g? and isFinite(g)
+  (if g >= 0 then '+' else '\u2212') + Math.abs(g).toFixed(3)
+
+fmtSplit = (t) ->
+  return '--:--.---' unless t?
+  m = Math.floor t / 60
+  s = t - m * 60
+  "#{if m < 10 then '0' else ''}#{m}:#{if s < 10 then '0' else ''}#{s.toFixed(3)}"
+
 fmt = (t) ->
   return '--:--.--' unless t?
   m = Math.floor t / 60
@@ -49,6 +59,18 @@ RaceState = Backbone.Model.extend
     model: 'ferrari'
     best: null
     muted: false
+    weather: 'golden'
+    rows: []
+    sector: 1
+    sectorTime: 0
+    bestSector: null
+    score: 0
+    chain: 0
+    mult: 1
+    skill: null
+    objectives: []
+    nitroSegs: 0
+    distNext: 0
 
 state = new RaceState()
 bus = _.extend {}, Backbone.Events
@@ -64,6 +86,11 @@ class Game
     audio.muted = muted
     state.set car: car, best: store.get('drift.best', null), muted: muted
     world.setPaint car
+    weather = store.get 'drift.weather', 'golden'
+    weather = 'golden' unless weather in ['golden', 'rain']
+    state.set 'weather', weather
+    world.setWeather weather
+    @bestSectors = store.get('drift.sectors', []) or []
     model = store.get 'drift.model', 'ferrari'
     model = 'ferrari' unless _.findWhere(D.CARS, id: model)
     state.set 'model', model
@@ -86,6 +113,12 @@ class Game
     store.set 'drift.paint', id
     state.set 'car', id
     world.setPaint id
+    return
+
+  setWeather: (id) ->
+    store.set 'drift.weather', id
+    state.set 'weather', id
+    world.setWeather id
     return
 
   setModel: (id) ->
@@ -152,6 +185,9 @@ class Game
       best = {time: r.finishTime, rank: rank}
       store.set 'drift.best', best
       state.set 'best', best
+    for t, i in r.sectorTimes when t?
+      @bestSectors[i] = t if not @bestSectors[i]? or t < @bestSectors[i]
+    store.set 'drift.sectors', @bestSectors
     standings = r.standings()
     leader = standings[0].time
     rows = for row, i in standings
@@ -166,6 +202,9 @@ class Game
       crashes: r.crashes
       newBest: newBest
       rows: rows
+      score: r.score
+      objectives: @objectives(r)
+      sectors: (fmtSplit(t) for t in r.sectorTimes)
     @resultsIn = 2.6
     return
 
@@ -201,6 +240,17 @@ class Game
       @lastBeep = 0
     return
 
+  objectives: (r) ->
+    done = r.phase is 'finished'
+    rank = r.rank()
+    trapsOver = (t for t in r.traps when t.kmh? and t.kmh >= C.TRAP_KMH).length
+    trapsUnder = (t for t in r.traps when t.kmh? and t.kmh < C.TRAP_KMH).length
+    [
+      {label: 'Finish in the top 3', state: (if done then (if rank <= 3 then 'done' else 'failed') else 'live'), note: (if done then '' else "P#{rank}")}
+      {label: 'Clean race: no crashes', state: (if r.crashes > 0 then 'failed' else if done then 'done' else 'live'), note: ''}
+      {label: "Speed traps over #{C.TRAP_KMH} km/h", state: (if trapsUnder > 0 then 'failed' else if trapsOver is r.traps.length then 'done' else 'live'), note: "#{trapsOver}/#{r.traps.length}"}
+    ]
+
   sync: ->
     r = @race
     ph = state.get 'phase'
@@ -222,6 +272,17 @@ class Game
       time: r.time
       nitro: r.nitro
       crashes: r.crashes
+      rows: ({pos: i + 1, name: (if row.me then 'YOU' else row.name), gap: (if row.me then '' else fmtGap(r.gapTo(row))), me: row.me} for row, i in r.standings())
+      sector: r.sector
+      sectorTime: r.time - r.sectorStart
+      bestSector: @bestSectors[r.sector - 1] ? null
+      score: r.score
+      chain: Math.round(r.chain * r.mult)
+      mult: r.mult
+      skill: (if r.skill and r.time - r.skill.at < 2.6 then r.skill else null)
+      objectives: @objectives(r)
+      nitroSegs: Math.round(r.nitro * 14)
+      distNext: Math.max(0, Math.round((r.sector * C.FINISH_Z / C.SECTORS - r.playerZ()) / C.SEG * 1.1))
     return
 
 game = new Game()
@@ -298,7 +359,7 @@ angular.module('drift', []).controller 'HudCtrl', ['$scope', ($scope) ->
   vm.fmt = fmt
   pull = -> vm.s = state.toJSON()
   state.on 'change', _.throttle((-> $scope.$applyAsync pull), 90)
-  state.on 'change:phase change:banner change:car change:model change:muted', -> $scope.$applyAsync pull
+  state.on 'change:phase change:banner change:car change:model change:muted change:weather', -> $scope.$applyAsync pull
   bus.on 'results', (res) -> $scope.$applyAsync -> vm.r = res
   vm.inRace = -> vm.s.phase in ['countdown', 'race', 'finished', 'paused']
   vm.kmLeft = -> ((100 - vm.s.progress) * C.FINISH_Z / C.SEG * 1.1 / 100000).toFixed(1)
@@ -316,6 +377,11 @@ angular.module('drift', []).controller 'HudCtrl', ['$scope', ($scope) ->
     game.setModel D.CARS[(vm.modelIndex() + dir + n) % n].id
   vm.about = false
   vm.mute = -> game.toggleMute()
+  vm.weathers = [{id: 'golden', name: 'Golden hour'}, {id: 'rain', name: 'Rainy night'}]
+  vm.pickWeather = (w) -> game.setWeather w.id
+  vm.split = fmtSplit
+  vm.segs = [0...14]
+  vm.num = (n) -> (n or 0).toLocaleString 'en-US'
   return
 ]
 angular.bootstrap document.getElementById('ui'), ['drift']
