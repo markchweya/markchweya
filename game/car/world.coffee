@@ -38,7 +38,6 @@ MODELS =
   barrier: asset 'roads/construction-barrier.glb'
   worklight: asset 'roads/construction-light.glb'
   gantry: asset 'racing/overheadLights.glb'
-  billboard: asset 'racing/billboard.glb'
 # CC0 photo facades from ambientCG; tile is the real-world size of one texture repeat in metres.
 FACADES =
   Facade006: {tile: 24, glass: true}
@@ -139,11 +138,12 @@ SIZE =
   worklight: ['y', 2.2]
   gantry: ['x', 15]
   billboard: ['x', 10]
+# Roadside ads for the technologies the rivals are named after.
 ADS = [
-  ['GET FLASH PLAYER', 'Required to view this content', '#b71c1c', '#ff5252']
-  ['BEST VIEWED IN IE6', 'at 800 × 600', '#0d47a1', '#42a5f5']
-  ['Y2K READY', 'Certified since 1999', '#1b5e20', '#66bb6a']
-  ['JAVA APPLET', 'Loading… please wait', '#e65100', '#ffa726']
+  {kicker: 'ADOBE', title: 'FLASH PLAYER', line: 'Required to view this content', a: '#7a0d12', b: '#e53935'}
+  {kicker: 'BEST VIEWED IN', title: 'INTERNET EXPLORER 6', line: 'at 800 \u00d7 600 resolution', a: '#0b2a63', b: '#1e88e5'}
+  {kicker: 'IS YOUR BUSINESS', title: 'Y2K READY?', line: 'Certified compliant \u00b7 1999', a: '#0f3d1f', b: '#43a047'}
+  {kicker: 'POWERED BY', title: 'JAVA APPLETS', line: 'Loading\u2026 please wait', a: '#5a2a00', b: '#fb8c00'}
 ]
 
 canvasTex = (w, h, paint) ->
@@ -165,21 +165,30 @@ glowTexture = -> canvasTex 128, 128, (g) ->
   g.fillRect 0, 0, 128, 128
 
 adTexture = (ad) ->
-  t = canvasTex 512, 256, (g, w, h) ->
-    grad = g.createLinearGradient 0, 0, 0, h
-    grad.addColorStop 0, ad[3]
-    grad.addColorStop 1, ad[2]
+  canvasTex 1024, 410, (g, w, h) ->
+    grad = g.createLinearGradient 0, 0, w, h
+    grad.addColorStop 0, ad.a
+    grad.addColorStop 1, ad.b
     g.fillStyle = grad
     g.fillRect 0, 0, w, h
+    g.fillStyle = 'rgba(255,255,255,0.08)'
+    g.beginPath()
+    g.arc w * 0.86, h * 0.2, h * 0.75, 0, Math.PI * 2
+    g.fill()
+    g.fillStyle = 'rgba(255,255,255,0.85)'
+    g.font = "600 34px 'Segoe UI', Arial, sans-serif"
+    g.fillText ad.kicker, 60, 100
     g.fillStyle = '#ffffff'
-    g.textAlign = 'center'
-    g.textBaseline = 'middle'
-    g.font = "900 64px Impact, 'Arial Black', sans-serif"
-    g.fillText ad[0], w / 2, h * 0.42, w * 0.92
-    g.font = '600 30px Arial, sans-serif'
-    g.fillText ad[1], w / 2, h * 0.72, w * 0.9
-  t.flipY = false
-  t
+    g.font = "900 96px Impact, 'Arial Black', sans-serif"
+    g.fillText ad.title, 56, 210, w - 110
+    g.fillStyle = 'rgba(255,255,255,0.9)'
+    g.font = "400 38px 'Segoe UI', Arial, sans-serif"
+    g.fillText ad.line, 60, 290, w - 120
+    g.fillStyle = 'rgba(0,0,0,0.25)'
+    g.fillRect 0, h - 48, w, 48
+    g.fillStyle = 'rgba(255,255,255,0.7)'
+    g.font = "600 24px 'Segoe UI', Arial, sans-serif"
+    g.fillText 'THE GRAVEYARD SPRINT  \u00b7  OFFICIAL SPONSOR', 60, h - 16
 
 checkerTexture = -> canvasTex 512, 64, (g, w, h) ->
   for x in [0...16]
@@ -389,7 +398,16 @@ class World
         m = new THREE.MeshBasicMaterial map: t, alphaTest: 0.45, side: THREE.DoubleSide, vertexColors: true, alphaToCoverage: true
         m.userData.depth = new THREE.MeshDepthMaterial depthPacking: THREE.RGBADepthPacking, map: t, alphaTest: 0.45
         m
-    @ads = (adTexture(ad) for ad in ADS)
+    @ads = for ad in ADS
+      t = adTexture ad
+      t.anisotropy = 8
+      new THREE.MeshStandardMaterial map: t, emissive: 0xffffff, emissiveMap: t, emissiveIntensity: 0.35, roughness: 0.45
+    @mat.steel = new THREE.MeshStandardMaterial color: 0x80868c, metalness: 0.75, roughness: 0.38
+    @mat.frame = new THREE.MeshStandardMaterial color: 0x1d2126, metalness: 0.4, roughness: 0.6
+    @geo =
+      post: new THREE.CylinderGeometry 0.16, 0.2, 6.4, 12
+      panel: new THREE.BoxGeometry 9, 3.6, 0.28
+      lamp: new THREE.BoxGeometry 0.5, 0.12, 0.7
     return
 
   resize: ->
@@ -586,16 +604,10 @@ class World
           when 'start', 'finish'
             @put 'gantry', z, 0, ((h) -> -h), @root
           when 'board'
-            obj = @put 'billboard', z, lat, ((h) -> -h + side * 0.35)
-            if obj
-              ad = @ads[sp.variant % @ads.length]
-              obj.traverse (o) ->
-                if o.isMesh and o.material.name is 'tankco'
-                  o.material = o.material.clone()
-                  o.material.map = ad
-                  o.material.emissive = new THREE.Color 0x222222
-                  o.material.emissiveMap = ad
-                return
+            board = @billboard sp.variant
+            h = @at z, lat, board.position
+            board.rotation.y = -h + side * 0.35
+            @chunk(z).add board
           when 'tree', 'hedge'
             type = if sp.kind is 'hedge' then 'hedge' else sp.variant
             @at z, lat, pos
@@ -669,6 +681,25 @@ class World
         mesh.receiveShadow = true
         @chunk(c * CHUNK * C.SEG).add mesh
     return
+
+  # Two steel posts and a lit panel with the ad printed across the whole face.
+  billboard: (variant) ->
+    g = new THREE.Group()
+    for x in [-2.8, 2.8]
+      post = new THREE.Mesh @geo.post, @mat.steel
+      post.position.set x, 3.2, 0
+      post.castShadow = true
+      g.add post
+    ad = @ads[variant % @ads.length]
+    panel = new THREE.Mesh @geo.panel, [@mat.frame, @mat.frame, @mat.frame, @mat.frame, ad, @mat.frame]
+    panel.position.y = 7.6
+    panel.castShadow = true
+    g.add panel
+    for x in [-3, 0, 3]
+      lamp = new THREE.Mesh @geo.lamp, @mat.frame
+      lamp.position.set x, 9.5, 0.45
+      g.add lamp
+    g
 
   vehicle: (key, opts = {}) ->
     src = @models[key]
@@ -744,8 +775,8 @@ class World
       paint = RIVAL_PAINTS[rv.index % RIVAL_PAINTS.length]
       holder = new THREE.Group()
       car = RIVAL_CARS[rv.index % RIVAL_CARS.length]
-      near = @vehicle nearKey(car), paint: paint, fade: true
-      far = @vehicle car + 'Lod', paint: paint, fade: true
+      near = @vehicle nearKey(car), paint: paint
+      far = @vehicle car + 'Lod', paint: paint
       label = new THREE.Sprite new THREE.SpriteMaterial(map: labelTexture(rv.name), transparent: true, depthWrite: false)
       label.scale.set 3.6, 0.9, 1
       label.position.y = 2.5
@@ -809,13 +840,6 @@ class World
       u.label.visible = gap > 14
       u.near.visible = i in closest
       u.far.visible = not u.near.visible
-      # Rivals are ghosts in the physics; fade one only while you drive through it.
-      overlap = Math.abs(gap) < 5 and Math.abs(rv.x - race.x) * HALF < 2.3
-      if overlap isnt u.faded
-        u.faded = overlap
-        for m in u.mats
-          m.opacity = if overlap then 0.3 else 1
-          m.depthWrite = not overlap
       obj.rotation.y = -@at(rv.z + C.CAR_LEN / 2, rv.x * HALF, obj.position)
 
     blinkOn = Math.floor(clock * 2.4) % 2 is 0

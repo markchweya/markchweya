@@ -121,8 +121,9 @@ class Track
           seg.sprites.push {kind: 'tree', variant: tree(), offset: side * (2.1 + r() * 2.6), scale: 0.8 + r() * 0.5} if r() < 0.3
           seg.sprites.push {kind: 'tree', variant: tree(), offset: side * (5 + r() * 12), scale: 0.9 + r() * 0.6} if r() < 0.32
           seg.sprites.push {kind: 'hedge', offset: side * (1.95 + r() * 0.6), scale: 0.8 + r() * 0.4} if r() < 0.07
-      if i % 150 is 75
-        seg.sprites.push {kind: 'board', variant: Math.floor(r() * 4), offset: (if r() < 0.5 then -2.4 else 2.4)}
+      # Billboards stand in the open park sections; on city blocks they would sit inside the buildings.
+      if not city and i % 90 is 45
+        seg.sprites.push {kind: 'board', variant: Math.floor(r() * 4), offset: (if r() < 0.5 then -2.5 else 2.5)}
     @segments[C.START_SEG].sprites.push {kind: 'start', offset: 0}
     @segments[C.RACE_SEGS].sprites.push {kind: 'finish', offset: 0}
     return
@@ -153,7 +154,7 @@ class Track
           hit: false
         @segments[Math.floor(z / C.SEG)].items.push item
         @hazards.push item
-      @rows.push {z: z, open: open}
+      @rows.push {z: z, open: open, blocked: blocked}
       z += lerp(16000, 11000, p) + r() * 2000
     return
 
@@ -171,7 +172,8 @@ class Track
 
 RIVALS = ['Flash', 'Silverlight', 'Java Applet', 'ActiveX', 'VBScript', 'IE6',
           'Google Wave', 'Prototype.js', 'MooTools', 'YUI', 'Bower']
-PACE = [1.075, 1.055, 1.035, 1.015, 0.995, 0.975, 0.955, 0.93, 0.905, 0.88, 0.85]
+LOOKAHEAD = 11000   # just under the minimum gap between hazard rows
+PACE = [1.03, 1.01, 0.99, 0.97, 0.95, 0.93, 0.91, 0.89, 0.87, 0.85, 0.82]
 
 class Race
   constructor: (opts = {}) ->
@@ -207,7 +209,7 @@ class Race
       z: C.PLAYER_Z + (i + 1) * 900
       speed: 0
       wobble: Math.random() * 6
-      shiftIn: 3 + Math.random() * 6
+      shiftCool: 0
       finishTime: null
     }
 
@@ -216,7 +218,21 @@ class Race
 
   steer: (dir) ->
     return unless @phase is 'race'
-    @lane = clamp @lane + dir, 0, 2
+    next = clamp @lane + dir, 0, 2
+    return if next is @lane
+    @prevLane = @lane
+    @lane = next
+
+  # Demo driver: take the guaranteed open lane, but pass slower traffic through any other unblocked lane.
+  autoLane: ->
+    pz = @playerZ()
+    want = @nextOpenLane()
+    return want if @laneClear(want, pz, 'player')
+    row = @rowAhead pz
+    blocked = if row then row.blocked else []
+    for l in [want - 1, want + 1, @lane] when 0 <= l <= 2 and l not in blocked and @laneClear(l, pz, 'player')
+      return l
+    want
 
   nextOpenLane: ->
     pz = @playerZ()
@@ -233,7 +249,7 @@ class Race
     racing = @phase is 'race'
     @time += dt if racing
     if @autopilot
-      @lane = @nextOpenLane()
+      @lane = @autoLane()
       @input.boost = @nitro > 0.6 or (@boosting and @nitro > 0.05)
     @boosting = racing and @input.boost and @nitro > 0.01
     @braking = racing and @input.brake and not @autopilot
@@ -252,7 +268,8 @@ class Race
     @shake = Math.max 0, @shake - dt
     @flash = Math.max 0, @flash - dt
     @collide() if racing
-    @moveRival(r, dt) for r in @rivals
+    @moveRivals dt
+    @collideRivals dt if racing
     @finish() if racing and @playerZ() >= C.FINISH_Z
     return
 
@@ -280,15 +297,90 @@ class Race
 
   rivalTarget: (r, t) -> C.TOP * r.pace * (1 + 0.03 * Math.sin(t * 0.6 + r.wobble))
 
+  # The hazard row a car at z still has to get past, if it is close enough to react to.
+  rowAhead: (z) ->
+    for row in @track.rows when row.z + C.CAR_LEN > z
+      return (if row.z - z < LOOKAHEAD then row else null)
+    null
+
+  # True when no other car is alongside or just ahead in that lane.
+  laneClear: (lane, z, self) ->
+    cx = C.LANES[lane]
+    for o in @rivals when o isnt self
+      dz = o.z - z
+      return false if Math.abs(o.x - cx) < 0.45 and dz > -C.CAR_LEN * 1.6 and dz < C.CAR_LEN * 3
+    return true if self is 'player'
+    dz = @playerZ() - z
+    not (Math.abs(@x - cx) < 0.45 and dz > -C.CAR_LEN * 1.6 and dz < C.CAR_LEN * 3)
+
+  # Rival driving: dodge hazard rows, follow slower traffic, overtake when a lane is clear.
   moveRival: (r, dt) ->
-    r.speed = approach r.speed, @rivalTarget(r, @time), dt
+    target = @rivalTarget r, @time
+    row = @rowAhead r.z
+    blocked = if row then row.blocked else []
+    if r.lane in blocked
+      options = (l for l in [0..2] when l not in blocked).sort((a, b) -> Math.abs(a - r.lane) - Math.abs(b - r.lane))
+      r.lane = (l for l in options when @laneClear(l, r.z, r))[0] ? options[0]
+      r.shiftCool = 1
+    aheadSpeed = null
+    for o in @rivals when o isnt r and Math.abs(o.x - r.x) < 0.45 and o.z > r.z and o.z - r.z < C.CAR_LEN * 3
+      aheadSpeed = Math.min(aheadSpeed ? Infinity, o.speed)
+    pz = @playerZ()
+    if Math.abs(@x - r.x) < 0.45 and pz > r.z and pz - r.z < C.CAR_LEN * 3
+      aheadSpeed = Math.min(aheadSpeed ? Infinity, @speed)
+    if aheadSpeed? and aheadSpeed < target - 200
+      if r.shiftCool <= 0
+        for l in [r.lane - 1, r.lane + 1] when 0 <= l <= 2 and l not in blocked and @laneClear(l, r.z, r)
+          r.lane = l
+          r.shiftCool = 1.5
+          break
+      target = Math.min target, aheadSpeed if Math.abs(C.LANES[r.lane] - r.x) < 0.45
+    r.shiftCool -= dt
+    r.speed = approach r.speed, target, dt
     r.z += r.speed * dt
-    r.shiftIn -= dt
-    if r.shiftIn <= 0
-      r.lane = clamp r.lane + (if Math.random() < 0.5 then -1 else 1), 0, 2
-      r.shiftIn = 4 + Math.random() * 6
-    r.x += (C.LANES[r.lane] - r.x) * Math.min(1, dt * 2)
+    r.x += (C.LANES[r.lane] - r.x) * Math.min(1, dt * 4)
     r.finishTime = @time if not r.finishTime? and r.z >= C.FINISH_Z
+    return
+
+  moveRivals: (dt) ->
+    @moveRival(r, dt) for r in @rivals
+    # Never let two rivals occupy the same space: working front to back, the one behind drops back.
+    order = @rivals.slice().sort (a, b) -> b.z - a.z
+    for pass in [0, 1]
+      for a, i in order
+        for b in order[0...i] when b.z - a.z < C.CAR_LEN and Math.abs(a.x - b.x) < C.CAR_HALF_W * 2
+          a.z = b.z - C.CAR_LEN
+          a.speed = Math.min a.speed, b.speed
+    return
+
+  # Contact with rivals: rear-ending one slows you to its pace, cutting into an
+  # occupied lane bounces you back, and a rival that hits you from behind drops back.
+  collideRivals: (dt) ->
+    @bounceCool = Math.max 0, (@bounceCool or 0) - dt
+    pz = @playerZ()
+    for r in @rivals
+      dz = r.z - pz
+      continue unless Math.abs(dz) < C.CAR_LEN and Math.abs(r.x - @x) < C.CAR_HALF_W * 2
+      changing = Math.abs(C.LANES[@lane] - @x) > 0.08
+      if changing and @prevLane? and Math.abs(C.LANES[@lane] - r.x) < 0.3
+        continue if @bounceCool > 0
+        @lane = @prevLane
+        @speed *= 0.9
+        @bounceCool = 0.4
+        @bump 0.25
+      else if dz > 0
+        closing = @speed - r.speed
+        @speed = Math.min @speed, r.speed * 0.97
+        @position = r.z - C.CAR_LEN - C.PLAYER_Z
+        @bump(if closing > 3000 then 0.45 else 0.2) if closing > 1200
+      else
+        r.speed = Math.min r.speed, @speed * 0.95
+        r.z = pz - C.CAR_LEN
+    return
+
+  bump: (strength) ->
+    @shake = Math.max @shake, strength
+    @onBump?(strength)
     return
 
   # Rivals still on track when the player finishes get their times projected.
