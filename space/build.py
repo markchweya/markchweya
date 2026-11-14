@@ -575,57 +575,75 @@ def belt(p: Profile) -> str:
 
 # --------------------------------------------------------------------------- main
 
-def drift(h: int = 620, width: int = 1200) -> str:
-    """The stretch of space between the moon and the sun: a scroll illusion.
+def drift(h: int = 560, width: int = 1200) -> str:
+    """The stretch between the moon and the sun: a gravity well you fall into while scrolling.
 
-    Three star layers rise at different speeds (far slow, near fast) with faint dust above them.
-    Upward motion with depth parallax is what the eye reads as the page moving down, so the
-    reader feels they are still travelling even while the page is still. Top and bottom fade to the
-    page colour, so the images above and below meet it without a seam.
+    A wireframe funnel opens downward from a vanishing point under the moon toward the sun below.
+    Rings are born at the vanishing point and keep flowing down and outward while growing, the
+    way rings of a tunnel rush past as you fly through it, so the eye reads constant forward
+    motion. Because the funnel widens down the page, scrolling also makes it grow on screen: the
+    scroll itself feels like getting closer. Only thin lines, no fills, and every edge fades out,
+    so the images above and below meet it without a visible seam.
     """
-    rnd = random.Random(2026)
-    layers = [  # (stars per tile, radius range, opacity, seconds per tile)
-        (150, (0.5, 0.9), .45, 70), (70, (0.8, 1.3), .7, 38), (26, (1.2, 1.9), .9, 19)]
-    defs = [f'<linearGradient id="vfade" x1="0" x2="0" y1="0" y2="1">'
-            f'<stop offset="0" stop-color="{BG}"/><stop offset=".22" stop-color="{BG}" stop-opacity="0"/>'
-            f'<stop offset=".78" stop-color="{BG}" stop-opacity="0"/><stop offset="1" stop-color="{BG}"/></linearGradient>',
-            f'<linearGradient id="hfade" x1="0" x2="1" y1="0" y2="0">'
-            f'<stop offset="0" stop-color="{BG}"/><stop offset=".12" stop-color="{BG}" stop-opacity="0"/>'
-            f'<stop offset=".88" stop-color="{BG}" stop-opacity="0"/><stop offset="1" stop-color="{BG}"/></linearGradient>',
-            '<filter id="dust" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="28"/></filter>']
-    css, body = [], []
-    for i, (n, (r0, r1), op, secs) in enumerate(layers):
-        stars = []
-        for _ in range(n):
-            x, y, r = rnd.uniform(0, width), rnd.uniform(0, h), rnd.uniform(r0, r1)
-            for dy in (0, h):           # two stacked copies: translating by -h loops seamlessly
-                if i == 2:              # the nearest layer is moving fastest: a short motion trail
-                    stars.append(f'<ellipse cx="{x:.1f}" cy="{y + dy:.1f}" rx="{r * .8:.2f}" ry="{r * 2.6:.2f}"/>')
-                else:
-                    stars.append(f'<circle cx="{x:.1f}" cy="{y + dy:.1f}" r="{r:.2f}"/>')
-        css.append(f".l{i}{{animation:rise{i} {secs}s linear infinite}}"
-                   f"@keyframes rise{i}{{from{{transform:translateY(0)}}to{{transform:translateY(-{h}px)}}}}")
-        body.append(f'<g class="l{i}" fill="{LIGHT}" fill-opacity="{op}">{"".join(stars)}</g>')
-    # faint dust banks: cool silver higher up (the moon's side), a hint of amber lower (the sun's)
-    dust = []
-    for k in range(5):
-        x, y = rnd.uniform(150, width - 150), rnd.uniform(0, h)
-        col = SLATE if k % 2 else "#4b3a2a"
-        for dy in (0, h):
-            dust.append(f'<ellipse cx="{x:.0f}" cy="{y + dy:.0f}" rx="{rnd.uniform(140, 240):.0f}" '
-                        f'ry="{rnd.uniform(40, 70):.0f}" fill="{col}" fill-opacity=".09"/>')
-    css.append(f".dust{{animation:rised 90s linear infinite}}"
-               f"@keyframes rised{{from{{transform:translateY(0)}}to{{transform:translateY(-{h}px)}}}}")
-    css.append("@media (prefers-reduced-motion: reduce){.l0,.l1,.l2,.dust{animation:none}}")
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {h}" width="{width}" height="{h}" role="img" aria-label="Deep space between the moon and the sun">
-<title>Deep space between the moon and the sun</title>
-<defs>{"".join(defs)}</defs>
-<style>{"".join(css)}</style>
+    vx, vy = width / 2, 34.0                 # vanishing point
+    bottom, rmax = h - 36.0, 560.0           # where the widest ring sits / its half-width
+    tilt = .2                                # ring height / width (perspective)
+    n_rings, secs = 14, 9.0
+    defs = (f'<linearGradient id="wellfade" x1="0" x2="0" y1="0" y2="1">'
+            f'<stop offset="0" stop-color="{SILVER}" stop-opacity="0"/>'
+            f'<stop offset=".25" stop-color="{SILVER}" stop-opacity=".55"/>'
+            f'<stop offset=".8" stop-color="{AMBER}" stop-opacity=".55"/>'
+            f'<stop offset="1" stop-color="{AMBER}" stop-opacity="0"/></linearGradient>'
+            f'<radialGradient id="wellside" cx="50%" cy="0%" r="100%">'
+            f'<stop offset=".55" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>'
+            f'<mask id="wellmask"><rect width="{width}" height="{h}" fill="url(#wellside)"/></mask>')
+
+    def ring_at(p: float) -> tuple[float, float, float]:
+        """centre y, half-width and opacity of a ring at flow progress p (0 = vanishing point)."""
+        cy = vy + (bottom - vy) * p ** 1.6
+        rx = 4 + rmax * p ** 2.2
+        op = min(1.0, p / .12) * min(1.0, (1 - p) / .18)
+        return cy, rx, op
+
+    # flow: one shared keyframe path, sampled; each ring runs it with its own negative delay
+    steps = 24
+    kf = []
+    for i in range(steps + 1):
+        p = i / steps
+        cy, rx, op = ring_at(p)
+        s = rx / rmax
+        kf.append(f"{p * 100:.1f}%{{transform:translate({vx}px,{cy:.1f}px) scale({s:.4f});opacity:{op * .85:.3f}}}")
+    css = (f".ring{{animation:fall {secs}s linear infinite;transform-box:view-box}}"
+           f"@keyframes fall{{{''.join(kf)}}}"
+           "@media (prefers-reduced-motion: reduce){.ring{animation:none}}")
+    rings = []
+    for k in range(n_rings):
+        delay = -secs * k / n_rings
+        warm = k % 2 == 0
+        rings.append(f'<ellipse class="ring" style="animation-delay:{delay:.2f}s" cx="0" cy="0" rx="{rmax}" '
+                     f'ry="{rmax * tilt}" fill="none" stroke="{AMBER if warm else SILVER}" stroke-opacity=".5" '
+                     f'stroke-width="{1.4 * 1:.1f}" vector-effect="non-scaling-stroke"/>')
+    # static meridians: the funnel's walls, curving out from the vanishing point
+    walls = []
+    for j in range(16):
+        a = math.pi * (j + .5) / 16              # front half only reads cleanly
+        pts = []
+        for i in range(25):
+            p = i / 24
+            cy, rx, _ = ring_at(p)
+            pts.append(f"{vx + rx * math.cos(a):.1f},{cy + rx * tilt * math.sin(a):.1f}")
+        walls.append(f'<polyline points="{" ".join(pts)}" fill="none" stroke="url(#wellfade)" stroke-width=".8" '
+                     f'stroke-opacity=".5"/>')
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {h}" width="{width}" height="{h}" role="img" aria-label="A gravity well funnelling down toward the sun">
+<title>A gravity well funnelling down toward the sun</title>
+<defs>{defs}</defs>
+<style>{css}</style>
 <rect width="{width}" height="{h}" fill="{BG}"/>
-<g class="dust" filter="url(#dust)">{"".join(dust)}</g>
-{"".join(body)}
-<rect width="{width}" height="{h}" fill="url(#vfade)"/>
-<rect width="{width}" height="{h}" fill="url(#hfade)"/>
+<g mask="url(#wellmask)">
+{"".join(walls)}
+{"".join(rings)}
+</g>
+<circle cx="{vx}" cy="{vy}" r="2" fill="{LIGHT}" fill-opacity=".8"/>
 </svg>
 """
 
@@ -662,7 +680,7 @@ def main(argv: list[str] | None = None) -> int:
         "belt.svg": belt(profile),
         "constellations.svg": constellations(config["stack"]),
         "fleet.svg": fleet(profile, config["featured"]),
-        "drift.svg": drift(),
+        "gravity-well.svg": drift(),
     }
     for name, svg in panels.items():
         (args.out / name).write_text(svg, encoding="utf-8")
