@@ -38,7 +38,7 @@ class Panels(unittest.TestCase):
         with tempfile.TemporaryDirectory() as out:
             self.assertEqual(build.main(["--fixture", str(Path(build.HERE, "fixture.json")), "--out", out]), 0)
             files = sorted(Path(out).glob("*.svg"))
-            self.assertEqual(len(files), 5)
+            self.assertEqual(len(files), 6)
             for f in files:
                 xml.dom.minidom.parseString(f.read_bytes())  # raises on malformed XML
                 self.assertNotIn("<script", f.read_text())

@@ -575,6 +575,61 @@ def belt(p: Profile) -> str:
 
 # --------------------------------------------------------------------------- main
 
+def drift(h: int = 620, width: int = 1200) -> str:
+    """The stretch of space between the moon and the sun: a scroll illusion.
+
+    Three star layers rise at different speeds (far slow, near fast) with faint dust above them.
+    Upward motion with depth parallax is what the eye reads as the page moving down, so the
+    reader feels they are still travelling even while the page is still. Top and bottom fade to the
+    page colour, so the images above and below meet it without a seam.
+    """
+    rnd = random.Random(2026)
+    layers = [  # (stars per tile, radius range, opacity, seconds per tile)
+        (150, (0.5, 0.9), .45, 70), (70, (0.8, 1.3), .7, 38), (26, (1.2, 1.9), .9, 19)]
+    defs = [f'<linearGradient id="vfade" x1="0" x2="0" y1="0" y2="1">'
+            f'<stop offset="0" stop-color="{BG}"/><stop offset=".22" stop-color="{BG}" stop-opacity="0"/>'
+            f'<stop offset=".78" stop-color="{BG}" stop-opacity="0"/><stop offset="1" stop-color="{BG}"/></linearGradient>',
+            f'<linearGradient id="hfade" x1="0" x2="1" y1="0" y2="0">'
+            f'<stop offset="0" stop-color="{BG}"/><stop offset=".12" stop-color="{BG}" stop-opacity="0"/>'
+            f'<stop offset=".88" stop-color="{BG}" stop-opacity="0"/><stop offset="1" stop-color="{BG}"/></linearGradient>',
+            '<filter id="dust" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="28"/></filter>']
+    css, body = [], []
+    for i, (n, (r0, r1), op, secs) in enumerate(layers):
+        stars = []
+        for _ in range(n):
+            x, y, r = rnd.uniform(0, width), rnd.uniform(0, h), rnd.uniform(r0, r1)
+            for dy in (0, h):           # two stacked copies: translating by -h loops seamlessly
+                if i == 2:              # the nearest layer is moving fastest: a short motion trail
+                    stars.append(f'<ellipse cx="{x:.1f}" cy="{y + dy:.1f}" rx="{r * .8:.2f}" ry="{r * 2.6:.2f}"/>')
+                else:
+                    stars.append(f'<circle cx="{x:.1f}" cy="{y + dy:.1f}" r="{r:.2f}"/>')
+        css.append(f".l{i}{{animation:rise{i} {secs}s linear infinite}}"
+                   f"@keyframes rise{i}{{from{{transform:translateY(0)}}to{{transform:translateY(-{h}px)}}}}")
+        body.append(f'<g class="l{i}" fill="{LIGHT}" fill-opacity="{op}">{"".join(stars)}</g>')
+    # faint dust banks: cool silver higher up (the moon's side), a hint of amber lower (the sun's)
+    dust = []
+    for k in range(5):
+        x, y = rnd.uniform(150, width - 150), rnd.uniform(0, h)
+        col = SLATE if k % 2 else "#4b3a2a"
+        for dy in (0, h):
+            dust.append(f'<ellipse cx="{x:.0f}" cy="{y + dy:.0f}" rx="{rnd.uniform(140, 240):.0f}" '
+                        f'ry="{rnd.uniform(40, 70):.0f}" fill="{col}" fill-opacity=".09"/>')
+    css.append(f".dust{{animation:rised 90s linear infinite}}"
+               f"@keyframes rised{{from{{transform:translateY(0)}}to{{transform:translateY(-{h}px)}}}}")
+    css.append("@media (prefers-reduced-motion: reduce){.l0,.l1,.l2,.dust{animation:none}}")
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {h}" width="{width}" height="{h}" role="img" aria-label="Deep space between the moon and the sun">
+<title>Deep space between the moon and the sun</title>
+<defs>{"".join(defs)}</defs>
+<style>{"".join(css)}</style>
+<rect width="{width}" height="{h}" fill="{BG}"/>
+<g class="dust" filter="url(#dust)">{"".join(dust)}</g>
+{"".join(body)}
+<rect width="{width}" height="{h}" fill="url(#vfade)"/>
+<rect width="{width}" height="{h}" fill="url(#hfade)"/>
+</svg>
+"""
+
+
 def repo_facts(p: Profile) -> dict:
     """Public, non-fork repositories with their own GitHub descriptions (never invented)."""
     return {"login": p.login, "name": p.name, "repos": [
@@ -607,6 +662,7 @@ def main(argv: list[str] | None = None) -> int:
         "belt.svg": belt(profile),
         "constellations.svg": constellations(config["stack"]),
         "fleet.svg": fleet(profile, config["featured"]),
+        "drift.svg": drift(),
     }
     for name, svg in panels.items():
         (args.out / name).write_text(svg, encoding="utf-8")
