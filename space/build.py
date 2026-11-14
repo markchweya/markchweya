@@ -269,7 +269,10 @@ def galaxy(p: Profile) -> str:
     if not days:
         return shell(h, "", "No contributions yet")
     first = days[0][0]
-    peak = max((n for _, n in days), default=0) or 1
+    # Scale by the 95th percentile of active days, so one huge day (a bulk import or a
+    # migration) does not dim every other star to nothing.
+    active = sorted(n for _, n in days if n > 0)
+    peak = active[int(.95 * (len(active) - 1))] if active else 1
     x0, step_x, y0, step_y = 70, 16.5, 92, 19
     parts = [f'<text x="{W / 2}" y="44" text-anchor="middle" class="mono" font-size="13">52 WEEKS IN ORBIT</text>']
     rnd = random.Random(53)
@@ -281,7 +284,7 @@ def galaxy(p: Profile) -> str:
         if n == 0:
             parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="1.1" fill="{SLATE}" fill-opacity=".35"/>')
             continue
-        k = math.sqrt(n / peak)
+        k = math.sqrt(min(n, peak) / peak)
         color = AMBER if k > .55 else (SILVER if k > .2 else SLATE)
         r = 1.8 + 4.2 * k
         parts.append(f'<circle class="t" style="animation-delay:{rnd.uniform(0, 4):.2f}s" cx="{x:.1f}" cy="{y:.1f}" '
@@ -353,7 +356,7 @@ def fleet(p: Profile, featured: list[str]) -> str:
         parts.append(f'<circle cx="{x - 70}" cy="{y}" r="{rad:.1f}" fill="url(#planetS)"/>')
         parts.append(f'<circle cx="{x - 70}" cy="{y}" r="{rad:.1f}" fill="{tint}" fill-opacity=".45"/>')
         parts.append(f'<text x="{x - 30}" y="{y - 4}" class="lbl" font-size="17" font-weight="700">{esc(r.name)}</text>')
-        meta = f"★ {r.stars}" + (f" · {r.language}" if r.language else "")
+        meta = " · ".join(x for x in (f"★ {r.stars}" if r.stars else "", r.language or "") if x)
         parts.append(f'<text x="{x - 30}" y="{y + 18}" class="mono" font-size="12">{esc(meta)}</text>')
     return shell(h, "\n".join(parts), "Featured repositories: " + ", ".join(r.name for r in chosen))
 

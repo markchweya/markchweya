@@ -66,3 +66,12 @@ class Panels(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Galaxy(unittest.TestCase):
+    def test_one_outlier_day_does_not_dim_the_rest(self):
+        p = build.load_fixture(Path(build.HERE, "fixture.json"))
+        p.days = cal([4] * 300 + [1200])
+        svg = build.galaxy(p)
+        # ordinary days still render as full-size bright stars, not faint specks
+        self.assertIn('r="6.00"', svg)
