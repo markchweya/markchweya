@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 330" width="1000" height="330" role="img" aria-label="5,135 contributions in the last year">
-<title>5,135 contributions in the last year</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 330" width="1000" height="330" role="img" aria-label="1,064 contributions in the last year">
+<title>1,064 contributions in the last year</title>
 <defs>
   <radialGradient id="fade" cx="50%" cy="50%" r="68%">
     <stop offset="80%" stop-color="#0d1117" stop-opacity="0"/><stop offset="100%" stop-color="#0d1117" stop-opacity="1"/>
@@ -130,9 +130,9 @@
 <text x="500.0" y="44" text-anchor="middle" class="mono" font-size="13">52 WEEKS IN ORBIT</text>
 <style>
   .ship{animation:shipfly 44.0s cubic-bezier(.45,.05,.55,.95) infinite}
-  @keyframes shipfly{0.00%{transform:translate(472.7px,74.0px);opacity:0.0}2.50%{transform:translate(484.2px,74.0px);opacity:1.0}5.50%{transform:translate(512.9px,78.8px);opacity:1.0}12.50%{transform:translate(616.4px,97.9px);opacity:1.0}19.50%{transform:translate(760.0px,121.8px);opacity:1.0}21.50%{transform:translate(760.0px,121.8px);opacity:1.0}23.75%{transform:translate(764.0px,119.8px);opacity:0.0}24.98%{transform:translate(764.0px,119.8px);opacity:0.0}25.00%{transform:translate(202.3px,121.8px);opacity:0.0}27.50%{transform:translate(221.2px,121.8px);opacity:1.0}30.50%{transform:translate(268.5px,119.1px);opacity:1.0}37.50%{transform:translate(438.9px,108.5px);opacity:1.0}44.50%{transform:translate(675.5px,95.2px);opacity:1.0}46.50%{transform:translate(675.5px,95.2px);opacity:1.0}48.75%{transform:translate(679.5px,93.2px);opacity:0.0}49.98%{transform:translate(679.5px,93.2px);opacity:0.0}50.00%{transform:translate(117.8px,95.2px);opacity:0.0}52.50%{transform:translate(136.1px,95.2px);opacity:1.0}55.50%{transform:translate(181.7px,99.4px);opacity:1.0}62.50%{transform:translate(345.9px,116.1px);opacity:1.0}69.50%{transform:translate(574.1px,137.0px);opacity:1.0}71.50%{transform:translate(574.1px,137.0px);opacity:1.0}73.75%{transform:translate(578.1px,135.0px);opacity:0.0}74.97%{transform:translate(578.1px,135.0px);opacity:0.0}75.00%{transform:translate(760.0px,137.0px);opacity:0.0}77.50%{transform:translate(748.5px,137.0px);opacity:1.0}80.50%{transform:translate(719.8px,130.7px);opacity:1.0}87.50%{transform:translate(616.4px,105.5px);opacity:1.0}94.50%{transform:translate(472.7px,74.0px);opacity:1.0}96.50%{transform:translate(472.7px,74.0px);opacity:1.0}98.75%{transform:translate(476.7px,72.0px);opacity:0.0}99.97%{transform:translate(476.7px,72.0px);opacity:0.0}100%{transform:translate(472.7px,74.0px);opacity:0}}
+  @keyframes shipfly{0.00%{transform:translate(658.6px,74.0px);opacity:0.0}2.50%{transform:translate(637.6px,74.0px);opacity:1.0}5.50%{transform:translate(585.3px,78.8px);opacity:1.0}12.50%{transform:translate(396.6px,97.9px);opacity:1.0}19.50%{transform:translate(134.7px,121.8px);opacity:1.0}21.50%{transform:translate(134.7px,121.8px);opacity:1.0}23.75%{transform:translate(138.7px,119.8px);opacity:0.0}24.98%{transform:translate(138.7px,119.8px);opacity:0.0}25.00%{transform:translate(844.5px,121.8px);opacity:0.0}27.50%{transform:translate(829.6px,121.8px);opacity:1.0}30.50%{transform:translate(792.4px,119.1px);opacity:1.0}37.50%{transform:translate(658.6px,108.5px);opacity:1.0}44.50%{transform:translate(472.7px,95.2px);opacity:1.0}46.50%{transform:translate(472.7px,95.2px);opacity:1.0}48.75%{transform:translate(476.7px,93.2px);opacity:0.0}49.98%{transform:translate(476.7px,93.2px);opacity:0.0}50.00%{transform:translate(929.0px,95.2px);opacity:0.0}52.50%{transform:translate(914.8px,95.2px);opacity:1.0}55.50%{transform:translate(879.3px,99.4px);opacity:1.0}62.50%{transform:translate(751.5px,116.1px);opacity:1.0}69.50%{transform:translate(574.1px,137.0px);opacity:1.0}71.50%{transform:translate(574.1px,137.0px);opacity:1.0}73.75%{transform:translate(578.1px,135.0px);opacity:0.0}74.97%{transform:translate(578.1px,135.0px);opacity:0.0}75.00%{transform:translate(134.7px,137.0px);opacity:0.0}77.50%{transform:translate(155.7px,137.0px);opacity:1.0}80.50%{transform:translate(208.0px,130.7px);opacity:1.0}87.50%{transform:translate(396.6px,105.5px);opacity:1.0}94.50%{transform:translate(658.6px,74.0px);opacity:1.0}96.50%{transform:translate(658.6px,74.0px);opacity:1.0}98.75%{transform:translate(662.6px,72.0px);opacity:0.0}99.97%{transform:translate(662.6px,72.0px);opacity:0.0}100%{transform:translate(658.6px,74.0px);opacity:0}}
   .shipbeam{animation:shipbeam 44.0s ease-in-out infinite}
-  @keyframes shipbeam{0.00%{opacity:0.0}2.50%{opacity:0.326}5.50%{opacity:0.326}12.50%{opacity:0.2}19.50%{opacity:0.05}21.50%{opacity:0.05}23.75%{opacity:0.0}24.98%{opacity:0.0}25.00%{opacity:0.0}27.50%{opacity:0.05}30.50%{opacity:0.05}37.50%{opacity:0.231}44.50%{opacity:0.326}46.50%{opacity:0.326}48.75%{opacity:0.0}49.98%{opacity:0.0}50.00%{opacity:0.0}52.50%{opacity:0.059}55.50%{opacity:0.059}62.50%{opacity:0.184}69.50%{opacity:0.153}71.50%{opacity:0.153}73.75%{opacity:0.0}74.97%{opacity:0.0}75.00%{opacity:0.0}77.50%{opacity:0.05}80.50%{opacity:0.05}87.50%{opacity:0.2}94.50%{opacity:0.326}96.50%{opacity:0.326}98.75%{opacity:0.0}99.97%{opacity:0.0}100%{opacity:0}}
+  @keyframes shipbeam{0.00%{opacity:0.0}2.50%{opacity:0.404}5.50%{opacity:0.404}12.50%{opacity:0.074}19.50%{opacity:0.05}21.50%{opacity:0.05}23.75%{opacity:0.0}24.98%{opacity:0.0}25.00%{opacity:0.0}27.50%{opacity:0.05}30.50%{opacity:0.05}37.50%{opacity:0.404}44.50%{opacity:0.31}46.50%{opacity:0.31}48.75%{opacity:0.0}49.98%{opacity:0.0}50.00%{opacity:0.0}52.50%{opacity:0.31}55.50%{opacity:0.31}62.50%{opacity:0.09}69.50%{opacity:0.059}71.50%{opacity:0.059}73.75%{opacity:0.0}74.97%{opacity:0.0}75.00%{opacity:0.0}77.50%{opacity:0.05}80.50%{opacity:0.05}87.50%{opacity:0.074}94.50%{opacity:0.404}96.50%{opacity:0.404}98.75%{opacity:0.0}99.97%{opacity:0.0}100%{opacity:0}}
   .hover{animation:hov 2.6s ease-in-out infinite}
   @keyframes hov{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
 </style>
@@ -153,33 +153,33 @@
 <text x="62" y="159" text-anchor="end" class="mono" font-size="10" fill-opacity=".55">WED</text>
 <text x="62" y="197" text-anchor="end" class="mono" font-size="10" fill-opacity=".55">FRI</text>
 <circle cx="84.0" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Nov 10, 2025: 14 contributions</title><use href="#alien" x="79.2" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g class="pulse" style="animation-delay:2.22s"><title>Nov 10, 2025: 14 contributions</title><use href="#alien" x="76.9" y="109.9" width="14.2" height="14.2" fill="#9be0b4"/></g>
 <g><title>Nov 11, 2025: 1 contribution</title><use href="#alien" x="79.2" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <g><title>Nov 12, 2025: 3 contributions</title><use href="#alien" x="79.2" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Nov 13, 2025: 6 contributions</title><use href="#alien" x="79.2" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Nov 13, 2025: 6 contributions</title><use href="#alien" x="78.0" y="168.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
 <circle cx="84.0" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <g><title>Nov 15, 2025: 4 contributions</title><use href="#alien" x="79.2" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <g><title>Nov 16, 2025: 4 contributions</title><use href="#alien" x="96.1" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Nov 17, 2025: 10 contributions</title><use href="#alien" x="96.1" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Nov 18, 2025: 6 contributions</title><use href="#alien" x="96.1" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Nov 17, 2025: 10 contributions</title><use href="#alien" x="94.9" y="111.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<g><title>Nov 18, 2025: 6 contributions</title><use href="#alien" x="94.9" y="130.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
 <g><title>Nov 19, 2025: 1 contribution</title><use href="#alien" x="96.1" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="100.9" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <g><title>Nov 21, 2025: 3 contributions</title><use href="#alien" x="96.1" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="100.9" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Nov 23, 2025: 6 contributions</title><use href="#alien" x="113.0" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Nov 24, 2025: 9 contributions</title><use href="#alien" x="113.0" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Nov 23, 2025: 6 contributions</title><use href="#alien" x="111.8" y="92.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<g><title>Nov 24, 2025: 9 contributions</title><use href="#alien" x="111.8" y="111.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
 <g><title>Nov 25, 2025: 1 contribution</title><use href="#alien" x="113.0" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Nov 26, 2025: 9 contributions</title><use href="#alien" x="113.0" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Nov 26, 2025: 9 contributions</title><use href="#alien" x="111.8" y="149.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
 <circle cx="117.8" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Nov 28, 2025: 7 contributions</title><use href="#alien" x="113.0" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Nov 29, 2025: 10 contributions</title><use href="#alien" x="113.0" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Nov 28, 2025: 7 contributions</title><use href="#alien" x="111.8" y="187.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<g><title>Nov 29, 2025: 10 contributions</title><use href="#alien" x="111.8" y="206.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
 <g><title>Nov 30, 2025: 3 contributions</title><use href="#alien" x="129.9" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Dec 01, 2025: 6 contributions</title><use href="#alien" x="129.9" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Dec 01, 2025: 6 contributions</title><use href="#alien" x="128.7" y="111.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
 <circle cx="134.7" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="134.7" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <g><title>Dec 04, 2025: 2 contributions</title><use href="#alien" x="129.9" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <g><title>Dec 05, 2025: 2 contributions</title><use href="#alien" x="129.9" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Dec 06, 2025: 10 contributions</title><use href="#alien" x="129.9" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Dec 06, 2025: 10 contributions</title><use href="#alien" x="128.7" y="206.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
 <circle cx="151.6" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="151.6" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <g><title>Dec 09, 2025: 2 contributions</title><use href="#alien" x="146.8" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
@@ -187,83 +187,83 @@
 <circle cx="151.6" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="151.6" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="151.6" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Dec 14, 2025: 14 contributions</title><use href="#alien" x="163.7" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g class="pulse" style="animation-delay:2.38s"><title>Dec 14, 2025: 14 contributions</title><use href="#alien" x="161.4" y="90.9" width="14.2" height="14.2" fill="#9be0b4"/></g>
 <g><title>Dec 15, 2025: 2 contributions</title><use href="#alien" x="163.7" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <g><title>Dec 16, 2025: 5 contributions</title><use href="#alien" x="163.7" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Dec 17, 2025: 8 contributions</title><use href="#alien" x="163.7" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Dec 18, 2025: 27 contributions</title><use href="#alien" x="162.5" y="168.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
-<g><title>Dec 19, 2025: 21 contributions</title><use href="#alien" x="163.7" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Dec 17, 2025: 8 contributions</title><use href="#alien" x="162.5" y="149.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<g class="bob" style="animation-delay:0.33s"><title>Dec 18, 2025: 27 contributions</title><circle cx="168.5" cy="174.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="160.3" y="165.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
+<g class="bob" style="animation-delay:2.44s"><title>Dec 19, 2025: 21 contributions</title><circle cx="168.5" cy="193.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="160.3" y="184.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
 <g><title>Dec 20, 2025: 5 contributions</title><use href="#alien" x="163.7" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="185.4" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Dec 22, 2025: 5 contributions</title><use href="#alien" x="180.6" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Dec 23, 2025: 24 contributions</title><use href="#alien" x="179.4" y="130.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
-<g><title>Dec 24, 2025: 15 contributions</title><use href="#alien" x="180.6" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Dec 22, 2025: 4 contributions</title><use href="#alien" x="180.6" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Dec 23, 2025: 6 contributions</title><use href="#alien" x="179.4" y="130.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<g><title>Dec 24, 2025: 2 contributions</title><use href="#alien" x="180.6" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="185.4" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Dec 26, 2025: 11 contributions</title><use href="#alien" x="180.6" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Dec 27, 2025: 20 contributions</title><use href="#alien" x="180.6" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="185.4" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="185.4" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="202.3" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="202.3" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Dec 30, 2025: 1 contribution</title><use href="#alien" x="197.5" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Dec 31, 2025: 17 contributions</title><use href="#alien" x="197.5" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jan 01, 2026: 10 contributions</title><use href="#alien" x="197.5" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jan 02, 2026: 15 contributions</title><use href="#alien" x="197.5" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="202.3" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="202.3" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="202.3" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<g><title>Jan 02, 2026: 2 contributions</title><use href="#alien" x="197.5" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="202.3" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Jan 04, 2026: 2 contributions</title><use href="#alien" x="214.4" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jan 05, 2026: 29 contributions</title><use href="#alien" x="213.2" y="111.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
-<g class="pulse" style="animation-delay:0.12s"><title>Jan 06, 2026: 66 contributions</title><use href="#alien" x="212.1" y="128.9" width="14.2" height="14.2" fill="#9be0b4"/></g>
-<g><title>Jan 07, 2026: 16 contributions</title><use href="#alien" x="214.4" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g class="pulse" style="animation-delay:2.95s"><title>Jan 08, 2026: 63 contributions</title><use href="#alien" x="212.1" y="166.9" width="14.2" height="14.2" fill="#9be0b4"/></g>
-<g><title>Jan 09, 2026: 4 contributions</title><use href="#alien" x="214.4" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jan 10, 2026: 7 contributions</title><use href="#alien" x="214.4" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jan 11, 2026: 6 contributions</title><use href="#alien" x="231.3" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jan 12, 2026: 3 contributions</title><use href="#alien" x="231.3" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jan 13, 2026: 7 contributions</title><use href="#alien" x="231.3" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g class="pulse" style="animation-delay:1.38s"><title>Jan 14, 2026: 48 contributions</title><use href="#alien" x="229.0" y="147.9" width="14.2" height="14.2" fill="#9be0b4"/></g>
-<g><title>Jan 15, 2026: 18 contributions</title><use href="#alien" x="231.3" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jan 16, 2026: 20 contributions</title><use href="#alien" x="231.3" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jan 17, 2026: 35 contributions</title><use href="#alien" x="230.1" y="206.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
-<g><title>Jan 18, 2026: 7 contributions</title><use href="#alien" x="248.2" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jan 19, 2026: 2 contributions</title><use href="#alien" x="248.2" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="219.2" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="219.2" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="219.2" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="219.2" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="219.2" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="219.2" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="219.2" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="236.1" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="236.1" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="236.1" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="236.1" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<g><title>Jan 15, 2026: 3 contributions</title><use href="#alien" x="231.3" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Jan 16, 2026: 1 contribution</title><use href="#alien" x="231.3" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Jan 17, 2026: 6 contributions</title><use href="#alien" x="230.1" y="206.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<g><title>Jan 18, 2026: 1 contribution</title><use href="#alien" x="248.2" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="253.0" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="253.0" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Jan 21, 2026: 3 contributions</title><use href="#alien" x="248.2" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jan 22, 2026: 15 contributions</title><use href="#alien" x="248.2" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="253.0" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<g><title>Jan 22, 2026: 4 contributions</title><use href="#alien" x="248.2" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="253.0" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Jan 24, 2026: 14 contributions</title><use href="#alien" x="248.2" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jan 25, 2026: 32 contributions</title><use href="#alien" x="263.9" y="92.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<g><title>Jan 24, 2026: 10 contributions</title><use href="#alien" x="247.0" y="206.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<g><title>Jan 25, 2026: 2 contributions</title><use href="#alien" x="265.1" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <g><title>Jan 26, 2026: 4 contributions</title><use href="#alien" x="265.1" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jan 27, 2026: 3 contributions</title><use href="#alien" x="265.1" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="269.9" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="269.9" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="269.9" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="269.9" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Jan 31, 2026: 9 contributions</title><use href="#alien" x="265.1" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Jan 31, 2026: 9 contributions</title><use href="#alien" x="263.9" y="206.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
 <circle cx="286.8" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Feb 02, 2026: 3 contributions</title><use href="#alien" x="282.0" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Feb 03, 2026: 2 contributions</title><use href="#alien" x="282.0" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Feb 02, 2026: 2 contributions</title><use href="#alien" x="282.0" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="286.8" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="286.8" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="286.8" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="286.8" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="286.8" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <g><title>Feb 08, 2026: 3 contributions</title><use href="#alien" x="298.9" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Feb 09, 2026: 6 contributions</title><use href="#alien" x="298.9" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="303.7" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="303.7" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="303.7" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="303.7" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="303.7" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Feb 14, 2026: 3 contributions</title><use href="#alien" x="298.9" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Feb 15, 2026: 19 contributions</title><use href="#alien" x="315.8" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Feb 16, 2026: 6 contributions</title><use href="#alien" x="315.8" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Feb 17, 2026: 1 contribution</title><use href="#alien" x="315.8" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="303.7" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<g class="pulse" style="animation-delay:1.72s"><title>Feb 15, 2026: 11 contributions</title><use href="#alien" x="313.5" y="90.9" width="14.2" height="14.2" fill="#9be0b4"/></g>
+<g><title>Feb 16, 2026: 4 contributions</title><use href="#alien" x="315.8" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="320.6" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="320.6" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <g><title>Feb 19, 2026: 1 contribution</title><use href="#alien" x="315.8" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <g><title>Feb 20, 2026: 1 contribution</title><use href="#alien" x="315.8" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="320.6" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Feb 22, 2026: 10 contributions</title><use href="#alien" x="332.7" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="337.5" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="337.5" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="337.5" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Feb 25, 2026: 2 contributions</title><use href="#alien" x="332.7" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="337.5" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="337.5" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="337.5" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Feb 28, 2026: 24 contributions</title><use href="#alien" x="331.5" y="206.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<circle cx="337.5" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="354.4" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="354.4" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="354.4" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
@@ -272,11 +272,11 @@
 <circle cx="354.4" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <g><title>Mar 07, 2026: 1 contribution</title><use href="#alien" x="349.6" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="371.3" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Mar 09, 2026: 20 contributions</title><use href="#alien" x="366.5" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g class="bob" style="animation-delay:0.51s"><title>Mar 09, 2026: 20 contributions</title><circle cx="371.3" cy="117.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="363.1" y="108.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
 <circle cx="371.3" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Mar 11, 2026: 40 contributions</title><use href="#alien" x="365.3" y="149.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<g class="bob" style="animation-delay:3.32s"><title>Mar 11, 2026: 40 contributions</title><circle cx="371.3" cy="155.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="363.1" y="146.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
 <circle cx="371.3" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Mar 13, 2026: 14 contributions</title><use href="#alien" x="366.5" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g class="pulse" style="animation-delay:0.72s"><title>Mar 13, 2026: 14 contributions</title><use href="#alien" x="364.2" y="185.9" width="14.2" height="14.2" fill="#9be0b4"/></g>
 <g><title>Mar 14, 2026: 1 contribution</title><use href="#alien" x="366.5" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="388.2" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="388.2" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
@@ -288,19 +288,19 @@
 <circle cx="405.1" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="405.1" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="405.1" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Mar 25, 2026: 6 contributions</title><use href="#alien" x="400.3" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Mar 25, 2026: 6 contributions</title><use href="#alien" x="399.1" y="149.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
 <circle cx="405.1" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="405.1" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="405.1" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Mar 29, 2026: 12 contributions</title><use href="#alien" x="417.2" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g class="pulse" style="animation-delay:2.37s"><title>Mar 29, 2026: 12 contributions</title><use href="#alien" x="414.9" y="90.9" width="14.2" height="14.2" fill="#9be0b4"/></g>
 <circle cx="422.0" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <g><title>Mar 31, 2026: 2 contributions</title><use href="#alien" x="417.2" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Apr 01, 2026: 25 contributions</title><use href="#alien" x="416.0" y="149.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
-<g><title>Apr 02, 2026: 1 contribution</title><use href="#alien" x="417.2" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Apr 01, 2026: 10 contributions</title><use href="#alien" x="416.0" y="149.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<circle cx="422.0" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <g><title>Apr 03, 2026: 1 contribution</title><use href="#alien" x="417.2" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Apr 04, 2026: 9 contributions</title><use href="#alien" x="417.2" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="422.0" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="438.9" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Apr 06, 2026: 1 contribution</title><use href="#alien" x="434.1" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="438.9" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="438.9" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="438.9" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="438.9" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
@@ -313,9 +313,9 @@
 <circle cx="455.8" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="455.8" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <g><title>Apr 18, 2026: 2 contributions</title><use href="#alien" x="451.0" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Apr 19, 2026: 11 contributions</title><use href="#alien" x="467.9" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g class="pulse" style="animation-delay:0.72s"><title>Apr 19, 2026: 11 contributions</title><use href="#alien" x="465.6" y="90.9" width="14.2" height="14.2" fill="#9be0b4"/></g>
 <circle cx="472.7" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Apr 21, 2026: 7 contributions</title><use href="#alien" x="467.9" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Apr 21, 2026: 7 contributions</title><use href="#alien" x="466.7" y="130.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
 <circle cx="472.7" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="472.7" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="472.7" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
@@ -328,13 +328,13 @@
 <circle cx="489.6" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="489.6" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="506.5" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>May 04, 2026: 4 contributions</title><use href="#alien" x="501.7" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="506.5" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="506.5" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="506.5" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="506.5" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="506.5" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="506.5" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>May 10, 2026: 1 contribution</title><use href="#alien" x="518.6" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="523.4" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="523.4" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="523.4" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="523.4" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
@@ -344,19 +344,19 @@
 <circle cx="540.3" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="540.3" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="540.3" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>May 20, 2026: 12 contributions</title><use href="#alien" x="535.5" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g class="pulse" style="animation-delay:1.52s"><title>May 20, 2026: 12 contributions</title><use href="#alien" x="533.2" y="147.9" width="14.2" height="14.2" fill="#9be0b4"/></g>
 <g><title>May 21, 2026: 4 contributions</title><use href="#alien" x="535.5" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <g><title>May 22, 2026: 3 contributions</title><use href="#alien" x="535.5" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="540.3" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="557.2" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="557.2" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <g><title>May 26, 2026: 1 contribution</title><use href="#alien" x="552.4" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>May 27, 2026: 11 contributions</title><use href="#alien" x="552.4" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g class="pulse" style="animation-delay:2.35s"><title>May 27, 2026: 11 contributions</title><use href="#alien" x="550.1" y="147.9" width="14.2" height="14.2" fill="#9be0b4"/></g>
 <circle cx="557.2" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>May 29, 2026: 2 contributions</title><use href="#alien" x="552.4" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>May 30, 2026: 2 contributions</title><use href="#alien" x="552.4" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>May 29, 2026: 1 contribution</title><use href="#alien" x="552.4" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="557.2" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="574.1" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Jun 01, 2026: 6 contributions</title><use href="#alien" x="569.3" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Jun 01, 2026: 6 contributions</title><use href="#alien" x="568.1" y="111.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
 <circle cx="574.1" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="574.1" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="574.1" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
@@ -369,9 +369,9 @@
 <g><title>Jun 11, 2026: 1 contribution</title><use href="#alien" x="586.2" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <g><title>Jun 12, 2026: 4 contributions</title><use href="#alien" x="586.2" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="591.0" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Jun 14, 2026: 22 contributions</title><use href="#alien" x="603.1" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Jun 14, 2026: 1 contribution</title><use href="#alien" x="603.1" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="607.9" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Jun 16, 2026: 23 contributions</title><use href="#alien" x="601.9" y="130.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<g class="bob" style="animation-delay:1.75s"><title>Jun 16, 2026: 20 contributions</title><circle cx="607.9" cy="136.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="599.7" y="127.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
 <circle cx="607.9" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <g><title>Jun 18, 2026: 5 contributions</title><use href="#alien" x="603.1" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <g><title>Jun 19, 2026: 1 contribution</title><use href="#alien" x="603.1" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
@@ -379,20 +379,20 @@
 <circle cx="624.8" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="624.8" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="624.8" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Jun 24, 2026: 17 contributions</title><use href="#alien" x="620.0" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="624.8" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="624.8" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="624.8" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Jun 27, 2026: 9 contributions</title><use href="#alien" x="620.0" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jun 28, 2026: 20 contributions</title><use href="#alien" x="636.9" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="624.8" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="641.7" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="641.7" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="641.7" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="641.7" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="641.7" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Jul 03, 2026: 1 contribution</title><use href="#alien" x="636.9" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="641.7" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="641.7" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="658.6" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="658.6" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Jul 07, 2026: 11 contributions</title><use href="#alien" x="653.8" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Jul 07, 2026: 1 contribution</title><use href="#alien" x="653.8" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="658.6" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="658.6" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="658.6" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
@@ -400,9 +400,9 @@
 <circle cx="675.5" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="675.5" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="675.5" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Jul 15, 2026: 3 contributions</title><use href="#alien" x="670.7" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jul 16, 2026: 1 contribution</title><use href="#alien" x="670.7" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Jul 17, 2026: 4 contributions</title><use href="#alien" x="670.7" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="675.5" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="675.5" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="675.5" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="675.5" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="692.4" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="692.4" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
@@ -419,42 +419,42 @@
 <circle cx="709.3" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="709.3" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <g><title>Aug 02, 2026: 3 contributions</title><use href="#alien" x="721.4" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Aug 03, 2026: 1 contribution</title><use href="#alien" x="721.4" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="726.2" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="726.2" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="726.2" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Aug 06, 2026: 37 contributions</title><use href="#alien" x="720.2" y="168.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<g class="pulse" style="animation-delay:0.65s"><title>Aug 06, 2026: 15 contributions</title><use href="#alien" x="719.1" y="166.9" width="14.2" height="14.2" fill="#9be0b4"/></g>
 <g><title>Aug 07, 2026: 1 contribution</title><use href="#alien" x="721.4" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <g><title>Aug 08, 2026: 1 contribution</title><use href="#alien" x="721.4" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="743.1" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Aug 10, 2026: 4 contributions</title><use href="#alien" x="738.3" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Aug 11, 2026: 28 contributions</title><use href="#alien" x="737.1" y="130.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
-<g class="bob" style="animation-delay:2.08s"><title>Aug 12, 2026: 130 contributions</title><circle cx="743.1" cy="155.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="734.9" y="146.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
-<g><title>Aug 13, 2026: 30 contributions</title><use href="#alien" x="737.1" y="168.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<circle cx="743.1" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<g><title>Aug 11, 2026: 9 contributions</title><use href="#alien" x="737.1" y="130.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<circle cx="743.1" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<g class="pulse" style="animation-delay:0.35s"><title>Aug 13, 2026: 15 contributions</title><use href="#alien" x="736.0" y="166.9" width="14.2" height="14.2" fill="#9be0b4"/></g>
 <g><title>Aug 14, 2026: 1 contribution</title><use href="#alien" x="738.3" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="743.1" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="760.0" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g class="bob" style="animation-delay:3.54s"><title>Aug 17, 2026: 87 contributions</title><circle cx="760.0" cy="117.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="751.8" y="108.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
-<g><title>Aug 18, 2026: 16 contributions</title><use href="#alien" x="755.2" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g class="bob" style="animation-delay:1.99s"><title>Aug 19, 2026: 91 contributions</title><circle cx="760.0" cy="155.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="751.8" y="146.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
-<g><title>Aug 20, 2026: 12 contributions</title><use href="#alien" x="755.2" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Aug 21, 2026: 12 contributions</title><use href="#alien" x="755.2" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Aug 22, 2026: 33 contributions</title><use href="#alien" x="754.0" y="206.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<circle cx="760.0" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="760.0" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="760.0" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="760.0" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="760.0" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="760.0" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="776.9" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="776.9" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Aug 25, 2026: 13 contributions</title><use href="#alien" x="772.1" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Aug 26, 2026: 34 contributions</title><use href="#alien" x="770.9" y="149.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
-<g><title>Aug 27, 2026: 28 contributions</title><use href="#alien" x="770.9" y="168.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
-<g class="bob" style="animation-delay:0.38s"><title>Aug 28, 2026: 119 contributions</title><circle cx="776.9" cy="193.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="768.7" y="184.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
-<g class="bob" style="animation-delay:2.80s"><title>Aug 29, 2026: 90 contributions</title><circle cx="776.9" cy="212.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="768.7" y="203.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
-<g><title>Aug 30, 2026: 30 contributions</title><use href="#alien" x="787.8" y="92.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<g><title>Aug 25, 2026: 2 contributions</title><use href="#alien" x="772.1" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g class="bob" style="animation-delay:2.03s"><title>Aug 26, 2026: 30 contributions</title><circle cx="776.9" cy="155.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="768.7" y="146.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
+<g><title>Aug 27, 2026: 9 contributions</title><use href="#alien" x="770.9" y="168.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<g><title>Aug 28, 2026: 4 contributions</title><use href="#alien" x="772.1" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="776.9" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="793.8" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="793.8" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="793.8" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Sep 02, 2026: 1 contribution</title><use href="#alien" x="789.0" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="793.8" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="793.8" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="793.8" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Sep 05, 2026: 2 contributions</title><use href="#alien" x="789.0" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g class="bob" style="animation-delay:3.55s"><title>Sep 06, 2026: 279 contributions</title><circle cx="810.7" cy="98.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="802.5" y="89.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
-<g><title>Sep 07, 2026: 1 contribution</title><use href="#alien" x="805.9" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Sep 05, 2026: 1 contribution</title><use href="#alien" x="789.0" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g class="bob" style="animation-delay:0.94s"><title>Sep 06, 2026: 149 contributions</title><circle cx="810.7" cy="98.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="802.5" y="89.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
+<circle cx="810.7" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="810.7" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="810.7" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="810.7" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
@@ -463,66 +463,66 @@
 <circle cx="827.6" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="827.6" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="827.6" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Sep 16, 2026: 45 contributions</title><use href="#alien" x="821.6" y="149.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
-<g><title>Sep 17, 2026: 30 contributions</title><use href="#alien" x="821.6" y="168.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
-<g><title>Sep 18, 2026: 12 contributions</title><use href="#alien" x="822.8" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Sep 19, 2026: 7 contributions</title><use href="#alien" x="822.8" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Sep 20, 2026: 1 contribution</title><use href="#alien" x="839.7" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Sep 21, 2026: 3 contributions</title><use href="#alien" x="839.7" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Sep 22, 2026: 6 contributions</title><use href="#alien" x="839.7" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="827.6" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="827.6" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="827.6" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="827.6" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="844.5" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="844.5" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="844.5" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="844.5" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g class="bob" style="animation-delay:1.96s"><title>Sep 24, 2026: 127 contributions</title><circle cx="844.5" cy="174.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="836.3" y="165.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
-<g><title>Sep 25, 2026: 4 contributions</title><use href="#alien" x="839.7" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g class="bob" style="animation-delay:2.50s"><title>Sep 24, 2026: 126 contributions</title><circle cx="844.5" cy="174.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="836.3" y="165.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
+<g><title>Sep 25, 2026: 1 contribution</title><use href="#alien" x="839.7" y="188.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="844.5" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="861.4" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Sep 28, 2026: 27 contributions</title><use href="#alien" x="855.4" y="111.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
-<g><title>Sep 29, 2026: 5 contributions</title><use href="#alien" x="856.6" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Sep 30, 2026: 19 contributions</title><use href="#alien" x="856.6" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Oct 01, 2026: 1 contribution</title><use href="#alien" x="856.6" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g class="bob" style="animation-delay:0.15s"><title>Oct 02, 2026: 578 contributions</title><circle cx="861.4" cy="193.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="853.2" y="184.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
+<circle cx="861.4" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="861.4" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="861.4" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="861.4" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="861.4" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="861.4" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g class="bob" style="animation-delay:2.39s"><title>Oct 04, 2026: 130 contributions</title><circle cx="878.3" cy="98.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="870.1" y="89.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
-<g><title>Oct 05, 2026: 9 contributions</title><use href="#alien" x="873.5" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Oct 06, 2026: 8 contributions</title><use href="#alien" x="873.5" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Oct 07, 2026: 18 contributions</title><use href="#alien" x="873.5" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Oct 08, 2026: 21 contributions</title><use href="#alien" x="873.5" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g class="bob" style="animation-delay:1.63s"><title>Oct 09, 2026: 138 contributions</title><circle cx="878.3" cy="193.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="870.1" y="184.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
+<g class="pulse" style="animation-delay:2.22s"><title>Oct 04, 2026: 15 contributions</title><use href="#alien" x="871.2" y="90.9" width="14.2" height="14.2" fill="#9be0b4"/></g>
+<g><title>Oct 05, 2026: 6 contributions</title><use href="#alien" x="872.3" y="111.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<g><title>Oct 06, 2026: 8 contributions</title><use href="#alien" x="872.3" y="130.0" width="12.0" height="12.0" fill="#5f9c7c"/></g>
+<circle cx="878.3" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<g class="bob" style="animation-delay:2.42s"><title>Oct 08, 2026: 19 contributions</title><circle cx="878.3" cy="174.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="870.1" y="165.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
+<g class="bob" style="animation-delay:2.14s"><title>Oct 09, 2026: 135 contributions</title><circle cx="878.3" cy="193.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="870.1" y="184.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
 <circle cx="878.3" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="895.2" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g class="bob" style="animation-delay:2.94s"><title>Oct 12, 2026: 81 contributions</title><circle cx="895.2" cy="117.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="887.0" y="108.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
+<circle cx="895.2" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="895.2" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Oct 14, 2026: 9 contributions</title><use href="#alien" x="890.4" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<g><title>Oct 14, 2026: 2 contributions</title><use href="#alien" x="890.4" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="895.2" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="895.2" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <g><title>Oct 17, 2026: 1 contribution</title><use href="#alien" x="890.4" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
 <circle cx="912.1" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Oct 19, 2026: 1 contribution</title><use href="#alien" x="907.3" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Oct 20, 2026: 1 contribution</title><use href="#alien" x="907.3" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Oct 21, 2026: 2 contributions</title><use href="#alien" x="907.3" y="150.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="912.1" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="912.1" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="912.1" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="912.1" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="912.1" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="912.1" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Oct 25, 2026: 9 contributions</title><use href="#alien" x="924.2" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Oct 26, 2026: 13 contributions</title><use href="#alien" x="924.2" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Oct 27, 2026: 13 contributions</title><use href="#alien" x="924.2" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g class="bob" style="animation-delay:2.49s"><title>Oct 28, 2026: 145 contributions</title><circle cx="929.0" cy="155.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="920.8" y="146.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
+<circle cx="929.0" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="929.0" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="929.0" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="929.0" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="929.0" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="929.0" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="929.0" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Nov 01, 2026: 3 contributions</title><use href="#alien" x="941.1" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="945.9" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="945.9" cy="117.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="945.9" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="945.9" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="945.9" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="945.9" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Nov 07, 2026: 2 contributions</title><use href="#alien" x="941.1" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g><title>Nov 08, 2026: 2 contributions</title><use href="#alien" x="958.0" y="93.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g class="bob" style="animation-delay:1.16s"><title>Nov 09, 2026: 229 contributions</title><circle cx="962.8" cy="117.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="954.6" y="108.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
-<g><title>Nov 10, 2026: 10 contributions</title><use href="#alien" x="958.0" y="131.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="945.9" cy="212.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="962.8" cy="98.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<g><title>Nov 09, 2026: 3 contributions</title><use href="#alien" x="958.0" y="112.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="962.8" cy="136.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
 <circle cx="962.8" cy="155.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
-<g><title>Nov 12, 2026: 1 contribution</title><use href="#alien" x="958.0" y="169.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
-<g class="bob" style="animation-delay:3.13s"><title>Nov 13, 2026: 1174 contributions</title><circle cx="962.8" cy="193.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="954.6" y="184.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
-<g><title>Nov 14, 2026: 18 contributions</title><use href="#alien" x="958.0" y="207.2" width="9.6" height="9.6" fill="#3d5a4c"/></g>
+<circle cx="962.8" cy="174.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<circle cx="962.8" cy="193.0" r="1.2" fill="#7d8597" fill-opacity=".28"/>
+<g class="bob" style="animation-delay:1.25s"><title>Nov 14, 2026: 19 contributions</title><circle cx="962.8" cy="212.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="954.6" y="203.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
 <text x="151.6" y="242" class="mono" font-size="11" fill-opacity=".8">DEC</text>
 <text x="219.2" y="242" class="mono" font-size="11" fill-opacity=".8">JAN</text>
 <text x="286.8" y="242" class="mono" font-size="11" fill-opacity=".8">FEB</text>
@@ -541,6 +541,6 @@
 <g class="pulse" style="animation-delay:1.20s"><use href="#alien" x="881.7" y="266.9" width="14.2" height="14.2" fill="#9be0b4"/></g>
 <g class="bob" style="animation-delay:1.60s"><circle cx="908.8" cy="274.0" r="15.6" fill="url(#ahalo)"/><use href="#alien" x="900.6" y="265.8" width="16.4" height="16.4" fill="#d4ffe3"/></g>
 <text x="924.8" y="278" class="mono" font-size="10" fill-opacity=".6">MORE</text>
-<text x="74" y="279" class="lbl" font-size="14" fill-opacity=".75">5,135 contributions in the last year · busiest day Nov 13 with 1,174</text>
+<text x="74" y="279" class="lbl" font-size="14" fill-opacity=".75">1,064 contributions in the last year · busiest day Sep 06 with 149</text>
 <rect width="1000" height="330" fill="url(#fade)"/>
 </svg>
