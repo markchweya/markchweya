@@ -76,6 +76,8 @@
     .hint { display: none; }
     .label b { font-size: 12.5px; } .label span { display: none; }
   }
+  body.capture header, body.capture nav#list, body.capture .hint { display: none; }
+  body.capture *, body.capture #card { transition: none !important; }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 </style>
 </head>
@@ -131,6 +133,9 @@ async function loadFacts() {
 
 // ------------------------------------------------------------------ scene
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+// ?capture renders the README "auto-tour" frame by frame: no chrome, no pointer, fixed time steps
+const CAPTURE = new URLSearchParams(location.search).has("capture");
+if (CAPTURE) document.body.classList.add("capture");
 const stage = document.getElementById("stage");
 const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -146,7 +151,7 @@ const CAM_BASE = new THREE.Vector3(0, 7.2, 19.5);
 camera.position.copy(CAM_BASE);
 camera.lookAt(0, -0.4, 0);
 
-scene.add(new THREE.AmbientLight("#5c6577", 0.7));
+scene.add(new THREE.AmbientLight("#5c6577", 0.95));
 const sunLight = new THREE.PointLight("#ffc27a", 240, 0, 2);
 scene.add(sunLight);
 
@@ -173,14 +178,15 @@ const noiseGLSL = `
   float fbm(vec3 p){ float a=.5, s=0.; for(int i=0;i<5;i++){ s+=a*noise(p); p*=2.03; a*=.5; } return s; }`;
 const SUN_R = 1.5;
 const sunMat = new THREE.ShaderMaterial({
-  uniforms: { uTime: { value: 0 } },
+  // noise offsets (set per frame): a drift in the live page, a closed circle in capture mode so it loops
+  uniforms: { uOff: { value: new THREE.Vector3() }, uOff2: { value: new THREE.Vector3() } },
   vertexShader: `varying vec3 vPos; varying vec3 vN; varying vec3 vView;
     void main(){ vPos = position; vN = normalize(normalMatrix*normal);
       vec4 mv = modelViewMatrix*vec4(position,1.0); vView = normalize(-mv.xyz); gl_Position = projectionMatrix*mv; }`,
-  fragmentShader: `uniform float uTime; varying vec3 vPos; varying vec3 vN; varying vec3 vView; ${noiseGLSL}
+  fragmentShader: `uniform vec3 uOff; uniform vec3 uOff2; varying vec3 vPos; varying vec3 vN; varying vec3 vView; ${noiseGLSL}
     void main(){
-      float g = fbm(vPos*2.4 + vec3(0.0, uTime*0.05, uTime*0.03)) * .5 + .5;
-      g = smoothstep(.25, .8, g + .12*fbm(vPos*7.0 - uTime*.08));
+      float g = fbm(vPos*2.4 + uOff) * .5 + .5;
+      g = smoothstep(.25, .8, g + .12*fbm(vPos*7.0 + uOff2));
       vec3 ember = vec3(.80,.36,.12), amber = vec3(1.0,.72,.40), gold = vec3(1.0,.90,.74);
       vec3 c = mix(ember, amber, smoothstep(.0,.45,g)); c = mix(c, gold, smoothstep(.4,.9,g));
       float limb = pow(max(dot(vN, vView), 0.0), .5);
@@ -306,7 +312,7 @@ function fillCard(p) {
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
   card.append(el("div", "kicker", `Planet ${planets.indexOf(p) + 1} of ${planets.length} · public repository`));
   card.append(el("h2", null, f.name));
-  card.append(f.description ? el("p", null, f.description) : el("p", "none", "No description on GitHub yet."));
+  card.append(f.description ? el("p", null, f.description) : el("p", "none", "Explore the code on GitHub."));
   if (f.topics && f.topics.length) {
     const t = el("div", "topics"); f.topics.slice(0, 5).forEach((x) => t.append(el("span", null, x))); card.append(t);
   }
@@ -360,7 +366,7 @@ function resize() {
   renderer.setSize(w, h);
   camera.aspect = w / h;
   // pull back on narrow screens so the outer orbit stays in frame
-  camera.fov = w / h < 1 ? 38 + (1 - w / h) * 34 : 38;
+  camera.fov = (w / h < 1 ? 38 + (1 - w / h) * 34 : 38) + (CAPTURE ? 3 : 0);
   camera.updateProjectionMatrix();
 }
 addEventListener("resize", resize);
@@ -370,13 +376,30 @@ const clock = new THREE.Clock();
 const tmp = new THREE.Vector3();
 const lerp = (a, b, t) => a + (b - a) * t;
 
-function frame() {
-  const dt = Math.min(clock.getDelta(), 0.05), t = clock.elapsedTime;
-  const motion = reduceMotion ? 0.25 : 1;
-  sunMat.uniforms.uTime.value = t * motion;
-  sun.rotation.y += dt * 0.05 * motion;
+// tour timeline for capture mode: each planet gets a slot; it is featured for most of it
+const TOUR_SLOT = 7, TOUR_ON = [0.9, 6.2];
+const tourFocus = (t) => {
+  const s = t % (TOUR_SLOT * planets.length), k = Math.floor(s / TOUR_SLOT), u = s - k * TOUR_SLOT;
+  return u > TOUR_ON[0] && u < TOUR_ON[1] ? k : null;
+};
 
-  if (focusSource !== "list" && focusSource !== "touch" && !cardHover) {
+function update(dt, t, loopPhase = null) {
+  const motion = reduceMotion && !CAPTURE ? 0.25 : 1;
+  if (loopPhase === null) {
+    sunMat.uniforms.uOff.value.set(0, t * 0.05 * motion, t * 0.03 * motion);
+    sunMat.uniforms.uOff2.value.setScalar(-t * 0.08 * motion);
+    sun.rotation.y += dt * 0.05 * motion;
+  } else {                                       // closed loops, so the capture repeats seamlessly
+    const a = loopPhase * Math.PI * 2;
+    sunMat.uniforms.uOff.value.set(Math.cos(a) * .45, Math.sin(a) * .45, 0);
+    sunMat.uniforms.uOff2.value.set(Math.sin(a) * .3, 0, Math.cos(a) * .3);
+    sun.rotation.y = a;
+  }
+
+  if (CAPTURE) {
+    const k = tourFocus(t);
+    if (k === null ? focused : focused !== planets[k]) { if (k === null) setFocus(null, "force"); else setFocus(k, "tour"); }
+  } else if (focusSource !== "list" && focusSource !== "touch" && !cardHover) {
     const k = pick();
     if (k !== null) { lostAt = null; setFocus(k, "pointer"); }
     else if (focusSource === "pointer") {
@@ -387,17 +410,21 @@ function frame() {
   }
 
   const ease = 1 - Math.exp(-dt * 5);
+  const slow = CAPTURE ? 0.3 : 0.16;
   for (const p of planets) {
     const isHot = p === focused;
-    // hovered world parks on its orbit and turns on its axis; the rest keep going, slowly
-    p.orbitMul = lerp(p.orbitMul, focused ? (isHot ? 0 : 0.16) : 1, ease);
+    // featured world parks on its orbit and turns on its axis; the rest keep going, slowly
+    p.orbitMul = lerp(p.orbitMul, focused ? (isHot ? 0 : slow) : 1, ease);
     p.spin = lerp(p.spin, isHot ? 1.6 : 0.25, ease);
     p.glow = lerp(p.glow, isHot ? 1 : 0, ease);
-    p.angle += p.speed * p.orbitMul * dt * motion;
+    p.dim = lerp(p.dim ?? 0, focused && !isHot ? 1 : 0, ease);
+    p.angle += p.speed * (p.speedScale ?? 1) * p.orbitMul * dt * motion;
+    p.turn = (p.turn ?? 0) + p.spin * (p.spinScale ?? 1) * dt * motion;
     p.pivot.position.set(Math.cos(p.angle) * p.rad, 0, Math.sin(p.angle) * p.rad);
-    p.body.rotation.y += p.spin * dt * motion;
+    p.body.rotation.y = p.turn;
     p.halo.material.opacity = p.glow;
     p.body.scale.setScalar(1 + 0.18 * p.glow);
+    if (CAPTURE) p.label.style.opacity = String((1 - p.glow) * (1 - .65 * p.dim));
 
     p.body.getWorldPosition(tmp);
     const r = p.body.geometry.parameters.radius * (1 + 0.18 * p.glow);
@@ -405,9 +432,13 @@ function frame() {
     tmp.project(camera);
     const x = (tmp.x * .5 + .5) * innerWidth, y = (-tmp.y * .5 + .5) * innerHeight;
     p.label.style.transform = `translate(${x.toFixed(1)}px, ${(y + 6).toFixed(1)}px) translate(-50%, 0)`;
-    p.screen = [x, y];
   }
 
+  if (CAPTURE) {
+    cardAlpha = lerp(cardAlpha, focused ? 1 : 0, 1 - Math.exp(-dt * 7));
+    card.style.opacity = String(cardAlpha);
+    card.style.transform = `translateY(${(1 - cardAlpha) * 6}px)`;
+  }
   if (focused) {
     // keep the card beside its planet, flipped to whichever side has room
     focused.body.getWorldPosition(tmp); tmp.project(camera);
@@ -415,21 +446,54 @@ function frame() {
     const cw = card.offsetWidth, ch = card.offsetHeight, gap = 46;
     let cx = px + gap; if (cx + cw > innerWidth - 16) cx = px - gap - cw;
     cx = Math.max(16, Math.min(cx, innerWidth - cw - 16));
-    const cy = Math.max(84, Math.min(py - ch / 2, innerHeight - ch - 70));
+    const top = CAPTURE ? 104 : 84, bottom = CAPTURE ? 90 : 70;
+    const cy = Math.max(top, Math.min(py - ch / 2, innerHeight - ch - bottom));
     card.style.left = `${cx}px`; card.style.top = `${cy}px`;
   }
 
   // gentle parallax from the pointer, never when reduced motion is requested
-  if (!reduceMotion && pointer.x > -2) {
+  if (!CAPTURE && !reduceMotion && pointer.x > -2) {
     camera.position.x = lerp(camera.position.x, CAM_BASE.x + pointer.x * 0.8, ease * .3);
     camera.position.y = lerp(camera.position.y, CAM_BASE.y + pointer.y * 0.5, ease * .3);
     camera.lookAt(0, -0.4, 0);
   }
+}
+let cardAlpha = 0;
+
+function frame() {
+  const dt = Math.min(clock.getDelta(), 0.05);
+  update(dt, clock.elapsedTime);
   renderer.render(scene, camera);
   requestAnimationFrame(frame);
 }
 
-loadFacts().then((facts) => { buildPlanets(facts); requestAnimationFrame(frame); });
+// Capture API (used by tools/capture_tour.js). One tour = every planet featured once. Speeds are
+// rescaled so each planet makes whole turns per tour, which makes the recorded loop seamless.
+window.__tour = {
+  prepare(fps) {
+    const T = TOUR_SLOT * planets.length, n = Math.round(T * fps), dt = 1 / fps;
+    const run = (measure) => {
+      const a0 = planets.map((p) => p.angle), s0 = planets.map((p) => p.turn ?? 0);
+      for (let i = 0; i < n; i++) update(dt, i * dt, i / n);
+      return planets.map((p, k) => [p.angle - a0[k], (p.turn ?? 0) - s0[k]]);
+    };
+    run();                                         // settle the easing state
+    const d = run();                               // what one tour adds, at the base speeds
+    planets.forEach((p, k) => {
+      p.speedScale = (2 * Math.PI * Math.max(1, Math.round(d[k][0] / (2 * Math.PI)))) / d[k][0];
+      p.spinScale = (2 * Math.PI * Math.max(1, Math.round(d[k][1] / (2 * Math.PI)))) / d[k][1];
+    });
+    run();
+    this.n = n; this.dt = dt; this.i = 0;
+    return n;
+  },
+  step() { update(this.dt, this.i * this.dt, this.i / this.n); renderer.render(scene, camera); this.i++; },
+};
+
+loadFacts().then((facts) => {
+  buildPlanets(facts);
+  if (CAPTURE) { window.__ready = true; renderer.render(scene, camera); } else requestAnimationFrame(frame);
+});
 </script>
 </body>
 </html>
