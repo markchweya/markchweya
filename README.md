@@ -13,6 +13,6 @@
 
 <a href="https://github.com/markchweya?tab=repositories"><img src="assets/space/fleet.svg" width="100%" alt="Featured repositories as planets, with live star counts and languages" /></a>
 
-<sub><a href="mailto:chweyamark@gmail.com">chweyamark@gmail.com</a> &nbsp;·&nbsp; Building useful AI products and modern digital experiences</sub>
+<sub>Building useful AI products and modern digital experiences</sub>
 
 </div>
