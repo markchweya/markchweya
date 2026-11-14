@@ -1,6 +1,7 @@
 <div align="center">
 
-<img src="assets/homescreen/repo-constellation.webp" width="100%" alt="Mark Chweya, Software Developer: an animated 3D solar system where my public repositories orbit a sun" />
+<img src="assets/homescreen/journey-moon.webp" width="100%" alt="Mark Chweya, Software Developer: a cratered moon beside my name, high above a solar system" />
+<img src="assets/homescreen/journey-sun.webp" width="100%" alt="Scrolling down reaches the sun, where my public repositories orbit as planets" />
 
 <img src="assets/space/telemetry.svg" width="100%" alt="Contribution telemetry: contributions in the last year, current and longest streak, all-time contributions" />
 
