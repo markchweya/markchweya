@@ -26,8 +26,14 @@ jobs:
       - uses: actions/configure-pages@v5
         with:
           enablement: true
+      # site root stays the car game; the interactive repository system lives at /system/
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          cp -r game/car/. _site/
+          cp -r site/. _site/
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: game/car
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4

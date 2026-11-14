@@ -51,6 +51,11 @@ class Repo:
     stars: int
     language: str | None
     color: str | None
+    description: str | None = None
+    url: str | None = None
+    homepage: str | None = None
+    updated: str | None = None
+    topics: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -90,7 +95,8 @@ query($login:String!){ user(login:$login){
     weeks{ contributionDays{ date contributionCount } } } }
   repositories(first:100, ownerAffiliations:OWNER, isFork:false, privacy:PUBLIC,
                orderBy:{field:STARGAZERS, direction:DESC}){
-    nodes{ name stargazerCount primaryLanguage{ name color }
+    nodes{ name stargazerCount description url homepageUrl pushedAt primaryLanguage{ name color }
+           repositoryTopics(first:6){ nodes{ topic{ name } } }
            languages(first:10, orderBy:{field:SIZE, direction:DESC}){ edges{ size node{ name color } } } } }
 }}"""
 
@@ -116,7 +122,10 @@ def fetch(login: str, token: str) -> Profile:
     repos, langs = [], {}
     for n in u["repositories"]["nodes"]:
         pl = n["primaryLanguage"] or {}
-        repos.append(Repo(n["name"], n["stargazerCount"], pl.get("name"), pl.get("color")))
+        repos.append(Repo(n["name"], n["stargazerCount"], pl.get("name"), pl.get("color"),
+                          n.get("description"), n.get("url"), n.get("homepageUrl") or None,
+                          (n.get("pushedAt") or "")[:10] or None,
+                          [t["topic"]["name"] for t in (n.get("repositoryTopics") or {}).get("nodes", [])]))
         for e in n["languages"]["edges"]:
             name, color = e["node"]["name"], e["node"]["color"] or SLATE
             prev = langs.get(name, (color, 0))
@@ -281,19 +290,29 @@ def alien_defs() -> str:
   <radialGradient id="ahalo" cx="50%" cy="50%" r="50%">
     <stop offset="0%" stop-color="{ALIEN_GLOW}" stop-opacity=".45"/><stop offset="100%" stop-color="{ALIEN_GLOW}" stop-opacity="0"/>
   </radialGradient>
-  <radialGradient id="beam" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="{ALIEN_GLOW}" stop-opacity=".11"/>
-    <stop offset="100%" stop-color="{ALIEN_GLOW}" stop-opacity="0"/>
+  <!-- scout ship: dark tinted-mirror hull, smoked glass canopy, soft searchlight -->
+  <linearGradient id="hull" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0%" stop-color="#3a4452"/><stop offset="38%" stop-color="#aab4c3"/>
+    <stop offset="46%" stop-color="#e6ebf2"/><stop offset="58%" stop-color="#4a5566"/>
+    <stop offset="100%" stop-color="#0f141c"/>
+  </linearGradient>
+  <linearGradient id="hullSheen" x1="0" x2="1" y1="0" y2="0">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/><stop offset="45%" stop-color="#ffffff" stop-opacity=".35"/>
+    <stop offset="55%" stop-color="#ffffff" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="canopy" cx="40%" cy="30%" r="80%">
+    <stop offset="0%" stop-color="#6f8796"/><stop offset="45%" stop-color="#22303b"/><stop offset="100%" stop-color="#0b1016"/>
   </radialGradient>
+  <linearGradient id="searchlight" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0%" stop-color="#dfeeff" stop-opacity=".55"/><stop offset="100%" stop-color="#dfeeff" stop-opacity="0"/>
+  </linearGradient>
 </defs>
 <style>
   .bob{{animation:bob 3.2s ease-in-out infinite}}
   @keyframes bob{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-1.6px)}}}}
   .pulse{{animation:pl 3.6s ease-in-out infinite}}
   @keyframes pl{{0%,100%{{opacity:.75}}50%{{opacity:1}}}}
-  .sweep{{animation:sw 9s linear infinite}}
-  @keyframes sw{{from{{transform:translateX(-140px)}}to{{transform:translateX({W + 140}px)}}}}
-  @media (prefers-reduced-motion: reduce){{.bob,.pulse,.sweep{{animation:none}}}}
+  @media (prefers-reduced-motion: reduce){{.bob,.pulse,.ship,.shipbeam{{animation:none}}}}
 </style>"""
 
 
@@ -318,6 +337,75 @@ def activity_level(n: int, peak: int) -> int:
     return 1 if k <= .25 else 2 if k <= .5 else 3 if k <= .75 else 4
 
 
+def scout_ship(weekly: dict[int, list[int]], x0: float, step_x: float, y0: float, step_y: float,
+               period: float = 44.0) -> str:
+    """A small scout ship drifting behind the grid. It blinks out and reappears somewhere else; over busy
+    weeks it dims its searchlight, over quiet, dark stretches it shines it (softly) on the empty cells.
+
+    The flight plan is derived from the data: it alternates between the quietest and the busiest
+    stretches of the year, so the light visibly fades and brightens as it crosses them.
+    """
+    if not weekly:
+        return ""
+    weeks = sorted(weekly)
+    density = {w: sum(weekly[w]) / (4 * 7) for w in weeks}
+
+    def around(w: int) -> float:            # activity under the ship, smoothed over 5 weeks
+        near = [density.get(w + d, 0.0) for d in range(-2, 3)]
+        return sum(near) / len(near)
+
+    lo, hi = weeks[2], weeks[-3]
+    by_quiet = sorted(range(lo, hi + 1), key=around)
+    quiet = [w for i, w in enumerate(by_quiet) if all(abs(w - q) > 7 for q in by_quiet[:i])][:3]
+    by_busy = sorted(range(lo, hi + 1), key=lambda w: -around(w))
+    busy = [w for i, w in enumerate(by_busy) if all(abs(w - b) > 7 for b in by_busy[:i])][:3]
+    # each visit: appear over one kind of stretch, glide to the other kind, vanish
+    pairs = [(quiet[0], busy[0]), (busy[1 % len(busy)], quiet[1 % len(quiet)]),
+             (quiet[2 % len(quiet)], busy[2 % len(busy)]), (busy[0], quiet[0])]
+    hover_y = (y0 - 6.0, y0 + 2.2 * step_y, y0 + 0.8 * step_y, y0 + 3.0 * step_y)
+    seg = 100.0 / len(pairs)
+    ship_kf, beam_kf = [], []
+
+    def light(w: float) -> float:          # searchlight strength from the activity beneath
+        a = around(round(w))
+        return round(max(0.05, 0.42 - 2.2 * a), 3)
+
+    for i, (wa, wb) in enumerate(pairs):
+        t0 = i * seg
+        xa, xb = x0 + wa * step_x, x0 + wb * step_x
+        ya, yb = hover_y[i % 4] - 18, hover_y[(i + 1) % 4] - 18
+        keys = [(0.0, xa, ya, 0.0, 0.0), (0.10, xa + (xb - xa) * .04, ya, 1.0, light(wa)),
+                (0.22, xa + (xb - xa) * .14, ya + (yb - ya) * .1, 1.0, light(wa)),
+                (0.50, xa + (xb - xa) * .5, (ya + yb) / 2, 1.0, light((wa + wb) / 2)),
+                (0.78, xb, yb, 1.0, light(wb)), (0.86, xb, yb, 1.0, light(wb)),
+                (0.95, xb + 4, yb - 2, 0.0, 0.0), (0.999, xb + 4, yb - 2, 0.0, 0.0)]
+        for f, x, y, op, beam in keys:
+            pct = t0 + f * seg
+            ship_kf.append(f"{pct:.2f}%{{transform:translate({x:.1f}px,{y:.1f}px);opacity:{op}}}")
+            beam_kf.append(f"{pct:.2f}%{{opacity:{beam}}}")
+    return f"""<style>
+  .ship{{animation:shipfly {period}s cubic-bezier(.45,.05,.55,.95) infinite}}
+  @keyframes shipfly{{{''.join(ship_kf)}100%{{transform:translate({x0 + pairs[0][0] * step_x:.1f}px,{hover_y[0] - 18:.1f}px);opacity:0}}}}
+  .shipbeam{{animation:shipbeam {period}s ease-in-out infinite}}
+  @keyframes shipbeam{{{''.join(beam_kf)}100%{{opacity:0}}}}
+  .hover{{animation:hov 2.6s ease-in-out infinite}}
+  @keyframes hov{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-2px)}}}}
+</style>
+<g class="ship" aria-hidden="true">
+  <g class="hover">
+    <path class="shipbeam" d="M -9 6 L 9 6 L 34 118 L -34 118 Z" fill="url(#searchlight)"/>
+    <ellipse cx="0" cy="3" rx="27" ry="6.2" fill="url(#hull)"/>
+    <ellipse cx="0" cy="3" rx="27" ry="6.2" fill="url(#hullSheen)"/>
+    <ellipse cx="0" cy="3" rx="27" ry="6.2" fill="none" stroke="#c9d2de" stroke-opacity=".35" stroke-width=".6"/>
+    <path d="M -11 1.5 C -10 -6.5 10 -6.5 11 1.5 Z" fill="url(#canopy)"/>
+    <path d="M -6 -2.6 C -3 -4.6 2 -4.8 4 -4" stroke="#ffffff" stroke-opacity=".45" stroke-width=".8" fill="none"/>
+    <ellipse cx="0" cy="6.6" rx="7" ry="1.4" fill="#dfeeff" fill-opacity=".35"/>
+    <circle cx="-19" cy="4" r=".9" fill="#ffb347" fill-opacity=".6"/>
+    <circle cx="19" cy="4" r=".9" fill="#7dffb0" fill-opacity=".5"/>
+  </g>
+</g>"""
+
+
 def galaxy(p: Profile) -> str:
     """The last 53 weeks as a fleet of alien heads: bigger and brighter where more happened."""
     h = 330
@@ -332,9 +420,12 @@ def galaxy(p: Profile) -> str:
     x0, step_x, y0, step_y = 84, 16.9, 98, 19
     grid_bottom = y0 + 6 * step_y
     parts = [alien_defs(),
-             f'<text x="{W / 2}" y="44" text-anchor="middle" class="mono" font-size="13">52 WEEKS IN ORBIT</text>',
-             # a faint tractor-beam scan crossing the fleet
-             f'<rect class="sweep" x="0" y="{y0 - 40}" width="140" height="{6 * step_y + 80}" fill="url(#beam)"/>']
+             f'<text x="{W / 2}" y="44" text-anchor="middle" class="mono" font-size="13">52 WEEKS IN ORBIT</text>']
+    weekly: dict[int, list[int]] = {}
+    for d, n in days:
+        wk = ((d - first).days + (first.weekday() + 1) % 7) // 7
+        weekly.setdefault(wk, []).append(activity_level(n, peak))
+    parts.append(scout_ship(weekly, x0, step_x, y0, step_y))
     for i, name in ((1, "MON"), (3, "WED"), (5, "FRI")):
         parts.append(f'<text x="{x0 - 22}" y="{y0 + i * step_y + 4}" text-anchor="end" class="mono" '
                      f'font-size="10" fill-opacity=".55">{name}</text>')
@@ -484,6 +575,14 @@ def belt(p: Profile) -> str:
 
 # --------------------------------------------------------------------------- main
 
+def repo_facts(p: Profile) -> dict:
+    """Public, non-fork repositories with their own GitHub descriptions (never invented)."""
+    return {"login": p.login, "name": p.name, "repos": [
+        {"name": r.name, "description": r.description, "language": r.language, "color": r.color,
+         "stars": r.stars, "url": r.url or f"https://github.com/{p.login}/{r.name}",
+         "homepage": r.homepage, "updated": r.updated, "topics": r.topics} for r in p.repos]}
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--login", default=os.environ.get("PROFILE_LOGIN", "markchweya"))
@@ -511,6 +610,8 @@ def main(argv: list[str] | None = None) -> int:
     }
     for name, svg in panels.items():
         (args.out / name).write_text(svg, encoding="utf-8")
+    # repo facts for the interactive solar system page (site/system), read at runtime
+    (args.out / "repos.json").write_text(json.dumps(repo_facts(profile), indent=1) + "\n", encoding="utf-8")
     cur, best = streaks(profile.days)
     print(f"wrote {len(panels)} panels to {args.out}: {profile.last_year} last year, "
           f"{profile.total_all_time} all-time, streak {cur}/{best}")
