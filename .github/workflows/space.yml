@@ -1,0 +1,50 @@
+name: space profile
+
+# Rebuilds the animated space panels in assets/space/ from live GitHub data.
+on:
+  schedule:
+    - cron: "17 3 * * *"        # daily, so streaks and contribution counts stay current
+  workflow_dispatch:
+  push:
+    paths:
+      - "space/**"
+      - ".github/workflows/space.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: space-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Test the builder
+        run: python3 -m unittest discover space/tests
+
+      - name: Render panels from live data
+        env:
+          # PROFILE_TOKEN (optional, a fine-grained PAT) also counts private contributions;
+          # the default token sees public activity only.
+          GITHUB_TOKEN: ${{ secrets.PROFILE_TOKEN || github.token }}
+        run: python3 space/build.py --login "${{ github.repository_owner }}" --out assets/space
+
+      - name: Commit changed panels
+        run: |
+          git add assets/space
+          if git diff --cached --quiet; then
+            echo "panels unchanged"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "space: refresh profile panels from live data"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
