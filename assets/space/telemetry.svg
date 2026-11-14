@@ -106,7 +106,7 @@
 <circle cx="200" cy="190" r="127.60000000000001" fill="url(#glowS)"/>
 <ellipse cx="200" cy="190" rx="101.5" ry="30.16" fill="none" stroke="#7d8597" stroke-opacity="0.55" stroke-width="1"/><circle r="3.2" fill="#c9ccd3"><animateMotion dur="9s" begin="0s" repeatCount="indefinite" path="M 98.5 190 a 101.5 30.16 0 1 0 203.0 0 a 101.5 30.16 0 1 0 -203.0 0"/></circle>
 <circle cx="200" cy="190" r="58" fill="url(#planetS)"/>
-<text x="200" y="202" text-anchor="middle" class="lbl" font-size="34" font-weight="700" fill="#0d1117" style="fill:#0d1117">5,131</text>
+<text x="200" y="202" text-anchor="middle" class="lbl" font-size="34" font-weight="700" fill="#0d1117" style="fill:#0d1117">5,135</text>
 <text x="200" y="306" text-anchor="middle" class="mono" font-size="13">CONTRIBUTIONS</text>
 <text x="200" y="328" text-anchor="middle" class="lbl" font-size="14" fill-opacity=".7">in the last year</text>
 <circle cx="500" cy="190" r="158.4" fill="url(#glowA)"/>
@@ -120,7 +120,7 @@
 <circle cx="800" cy="190" r="127.60000000000001" fill="url(#glowS)"/>
 <ellipse cx="800" cy="190" rx="101.5" ry="30.16" fill="none" stroke="#7d8597" stroke-opacity="0.55" stroke-width="1"/><circle r="3.2" fill="#c9ccd3"><animateMotion dur="17s" begin="-4s" repeatCount="indefinite" path="M 698.5 190 a 101.5 30.16 0 1 0 203.0 0 a 101.5 30.16 0 1 0 -203.0 0"/></circle>
 <circle cx="800" cy="190" r="58" fill="url(#planetS)"/>
-<text x="800" y="202" text-anchor="middle" class="lbl" font-size="34" font-weight="700" fill="#0d1117" style="fill:#0d1117">5,870</text>
+<text x="800" y="202" text-anchor="middle" class="lbl" font-size="34" font-weight="700" fill="#0d1117" style="fill:#0d1117">5,874</text>
 <text x="800" y="306" text-anchor="middle" class="mono" font-size="13">ALL-TIME</text>
 <text x="800" y="328" text-anchor="middle" class="lbl" font-size="14" fill-opacity=".7">contributions since 2023</text>
 <rect width="1000" height="380" fill="url(#fade)"/>
