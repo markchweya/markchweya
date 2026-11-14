@@ -3,3 +3,4 @@ assets/_preview.html
 .claude/
 game/car/_bake/
 game/car/_shot.html
+__pycache__/

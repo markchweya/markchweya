@@ -73,5 +73,10 @@ class Galaxy(unittest.TestCase):
         p = build.load_fixture(Path(build.HERE, "fixture.json"))
         p.days = cal([4] * 300 + [1200])
         svg = build.galaxy(p)
-        # ordinary days still render as full-size bright stars, not faint specks
-        self.assertIn('r="6.00"', svg)
+        # ordinary days still render as full-size glowing alien heads, not the smallest ones
+        self.assertIn('width="16.4"', svg)
+        self.assertIn('fill="#d4ffe3"', svg)
+
+    def test_activity_levels_follow_quartiles(self):
+        self.assertEqual([build.activity_level(n, 8) for n in (0, 1, 2, 3, 4, 6, 8, 50)],
+                         [0, 1, 1, 2, 2, 3, 4, 4])

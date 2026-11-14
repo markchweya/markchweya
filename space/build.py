@@ -262,44 +262,111 @@ def telemetry(p: Profile) -> str:
     return shell(h, "\n".join(parts), f"Contribution telemetry for {p.name}")
 
 
+# Alien-head activity scale: dim moss for quiet days up to a pale glowing green for the busiest.
+ALIEN = ("#3d5a4c", "#5f9c7c", "#9be0b4", "#d4ffe3")
+ALIEN_GLOW = "#7dffb0"
+ALIEN_SCALE = (.48, .60, .71, .82)   # head size per level, in units of the 20-unit glyph
+
+
+def alien_defs() -> str:
+    """One original alien-head glyph (wide cranium, narrow chin, two dark almond eyes), reused per day."""
+    return f"""<defs>
+  <symbol id="alien" viewBox="-10 -10 20 20" overflow="visible">
+    <path d="M0 -9.2 C6.4 -9.2 9.4 -5.4 9.4 -1.2 C9.4 4.2 3.6 9.2 0 9.2 C-3.6 9.2 -9.4 4.2 -9.4 -1.2 C-9.4 -5.4 -6.4 -9.2 0 -9.2Z"/>
+    <ellipse cx="-3.9" cy="0.4" rx="3.3" ry="1.8" transform="rotate(28 -3.9 0.4)" fill="{BG}"/>
+    <ellipse cx="3.9" cy="0.4" rx="3.3" ry="1.8" transform="rotate(-28 3.9 0.4)" fill="{BG}"/>
+    <circle cx="-4.6" cy="-0.2" r=".7" fill="{LIGHT}" fill-opacity=".8"/>
+    <circle cx="3.2" cy="-0.2" r=".7" fill="{LIGHT}" fill-opacity=".8"/>
+  </symbol>
+  <radialGradient id="ahalo" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="{ALIEN_GLOW}" stop-opacity=".45"/><stop offset="100%" stop-color="{ALIEN_GLOW}" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="beam" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="{ALIEN_GLOW}" stop-opacity=".11"/>
+    <stop offset="100%" stop-color="{ALIEN_GLOW}" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<style>
+  .bob{{animation:bob 3.2s ease-in-out infinite}}
+  @keyframes bob{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-1.6px)}}}}
+  .pulse{{animation:pl 3.6s ease-in-out infinite}}
+  @keyframes pl{{0%,100%{{opacity:.75}}50%{{opacity:1}}}}
+  .sweep{{animation:sw 9s linear infinite}}
+  @keyframes sw{{from{{transform:translateX(-140px)}}to{{transform:translateX({W + 140}px)}}}}
+  @media (prefers-reduced-motion: reduce){{.bob,.pulse,.sweep{{animation:none}}}}
+</style>"""
+
+
+def alien(x: float, y: float, level: int, delay: float, tip: str = "") -> str:
+    """An alien head centred on (x, y); level 1..4 sets its size and brightness."""
+    size = 20 * ALIEN_SCALE[level - 1]
+    head = (f'<use href="#alien" x="{x - size / 2:.1f}" y="{y - size / 2:.1f}" width="{size:.1f}" '
+            f'height="{size:.1f}" fill="{ALIEN[level - 1]}"/>')
+    title = f"<title>{esc(tip)}</title>" if tip else ""
+    if level < 3:
+        return f"<g>{title}{head}</g>"
+    halo = (f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{size * .95:.1f}" fill="url(#ahalo)"/>' if level == 4 else "")
+    return (f'<g class="{"bob" if level == 4 else "pulse"}" style="animation-delay:{delay:.2f}s">'
+            f"{title}{halo}{head}</g>")
+
+
+def activity_level(n: int, peak: int) -> int:
+    """GitHub-style quartile level (0 = nothing) of a day's count against the scaled peak."""
+    if n <= 0:
+        return 0
+    k = min(n, peak) / peak
+    return 1 if k <= .25 else 2 if k <= .5 else 3 if k <= .75 else 4
+
+
 def galaxy(p: Profile) -> str:
-    """The last 53 weeks as a band of stars: brighter and larger where more happened."""
+    """The last 53 weeks as a fleet of alien heads: bigger and brighter where more happened."""
     h = 330
     days = p.days[-371:]
     if not days:
         return shell(h, "", "No contributions yet")
     first = days[0][0]
     # Scale by the 95th percentile of active days, so one huge day (a bulk import or a
-    # migration) does not dim every other star to nothing.
+    # migration) does not shrink every other head to the smallest size.
     active = sorted(n for _, n in days if n > 0)
     peak = active[int(.95 * (len(active) - 1))] if active else 1
-    x0, step_x, y0, step_y = 70, 16.5, 92, 19
-    parts = [f'<text x="{W / 2}" y="44" text-anchor="middle" class="mono" font-size="13">52 WEEKS IN ORBIT</text>']
+    x0, step_x, y0, step_y = 84, 16.9, 98, 19
+    grid_bottom = y0 + 6 * step_y
+    parts = [alien_defs(),
+             f'<text x="{W / 2}" y="44" text-anchor="middle" class="mono" font-size="13">52 WEEKS IN ORBIT</text>',
+             # a faint tractor-beam scan crossing the fleet
+             f'<rect class="sweep" x="0" y="{y0 - 40}" width="140" height="{6 * step_y + 80}" fill="url(#beam)"/>']
+    for i, name in ((1, "MON"), (3, "WED"), (5, "FRI")):
+        parts.append(f'<text x="{x0 - 22}" y="{y0 + i * step_y + 4}" text-anchor="end" class="mono" '
+                     f'font-size="10" fill-opacity=".55">{name}</text>')
     rnd = random.Random(53)
     for d, n in days:
         wk = ((d - first).days + (first.weekday() + 1) % 7) // 7
         dow = (d.weekday() + 1) % 7                 # GitHub rows start on Sunday
-        x = x0 + wk * step_x
-        y = y0 + dow * step_y + 10 * math.sin(wk / 8.0)  # gentle galactic warp
-        if n == 0:
-            parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="1.1" fill="{SLATE}" fill-opacity=".35"/>')
-            continue
-        k = math.sqrt(min(n, peak) / peak)
-        color = AMBER if k > .55 else (SILVER if k > .2 else SLATE)
-        r = 1.8 + 4.2 * k
-        parts.append(f'<circle class="t" style="animation-delay:{rnd.uniform(0, 4):.2f}s" cx="{x:.1f}" cy="{y:.1f}" '
-                     f'r="{r:.2f}" fill="{color}"><title>{d.isoformat()}: {n}</title></circle>')
+        x, y = x0 + wk * step_x, y0 + dow * step_y
+        level = activity_level(n, peak)
+        if level == 0:
+            parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="1.2" fill="{SLATE}" fill-opacity=".28"/>')
+        else:
+            word = "contribution" if n == 1 else "contributions"
+            parts.append(alien(x, y, level, rnd.uniform(0, 3.6), f"{d.strftime('%b %d, %Y')}: {n} {word}"))
     month = None
     for d, _ in days:
         if d.day <= 7 and d.weekday() == 6 and d.month != month:
             month = d.month
             wk = ((d - first).days + (first.weekday() + 1) % 7) // 7
-            parts.append(f'<text x="{x0 + wk * step_x:.1f}" y="{y0 + 7 * step_y + 34}" class="mono" font-size="11">'
-                         f'{d.strftime("%b").upper()}</text>')
+            parts.append(f'<text x="{x0 + wk * step_x:.1f}" y="{grid_bottom + 30}" class="mono" font-size="11" '
+                         f'fill-opacity=".8">{d.strftime("%b").upper()}</text>')
+    # legend: less -> more, right-aligned under the grid
+    lx = x0 + 52 * step_x - 4 * 20 - 40
+    ly = grid_bottom + 62
+    parts.append(f'<text x="{lx - 12}" y="{ly + 4}" text-anchor="end" class="mono" font-size="10" fill-opacity=".6">LESS</text>')
+    for lv in range(1, 5):
+        parts.append(alien(lx + (lv - 1) * 20 + 6, ly, lv, lv * .4))
+    parts.append(f'<text x="{lx + 4 * 20 + 2}" y="{ly + 4}" class="mono" font-size="10" fill-opacity=".6">MORE</text>')
     busiest = max(days, key=lambda t: t[1])
-    parts.append(f'<text x="{W / 2}" y="{h - 22}" text-anchor="middle" class="lbl" font-size="14" fill-opacity=".75">'
-                 f'{fmt(p.last_year)} contributions in the last year · brightest day '
-                 f'{busiest[0].strftime("%b %d")} with {busiest[1]}</text>')
+    parts.append(f'<text x="{x0 - 10}" y="{ly + 5}" class="lbl" font-size="14" fill-opacity=".75">'
+                 f'{fmt(p.last_year)} contributions in the last year · busiest day '
+                 f'{busiest[0].strftime("%b %d")} with {fmt(busiest[1])}</text>')
     return shell(h, "\n".join(parts), f"{fmt(p.last_year)} contributions in the last year")
 
 
