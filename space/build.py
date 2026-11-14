@@ -401,6 +401,30 @@ def constellations(stack: dict[str, list[str]]) -> str:
     return shell(h, "\n".join(parts), "Tech stack: " + "; ".join(f"{g}: {', '.join(i)}" for g, i in groups))
 
 
+def moon_orbit(cx: float, cy: float, rad: float, dur: float, tint: str, begin: float = 0.0) -> str:
+    """A planet with a tilted ring and a moon that really circles it.
+
+    Painter's order gives the depth: back half of the ring and a moon copy behind the planet, then
+    the planet, then the front half of the ring and a second moon copy that is only shown while the
+    moon is on the near side. The path starts at the left end and runs the near (lower) arc first,
+    so the near half is exactly the first half of each revolution.
+    """
+    rx, ry = rad + 24, (rad + 24) * .36
+    path = f"M {-rx:.1f} 0 a {rx:.1f} {ry:.1f} 0 1 0 {2 * rx:.1f} 0 a {rx:.1f} {ry:.1f} 0 1 0 {-2 * rx:.1f} 0"
+    motion = f'<animateMotion dur="{dur}s" begin="{-begin}s" repeatCount="indefinite" path="{path}"/>'
+    ring = f'stroke="{SLATE}" stroke-width="1.1" fill="none"'
+    return (f'<g transform="translate({cx} {cy}) rotate(-12)">'
+            f'<ellipse rx="{rx:.1f}" ry="{ry:.1f}" {ring} stroke-opacity=".35"/>'
+            f'<circle r="2.8" fill="{tint}" fill-opacity=".7">{motion}</circle>'
+            f'<circle r="{rad:.1f}" fill="url(#planetS)"/>'
+            f'<circle r="{rad:.1f}" fill="{tint}" fill-opacity=".45"/>'
+            f'<path d="M {-rx:.1f} 0 A {rx:.1f} {ry:.1f} 0 0 0 {rx:.1f} 0" {ring} stroke-opacity=".6"/>'
+            f'<circle r="3.2" fill="{LIGHT}">{motion}'
+            f'<animate attributeName="opacity" values="1;0" keyTimes="0;.5" calcMode="discrete" dur="{dur}s" '
+            f'begin="{-begin}s" repeatCount="indefinite"/></circle>'
+            f'</g>')
+
+
 def fleet(p: Profile, featured: list[str]) -> str:
     """Featured repositories as worlds sized by stars, tinted by their main language."""
     by_name = {r.name.lower(): r for r in p.repos}
@@ -419,9 +443,7 @@ def fleet(p: Profile, featured: list[str]) -> str:
         x, y = 200 + col * 300, 140 + row * 150
         rad = 16 + 14 * math.sqrt(r.stars / peak)
         tint = r.color or SLATE
-        parts.append(orbit(x - 70, y, rad + 18, (rad + 18) * .32, 7 + i * 1.3, tint, r=2.4, begin=i, opacity=.4))
-        parts.append(f'<circle cx="{x - 70}" cy="{y}" r="{rad:.1f}" fill="url(#planetS)"/>')
-        parts.append(f'<circle cx="{x - 70}" cy="{y}" r="{rad:.1f}" fill="{tint}" fill-opacity=".45"/>')
+        parts.append(moon_orbit(x - 100, y, rad, 7 + i * 1.3, tint, begin=i))
         parts.append(f'<text x="{x - 30}" y="{y - 4}" class="lbl" font-size="17" font-weight="700">{esc(r.name)}</text>')
         meta = " · ".join(x for x in (f"★ {r.stars}" if r.stars else "", r.language or "") if x)
         parts.append(f'<text x="{x - 30}" y="{y + 18}" class="mono" font-size="12">{esc(meta)}</text>')
