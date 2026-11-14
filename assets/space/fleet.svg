@@ -130,11 +130,11 @@
 <circle cx="430" cy="290" r="16.0" fill="url(#planetS)"/>
 <circle cx="430" cy="290" r="16.0" fill="#7d8597" fill-opacity=".45"/>
 <text x="470" y="286" class="lbl" font-size="17" font-weight="700">sentinel-browser</text>
-<text x="470" y="308" class="mono" font-size="12">★ 0</text>
+<text x="470" y="308" class="mono" font-size="12"></text>
 <ellipse cx="730" cy="290" rx="34.0" ry="10.88" fill="none" stroke="#7d8597" stroke-opacity="0.4" stroke-width="1"/><circle r="2.4" fill="#3572A5"><animateMotion dur="13.5s" begin="-5s" repeatCount="indefinite" path="M 696.0 290 a 34.0 10.88 0 1 0 68.0 0 a 34.0 10.88 0 1 0 -68.0 0"/></circle>
 <circle cx="730" cy="290" r="16.0" fill="url(#planetS)"/>
 <circle cx="730" cy="290" r="16.0" fill="#3572A5" fill-opacity=".45"/>
 <text x="770" y="286" class="lbl" font-size="17" font-weight="700">malwarefinder</text>
-<text x="770" y="308" class="mono" font-size="12">★ 0 · Python</text>
+<text x="770" y="308" class="mono" font-size="12">Python</text>
 <rect width="1000" height="400" fill="url(#fade)"/>
 </svg>
