@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="1000" height="430" role="img" aria-label="Tech stack: Languages: Python, JavaScript, TypeScript, HTML, CSS; Frameworks: React, Next.js, Node.js, Express, Tailwind; AI &amp; Data: PyTorch, TensorFlow, scikit-learn, FastAPI; Tools: Git, GitHub, VS Code, PostgreSQL, SQLite, Vercel">
+<title>Tech stack: Languages: Python, JavaScript, TypeScript, HTML, CSS; Frameworks: React, Next.js, Node.js, Express, Tailwind; AI &amp; Data: PyTorch, TensorFlow, scikit-learn, FastAPI; Tools: Git, GitHub, VS Code, PostgreSQL, SQLite, Vercel</title>
+<defs>
+  <radialGradient id="fade" cx="50%" cy="50%" r="68%">
+    <stop offset="80%" stop-color="#0d1117" stop-opacity="0"/><stop offset="100%" stop-color="#0d1117" stop-opacity="1"/>
+  </radialGradient>
+  <radialGradient id="glowA" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffb347" stop-opacity=".55"/><stop offset="100%" stop-color="#d9480f" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowS" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#c9ccd3" stop-opacity=".35"/><stop offset="100%" stop-color="#7d8597" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="planetS" cx="35%" cy="32%" r="75%">
+    <stop offset="0%" stop-color="#e9e6df"/><stop offset="55%" stop-color="#7d8597"/><stop offset="100%" stop-color="#1a1c22"/>
+  </radialGradient>
+  <radialGradient id="planetA" cx="35%" cy="32%" r="75%">
+    <stop offset="0%" stop-color="#ffe2b0"/><stop offset="50%" stop-color="#ffb347"/><stop offset="100%" stop-color="#d9480f"/>
+  </radialGradient>
+</defs>
+<style>
+  .t{animation:tw 4s ease-in-out infinite}
+  @keyframes tw{0%,100%{opacity:.25}50%{opacity:1}}
+  .drift{animation:dr 60s linear infinite}
+  @keyframes dr{from{transform:translateX(0)}to{transform:translateX(-40px)}}
+  .lbl{font-family:'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif;fill:#e9e6df}
+  .mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#c9ccd3;letter-spacing:.14em}
+  @media (prefers-reduced-motion: reduce){.t,.drift,.draw{animation:none}}
+</style>
+<rect width="1000" height="430" fill="#0d1117"/>
+<g class="drift">
+<circle class="t" style="animation-delay:1.95s" cx="960.1" cy="67.9" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.60s" cx="186.8" cy="247.1" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.10s" cx="488.6" cy="302.6" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.66s" cx="904.2" cy="68.6" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.23s" cx="596.6" cy="380.7" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.15s" cx="791.2" cy="145.2" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.35s" cx="551.2" cy="273.7" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.93s" cx="276.5" cy="146.2" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.51s" cx="693.2" cy="280.9" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.65s" cx="495.2" cy="24.3" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.68s" cx="220.1" cy="250.8" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.87s" cx="2.7" cy="92.4" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.73s" cx="879.7" cy="149.6" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.85s" cx="106.8" cy="412.3" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.40s" cx="63.0" cy="50.5" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.52s" cx="227.9" cy="142.0" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.13s" cx="747.9" cy="75.8" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.79s" cx="590.9" cy="331.1" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.81s" cx="339.9" cy="61.7" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.80s" cx="778.4" cy="382.4" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.73s" cx="696.3" cy="262.2" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.51s" cx="465.4" cy="252.0" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.45s" cx="498.2" cy="350.0" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.37s" cx="459.9" cy="303.1" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.51s" cx="473.7" cy="104.1" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.76s" cx="409.7" cy="404.3" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.98s" cx="720.0" cy="181.2" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.97s" cx="339.4" cy="210.5" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.42s" cx="564.0" cy="135.5" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.39s" cx="932.7" cy="68.1" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.26s" cx="470.3" cy="270.7" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.14s" cx="99.2" cy="273.0" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.30s" cx="187.3" cy="45.7" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.15s" cx="946.4" cy="162.3" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.57s" cx="927.4" cy="48.2" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.87s" cx="726.6" cy="362.7" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.55s" cx="856.1" cy="63.1" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.31s" cx="474.2" cy="369.9" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.67s" cx="654.4" cy="168.5" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.10s" cx="728.9" cy="342.7" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.20s" cx="200.1" cy="63.9" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.22s" cx="71.4" cy="163.4" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.90s" cx="348.2" cy="35.6" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.78s" cx="199.8" cy="365.4" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.04s" cx="291.8" cy="87.1" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.74s" cx="475.2" cy="297.4" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.28s" cx="843.3" cy="373.2" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.32s" cx="75.4" cy="407.6" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.09s" cx="500.7" cy="389.9" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.42s" cx="121.1" cy="251.1" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.43s" cx="57.7" cy="261.9" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.67s" cx="171.6" cy="55.5" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.75s" cx="910.8" cy="207.9" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.70s" cx="962.9" cy="12.4" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.20s" cx="260.5" cy="390.3" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.54s" cx="336.3" cy="246.0" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.99s" cx="20.5" cy="335.6" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.29s" cx="239.4" cy="257.1" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.94s" cx="698.6" cy="287.2" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.57s" cx="310.5" cy="170.5" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.12s" cx="239.2" cy="380.2" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.82s" cx="978.6" cy="7.0" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.94s" cx="1008.1" cy="363.3" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.34s" cx="252.7" cy="186.0" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.44s" cx="150.0" cy="49.8" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.44s" cx="906.0" cy="242.2" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.53s" cx="55.1" cy="258.0" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.14s" cx="586.2" cy="349.4" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.23s" cx="844.4" cy="49.6" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.01s" cx="151.5" cy="186.2" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.52s" cx="136.1" cy="297.6" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.43s" cx="670.2" cy="414.2" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.54s" cx="502.9" cy="161.9" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.98s" cx="378.5" cy="271.0" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.79s" cx="716.9" cy="320.5" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.29s" cx="1000.7" cy="29.3" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.33s" cx="996.3" cy="308.9" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.50s" cx="860.8" cy="380.5" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.29s" cx="793.7" cy="344.4" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.18s" cx="881.6" cy="76.6" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.98s" cx="65.0" cy="64.2" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.03s" cx="366.1" cy="219.5" r="0.8" fill="#e9e6df"/>
+</g>
+<text x="500.0" y="44" text-anchor="middle" class="mono" font-size="13">TECH CONSTELLATIONS</text>
+<style>.draw{stroke-dasharray:600;stroke-dashoffset:600;animation:dw 6s ease-out infinite alternate}@keyframes dw{to{stroke-dashoffset:0}}</style>
+<path d="M 122.4 92.4 L 201.4 203.1 L 171.0 297.1 L 94.4 307.1 L 48.9 158.0 L 122.4 92.4" fill="none" stroke="#7d8597" stroke-width="1" stroke-opacity=".3"/>
+<path class="draw" style="animation-delay:0.0s" d="M 122.4 92.4 L 201.4 203.1 L 171.0 297.1 L 94.4 307.1 L 48.9 158.0 L 122.4 92.4" fill="none" stroke="#c9ccd3" stroke-width="1.2" stroke-opacity=".75"/>
+<circle cx="122.4" cy="92.4" r="9" fill="#ffb347" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:0.38s" cx="122.4" cy="92.4" r="3.4" fill="#ffb347"/>
+<text x="122.4" y="80.4" text-anchor="middle" class="lbl" font-size="13">Python</text>
+<circle cx="201.4" cy="203.1" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:1.21s" cx="201.4" cy="203.1" r="3.4" fill="#c9ccd3"/>
+<text x="201.4" y="191.1" text-anchor="middle" class="lbl" font-size="13">JavaScript</text>
+<circle cx="171.0" cy="297.1" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:0.36s" cx="171.0" cy="297.1" r="3.4" fill="#c9ccd3"/>
+<text x="171.0" y="319.1" text-anchor="middle" class="lbl" font-size="13">TypeScript</text>
+<circle cx="94.4" cy="307.1" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:3.24s" cx="94.4" cy="307.1" r="3.4" fill="#c9ccd3"/>
+<text x="94.4" y="329.1" text-anchor="middle" class="lbl" font-size="13">HTML</text>
+<circle cx="48.9" cy="158.0" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:2.77s" cx="48.9" cy="158.0" r="3.4" fill="#c9ccd3"/>
+<text x="48.9" y="146.0" text-anchor="middle" class="lbl" font-size="13">CSS</text>
+<text x="125.0" y="385" text-anchor="middle" class="mono" font-size="12">LANGUAGES</text>
+<path d="M 347.7 86.8 L 455.1 206.3 L 411.6 291.4 L 352.9 312.1 L 304.0 204.4 L 347.7 86.8" fill="none" stroke="#7d8597" stroke-width="1" stroke-opacity=".3"/>
+<path class="draw" style="animation-delay:0.8s" d="M 347.7 86.8 L 455.1 206.3 L 411.6 291.4 L 352.9 312.1 L 304.0 204.4 L 347.7 86.8" fill="none" stroke="#c9ccd3" stroke-width="1.2" stroke-opacity=".75"/>
+<circle cx="347.7" cy="86.8" r="9" fill="#ffb347" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:0.97s" cx="347.7" cy="86.8" r="3.4" fill="#ffb347"/>
+<text x="347.7" y="74.8" text-anchor="middle" class="lbl" font-size="13">React</text>
+<circle cx="455.1" cy="206.3" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:0.12s" cx="455.1" cy="206.3" r="3.4" fill="#c9ccd3"/>
+<text x="455.1" y="194.3" text-anchor="middle" class="lbl" font-size="13">Next.js</text>
+<circle cx="411.6" cy="291.4" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:1.86s" cx="411.6" cy="291.4" r="3.4" fill="#c9ccd3"/>
+<text x="411.6" y="313.4" text-anchor="middle" class="lbl" font-size="13">Node.js</text>
+<circle cx="352.9" cy="312.1" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:1.76s" cx="352.9" cy="312.1" r="3.4" fill="#c9ccd3"/>
+<text x="352.9" y="334.1" text-anchor="middle" class="lbl" font-size="13">Express</text>
+<circle cx="304.0" cy="204.4" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:3.37s" cx="304.0" cy="204.4" r="3.4" fill="#c9ccd3"/>
+<text x="304.0" y="192.4" text-anchor="middle" class="lbl" font-size="13">Tailwind</text>
+<text x="375.0" y="385" text-anchor="middle" class="mono" font-size="12">FRAMEWORKS</text>
+<path d="M 626.1 90.1 L 705.3 205.0 L 627.2 309.6 L 543.4 162.3 L 626.1 90.1" fill="none" stroke="#7d8597" stroke-width="1" stroke-opacity=".3"/>
+<path class="draw" style="animation-delay:1.6s" d="M 626.1 90.1 L 705.3 205.0 L 627.2 309.6 L 543.4 162.3 L 626.1 90.1" fill="none" stroke="#c9ccd3" stroke-width="1.2" stroke-opacity=".75"/>
+<circle cx="626.1" cy="90.1" r="9" fill="#ffb347" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:3.36s" cx="626.1" cy="90.1" r="3.4" fill="#ffb347"/>
+<text x="626.1" y="78.1" text-anchor="middle" class="lbl" font-size="13">PyTorch</text>
+<circle cx="705.3" cy="205.0" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:2.83s" cx="705.3" cy="205.0" r="3.4" fill="#c9ccd3"/>
+<text x="705.3" y="193.0" text-anchor="middle" class="lbl" font-size="13">TensorFlow</text>
+<circle cx="627.2" cy="309.6" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:1.26s" cx="627.2" cy="309.6" r="3.4" fill="#c9ccd3"/>
+<text x="627.2" y="331.6" text-anchor="middle" class="lbl" font-size="13">scikit-learn</text>
+<circle cx="543.4" cy="162.3" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:0.92s" cx="543.4" cy="162.3" r="3.4" fill="#c9ccd3"/>
+<text x="543.4" y="150.3" text-anchor="middle" class="lbl" font-size="13">FastAPI</text>
+<text x="625.0" y="385" text-anchor="middle" class="mono" font-size="12">AI &amp; DATA</text>
+<path d="M 864.9 107.3 L 945.9 169.2 L 928.9 279.7 L 848.6 319.6 L 829.2 283.7 L 822.3 125.2 L 864.9 107.3" fill="none" stroke="#7d8597" stroke-width="1" stroke-opacity=".3"/>
+<path class="draw" style="animation-delay:2.4s" d="M 864.9 107.3 L 945.9 169.2 L 928.9 279.7 L 848.6 319.6 L 829.2 283.7 L 822.3 125.2 L 864.9 107.3" fill="none" stroke="#c9ccd3" stroke-width="1.2" stroke-opacity=".75"/>
+<circle cx="864.9" cy="107.3" r="9" fill="#ffb347" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:3.92s" cx="864.9" cy="107.3" r="3.4" fill="#ffb347"/>
+<text x="864.9" y="95.3" text-anchor="middle" class="lbl" font-size="13">Git</text>
+<circle cx="945.9" cy="169.2" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:1.59s" cx="945.9" cy="169.2" r="3.4" fill="#c9ccd3"/>
+<text x="945.9" y="157.2" text-anchor="middle" class="lbl" font-size="13">GitHub</text>
+<circle cx="928.9" cy="279.7" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:0.29s" cx="928.9" cy="279.7" r="3.4" fill="#c9ccd3"/>
+<text x="928.9" y="301.7" text-anchor="middle" class="lbl" font-size="13">VS Code</text>
+<circle cx="848.6" cy="319.6" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:2.52s" cx="848.6" cy="319.6" r="3.4" fill="#c9ccd3"/>
+<text x="848.6" y="341.6" text-anchor="middle" class="lbl" font-size="13">PostgreSQL</text>
+<circle cx="829.2" cy="283.7" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:3.11s" cx="829.2" cy="283.7" r="3.4" fill="#c9ccd3"/>
+<text x="829.2" y="305.7" text-anchor="middle" class="lbl" font-size="13">SQLite</text>
+<circle cx="822.3" cy="125.2" r="9" fill="#c9ccd3" fill-opacity=".12"/>
+<circle class="t" style="animation-delay:1.08s" cx="822.3" cy="125.2" r="3.4" fill="#c9ccd3"/>
+<text x="822.3" y="113.2" text-anchor="middle" class="lbl" font-size="13">Vercel</text>
+<text x="875.0" y="385" text-anchor="middle" class="mono" font-size="12">TOOLS</text>
+<rect width="1000" height="430" fill="url(#fade)"/>
+</svg>

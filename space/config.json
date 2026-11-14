@@ -1,0 +1,9 @@
+{
+  "featured": ["ibia", "OngeaLabs", "sdmx-data-mcp", "kukilabs", "sentinel-browser", "malwarefinder"],
+  "stack": {
+    "Languages": ["Python", "JavaScript", "TypeScript", "HTML", "CSS"],
+    "Frameworks": ["React", "Next.js", "Node.js", "Express", "Tailwind"],
+    "AI & Data": ["PyTorch", "TensorFlow", "scikit-learn", "FastAPI"],
+    "Tools": ["Git", "GitHub", "VS Code", "PostgreSQL", "SQLite", "Vercel"]
+  }
+}

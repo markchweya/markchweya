@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="1000" height="400" role="img" aria-label="Featured repositories: ibia, OngeaLabs, sdmx-data-mcp, kukilabs, sentinel-browser, malwarefinder">
+<title>Featured repositories: ibia, OngeaLabs, sdmx-data-mcp, kukilabs, sentinel-browser, malwarefinder</title>
+<defs>
+  <radialGradient id="fade" cx="50%" cy="50%" r="68%">
+    <stop offset="80%" stop-color="#0d1117" stop-opacity="0"/><stop offset="100%" stop-color="#0d1117" stop-opacity="1"/>
+  </radialGradient>
+  <radialGradient id="glowA" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffb347" stop-opacity=".55"/><stop offset="100%" stop-color="#d9480f" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowS" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#c9ccd3" stop-opacity=".35"/><stop offset="100%" stop-color="#7d8597" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="planetS" cx="35%" cy="32%" r="75%">
+    <stop offset="0%" stop-color="#e9e6df"/><stop offset="55%" stop-color="#7d8597"/><stop offset="100%" stop-color="#1a1c22"/>
+  </radialGradient>
+  <radialGradient id="planetA" cx="35%" cy="32%" r="75%">
+    <stop offset="0%" stop-color="#ffe2b0"/><stop offset="50%" stop-color="#ffb347"/><stop offset="100%" stop-color="#d9480f"/>
+  </radialGradient>
+</defs>
+<style>
+  .t{animation:tw 4s ease-in-out infinite}
+  @keyframes tw{0%,100%{opacity:.25}50%{opacity:1}}
+  .drift{animation:dr 60s linear infinite}
+  @keyframes dr{from{transform:translateX(0)}to{transform:translateX(-40px)}}
+  .lbl{font-family:'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif;fill:#e9e6df}
+  .mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#c9ccd3;letter-spacing:.14em}
+  @media (prefers-reduced-motion: reduce){.t,.drift,.draw{animation:none}}
+</style>
+<rect width="1000" height="400" fill="#0d1117"/>
+<g class="drift">
+<circle class="t" style="animation-delay:3.82s" cx="818.2" cy="214.7" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.67s" cx="640.4" cy="107.2" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.74s" cx="995.4" cy="372.5" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.56s" cx="188.7" cy="3.2" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.21s" cx="726.6" cy="150.3" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.12s" cx="382.6" cy="58.8" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.11s" cx="749.7" cy="33.6" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.78s" cx="364.0" cy="241.8" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.90s" cx="130.6" cy="361.2" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.54s" cx="327.2" cy="90.2" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.73s" cx="684.9" cy="139.9" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.68s" cx="697.6" cy="171.7" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.30s" cx="350.1" cy="293.4" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.75s" cx="161.6" cy="391.3" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.43s" cx="137.4" cy="392.8" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.89s" cx="779.6" cy="1.4" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.49s" cx="641.6" cy="143.3" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.81s" cx="83.5" cy="311.9" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.58s" cx="852.2" cy="229.6" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.89s" cx="654.1" cy="95.3" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.62s" cx="397.0" cy="392.3" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.77s" cx="465.0" cy="163.3" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.94s" cx="983.4" cy="81.4" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.52s" cx="95.4" cy="32.7" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.33s" cx="51.3" cy="106.0" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.69s" cx="345.4" cy="370.8" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.72s" cx="518.2" cy="317.7" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.60s" cx="120.5" cy="116.7" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.20s" cx="480.3" cy="241.4" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.17s" cx="11.0" cy="361.5" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.57s" cx="422.7" cy="297.5" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.88s" cx="260.4" cy="268.9" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.15s" cx="404.1" cy="72.1" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.82s" cx="444.7" cy="369.6" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.97s" cx="388.7" cy="96.3" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.36s" cx="337.7" cy="362.0" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.14s" cx="1039.4" cy="69.3" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.21s" cx="106.8" cy="355.1" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.37s" cx="521.1" cy="20.5" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.07s" cx="591.4" cy="310.8" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.53s" cx="678.6" cy="112.6" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.99s" cx="448.8" cy="86.1" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.89s" cx="864.3" cy="249.9" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.17s" cx="875.4" cy="270.5" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.85s" cx="85.7" cy="385.0" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.74s" cx="421.6" cy="9.5" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.46s" cx="728.7" cy="154.2" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.03s" cx="882.9" cy="181.4" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.72s" cx="264.1" cy="305.2" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.01s" cx="36.8" cy="187.0" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.33s" cx="444.8" cy="30.2" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.22s" cx="521.4" cy="187.4" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.69s" cx="315.7" cy="375.3" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.88s" cx="912.4" cy="308.8" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.71s" cx="868.8" cy="186.7" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.03s" cx="326.4" cy="65.9" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.26s" cx="848.2" cy="164.5" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.93s" cx="578.6" cy="235.5" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.52s" cx="34.5" cy="172.7" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.11s" cx="498.0" cy="326.0" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.23s" cx="1029.5" cy="95.6" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.20s" cx="283.7" cy="312.3" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.11s" cx="998.1" cy="155.7" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.48s" cx="775.1" cy="191.2" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.83s" cx="590.5" cy="45.4" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.94s" cx="649.3" cy="86.3" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.71s" cx="391.0" cy="319.0" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.47s" cx="71.3" cy="68.7" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.32s" cx="803.5" cy="319.5" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.61s" cx="304.5" cy="164.4" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.52s" cx="753.1" cy="175.6" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.63s" cx="737.1" cy="155.3" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.13s" cx="888.3" cy="326.8" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.30s" cx="21.8" cy="76.5" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.59s" cx="252.5" cy="194.3" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.98s" cx="301.7" cy="336.9" r="0.8" fill="#e9e6df"/>
+</g>
+<text x="500.0" y="44" text-anchor="middle" class="mono" font-size="13">THE FLEET</text>
+<ellipse cx="130" cy="140" rx="48.0" ry="15.36" fill="none" stroke="#7d8597" stroke-opacity="0.4" stroke-width="1"/><circle r="2.4" fill="#f1e05a"><animateMotion dur="7.0s" begin="0s" repeatCount="indefinite" path="M 82.0 140 a 48.0 15.36 0 1 0 96.0 0 a 48.0 15.36 0 1 0 -96.0 0"/></circle>
+<circle cx="130" cy="140" r="30.0" fill="url(#planetS)"/>
+<circle cx="130" cy="140" r="30.0" fill="#f1e05a" fill-opacity=".45"/>
+<text x="170" y="136" class="lbl" font-size="17" font-weight="700">ibia</text>
+<text x="170" y="158" class="mono" font-size="12">★ 10 · JavaScript</text>
+<ellipse cx="430" cy="140" rx="40.26099033699941" ry="12.883516907839812" fill="none" stroke="#7d8597" stroke-opacity="0.4" stroke-width="1"/><circle r="2.4" fill="#3178c6"><animateMotion dur="8.3s" begin="-1s" repeatCount="indefinite" path="M 389.7390096630006 140 a 40.26099033699941 12.883516907839812 0 1 0 80.52198067399883 0 a 40.26099033699941 12.883516907839812 0 1 0 -80.52198067399883 0"/></circle>
+<circle cx="430" cy="140" r="22.3" fill="url(#planetS)"/>
+<circle cx="430" cy="140" r="22.3" fill="#3178c6" fill-opacity=".45"/>
+<text x="470" y="136" class="lbl" font-size="17" font-weight="700">OngeaLabs</text>
+<text x="470" y="158" class="mono" font-size="12">★ 2 · TypeScript</text>
+<ellipse cx="730" cy="140" rx="38.427188724235734" ry="12.296700391755435" fill="none" stroke="#7d8597" stroke-opacity="0.4" stroke-width="1"/><circle r="2.4" fill="#3572A5"><animateMotion dur="9.6s" begin="-2s" repeatCount="indefinite" path="M 691.5728112757643 140 a 38.427188724235734 12.296700391755435 0 1 0 76.85437744847147 0 a 38.427188724235734 12.296700391755435 0 1 0 -76.85437744847147 0"/></circle>
+<circle cx="730" cy="140" r="20.4" fill="url(#planetS)"/>
+<circle cx="730" cy="140" r="20.4" fill="#3572A5" fill-opacity=".45"/>
+<text x="770" y="136" class="lbl" font-size="17" font-weight="700">sdmx-data-mcp</text>
+<text x="770" y="158" class="mono" font-size="12">★ 1 · Python</text>
+<ellipse cx="130" cy="290" rx="38.427188724235734" ry="12.296700391755435" fill="none" stroke="#7d8597" stroke-opacity="0.4" stroke-width="1"/><circle r="2.4" fill="#3572A5"><animateMotion dur="10.9s" begin="-3s" repeatCount="indefinite" path="M 91.57281127576427 290 a 38.427188724235734 12.296700391755435 0 1 0 76.85437744847147 0 a 38.427188724235734 12.296700391755435 0 1 0 -76.85437744847147 0"/></circle>
+<circle cx="130" cy="290" r="20.4" fill="url(#planetS)"/>
+<circle cx="130" cy="290" r="20.4" fill="#3572A5" fill-opacity=".45"/>
+<text x="170" y="286" class="lbl" font-size="17" font-weight="700">kukilabs</text>
+<text x="170" y="308" class="mono" font-size="12">★ 1 · Python</text>
+<ellipse cx="430" cy="290" rx="34.0" ry="10.88" fill="none" stroke="#7d8597" stroke-opacity="0.4" stroke-width="1"/><circle r="2.4" fill="#7d8597"><animateMotion dur="12.2s" begin="-4s" repeatCount="indefinite" path="M 396.0 290 a 34.0 10.88 0 1 0 68.0 0 a 34.0 10.88 0 1 0 -68.0 0"/></circle>
+<circle cx="430" cy="290" r="16.0" fill="url(#planetS)"/>
+<circle cx="430" cy="290" r="16.0" fill="#7d8597" fill-opacity=".45"/>
+<text x="470" y="286" class="lbl" font-size="17" font-weight="700">sentinel-browser</text>
+<text x="470" y="308" class="mono" font-size="12"></text>
+<ellipse cx="730" cy="290" rx="34.0" ry="10.88" fill="none" stroke="#7d8597" stroke-opacity="0.4" stroke-width="1"/><circle r="2.4" fill="#3572A5"><animateMotion dur="13.5s" begin="-5s" repeatCount="indefinite" path="M 696.0 290 a 34.0 10.88 0 1 0 68.0 0 a 34.0 10.88 0 1 0 -68.0 0"/></circle>
+<circle cx="730" cy="290" r="16.0" fill="url(#planetS)"/>
+<circle cx="730" cy="290" r="16.0" fill="#3572A5" fill-opacity=".45"/>
+<text x="770" y="286" class="lbl" font-size="17" font-weight="700">malwarefinder</text>
+<text x="770" y="308" class="mono" font-size="12">Python</text>
+<rect width="1000" height="400" fill="url(#fade)"/>
+</svg>

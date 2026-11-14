@@ -1,0 +1,481 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 330" width="1000" height="330" role="img" aria-label="5,120 contributions in the last year">
+<title>5,120 contributions in the last year</title>
+<defs>
+  <radialGradient id="fade" cx="50%" cy="50%" r="68%">
+    <stop offset="80%" stop-color="#0d1117" stop-opacity="0"/><stop offset="100%" stop-color="#0d1117" stop-opacity="1"/>
+  </radialGradient>
+  <radialGradient id="glowA" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffb347" stop-opacity=".55"/><stop offset="100%" stop-color="#d9480f" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowS" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#c9ccd3" stop-opacity=".35"/><stop offset="100%" stop-color="#7d8597" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="planetS" cx="35%" cy="32%" r="75%">
+    <stop offset="0%" stop-color="#e9e6df"/><stop offset="55%" stop-color="#7d8597"/><stop offset="100%" stop-color="#1a1c22"/>
+  </radialGradient>
+  <radialGradient id="planetA" cx="35%" cy="32%" r="75%">
+    <stop offset="0%" stop-color="#ffe2b0"/><stop offset="50%" stop-color="#ffb347"/><stop offset="100%" stop-color="#d9480f"/>
+  </radialGradient>
+</defs>
+<style>
+  .t{animation:tw 4s ease-in-out infinite}
+  @keyframes tw{0%,100%{opacity:.25}50%{opacity:1}}
+  .drift{animation:dr 60s linear infinite}
+  @keyframes dr{from{transform:translateX(0)}to{transform:translateX(-40px)}}
+  .lbl{font-family:'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif;fill:#e9e6df}
+  .mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#c9ccd3;letter-spacing:.14em}
+  @media (prefers-reduced-motion: reduce){.t,.drift,.draw{animation:none}}
+</style>
+<rect width="1000" height="330" fill="#0d1117"/>
+<g class="drift">
+<circle class="t" style="animation-delay:3.54s" cx="413.8" cy="10.8" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.72s" cx="617.0" cy="310.2" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.01s" cx="324.5" cy="13.4" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.34s" cx="893.8" cy="83.1" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.01s" cx="21.4" cy="253.9" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.15s" cx="310.4" cy="257.1" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.85s" cx="56.7" cy="32.1" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.72s" cx="272.0" cy="249.1" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.59s" cx="255.6" cy="130.3" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.51s" cx="236.7" cy="0.7" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.22s" cx="117.8" cy="189.2" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.12s" cx="401.6" cy="329.0" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.26s" cx="243.3" cy="248.1" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.58s" cx="135.2" cy="246.9" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.73s" cx="805.9" cy="156.2" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.31s" cx="202.4" cy="47.1" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.25s" cx="323.6" cy="150.4" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.22s" cx="181.3" cy="91.7" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.20s" cx="643.9" cy="135.9" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.18s" cx="655.0" cy="50.5" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.15s" cx="437.3" cy="264.2" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.34s" cx="805.2" cy="265.5" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.26s" cx="803.9" cy="144.8" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.26s" cx="751.5" cy="229.1" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.52s" cx="280.1" cy="56.9" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.50s" cx="559.8" cy="155.7" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.36s" cx="784.1" cy="98.7" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.58s" cx="181.8" cy="208.9" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.96s" cx="356.3" cy="230.0" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.64s" cx="643.7" cy="327.3" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.34s" cx="10.2" cy="0.8" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.99s" cx="593.3" cy="211.2" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.94s" cx="466.0" cy="269.9" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.29s" cx="881.8" cy="88.1" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.57s" cx="732.4" cy="32.6" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.74s" cx="477.4" cy="145.0" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.55s" cx="804.9" cy="191.2" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.36s" cx="138.2" cy="90.7" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.86s" cx="558.2" cy="39.1" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.01s" cx="696.7" cy="297.5" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.59s" cx="209.0" cy="287.4" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.52s" cx="498.0" cy="168.4" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.93s" cx="11.0" cy="42.8" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.30s" cx="819.0" cy="233.3" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.91s" cx="297.0" cy="103.3" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.77s" cx="1022.3" cy="54.1" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.38s" cx="1035.5" cy="277.5" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.32s" cx="214.3" cy="298.3" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.19s" cx="111.4" cy="104.6" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.86s" cx="875.1" cy="84.7" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.26s" cx="466.0" cy="175.8" r="1.3" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:1.96s" cx="75.6" cy="17.4" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.26s" cx="597.0" cy="140.5" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.60s" cx="1023.1" cy="290.1" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.99s" cx="562.7" cy="21.9" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:2.11s" cx="938.1" cy="152.0" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.90s" cx="125.5" cy="293.5" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.99s" cx="637.6" cy="257.6" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.04s" cx="325.4" cy="241.7" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.07s" cx="643.6" cy="323.5" r="0.8" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:3.49s" cx="685.8" cy="131.9" r="0.6" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.37s" cx="1021.8" cy="19.3" r="1.0" fill="#e9e6df"/>
+<circle class="t" style="animation-delay:0.67s" cx="927.0" cy="32.9" r="1.3" fill="#e9e6df"/>
+</g>
+<text x="500.0" y="44" text-anchor="middle" class="mono" font-size="13">52 WEEKS IN ORBIT</text>
+<circle cx="70.0" cy="92.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.47s" cx="70.0" cy="111.0" r="3.45" fill="#c9ccd3"><title>2025-11-10: 14</title></circle>
+<circle class="t" style="animation-delay:3.56s" cx="70.0" cy="130.0" r="2.24" fill="#7d8597"><title>2025-11-11: 1</title></circle>
+<circle class="t" style="animation-delay:1.83s" cx="70.0" cy="149.0" r="2.56" fill="#7d8597"><title>2025-11-12: 3</title></circle>
+<circle class="t" style="animation-delay:2.85s" cx="70.0" cy="168.0" r="2.88" fill="#c9ccd3"><title>2025-11-13: 6</title></circle>
+<circle cx="70.0" cy="187.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:3.75s" cx="70.0" cy="206.0" r="2.68" fill="#c9ccd3"><title>2025-11-15: 4</title></circle>
+<circle class="t" style="animation-delay:2.08s" cx="86.5" cy="93.2" r="2.68" fill="#c9ccd3"><title>2025-11-16: 4</title></circle>
+<circle class="t" style="animation-delay:2.94s" cx="86.5" cy="112.2" r="3.19" fill="#c9ccd3"><title>2025-11-17: 10</title></circle>
+<circle class="t" style="animation-delay:2.91s" cx="86.5" cy="131.2" r="2.88" fill="#c9ccd3"><title>2025-11-18: 6</title></circle>
+<circle class="t" style="animation-delay:3.43s" cx="86.5" cy="150.2" r="2.24" fill="#7d8597"><title>2025-11-19: 1</title></circle>
+<circle cx="86.5" cy="169.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:0.15s" cx="86.5" cy="188.2" r="2.56" fill="#7d8597"><title>2025-11-21: 3</title></circle>
+<circle cx="86.5" cy="207.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:0.68s" cx="103.0" cy="94.5" r="2.88" fill="#c9ccd3"><title>2025-11-23: 6</title></circle>
+<circle class="t" style="animation-delay:3.99s" cx="103.0" cy="113.5" r="3.12" fill="#c9ccd3"><title>2025-11-24: 9</title></circle>
+<circle class="t" style="animation-delay:2.99s" cx="103.0" cy="132.5" r="2.24" fill="#7d8597"><title>2025-11-25: 1</title></circle>
+<circle class="t" style="animation-delay:1.04s" cx="103.0" cy="151.5" r="3.12" fill="#c9ccd3"><title>2025-11-26: 9</title></circle>
+<circle cx="103.0" cy="170.5" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.97s" cx="103.0" cy="189.5" r="2.96" fill="#c9ccd3"><title>2025-11-28: 7</title></circle>
+<circle class="t" style="animation-delay:0.68s" cx="103.0" cy="208.5" r="3.19" fill="#c9ccd3"><title>2025-11-29: 10</title></circle>
+<circle class="t" style="animation-delay:1.44s" cx="119.5" cy="95.7" r="2.56" fill="#7d8597"><title>2025-11-30: 3</title></circle>
+<circle class="t" style="animation-delay:1.76s" cx="119.5" cy="114.7" r="2.88" fill="#c9ccd3"><title>2025-12-01: 6</title></circle>
+<circle cx="119.5" cy="133.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="119.5" cy="152.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:0.92s" cx="119.5" cy="171.7" r="2.42" fill="#7d8597"><title>2025-12-04: 2</title></circle>
+<circle class="t" style="animation-delay:0.55s" cx="119.5" cy="190.7" r="2.42" fill="#7d8597"><title>2025-12-05: 2</title></circle>
+<circle class="t" style="animation-delay:2.03s" cx="119.5" cy="209.7" r="3.19" fill="#c9ccd3"><title>2025-12-06: 10</title></circle>
+<circle cx="136.0" cy="96.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="136.0" cy="115.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.59s" cx="136.0" cy="134.8" r="2.42" fill="#7d8597"><title>2025-12-09: 2</title></circle>
+<circle class="t" style="animation-delay:1.27s" cx="136.0" cy="153.8" r="2.42" fill="#7d8597"><title>2025-12-10: 2</title></circle>
+<circle cx="136.0" cy="172.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="136.0" cy="191.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="136.0" cy="210.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.64s" cx="152.5" cy="97.9" r="3.45" fill="#c9ccd3"><title>2025-12-14: 14</title></circle>
+<circle class="t" style="animation-delay:3.93s" cx="152.5" cy="116.9" r="2.42" fill="#7d8597"><title>2025-12-15: 2</title></circle>
+<circle class="t" style="animation-delay:0.22s" cx="152.5" cy="135.9" r="2.78" fill="#c9ccd3"><title>2025-12-16: 5</title></circle>
+<circle class="t" style="animation-delay:1.11s" cx="152.5" cy="154.9" r="3.05" fill="#c9ccd3"><title>2025-12-17: 8</title></circle>
+<circle class="t" style="animation-delay:0.36s" cx="152.5" cy="173.9" r="4.09" fill="#c9ccd3"><title>2025-12-18: 27</title></circle>
+<circle class="t" style="animation-delay:2.71s" cx="152.5" cy="192.9" r="3.82" fill="#c9ccd3"><title>2025-12-19: 21</title></circle>
+<circle class="t" style="animation-delay:1.65s" cx="152.5" cy="211.9" r="2.78" fill="#c9ccd3"><title>2025-12-20: 5</title></circle>
+<circle cx="169.0" cy="98.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.76s" cx="169.0" cy="117.8" r="2.78" fill="#c9ccd3"><title>2025-12-22: 5</title></circle>
+<circle class="t" style="animation-delay:0.99s" cx="169.0" cy="136.8" r="3.96" fill="#c9ccd3"><title>2025-12-23: 24</title></circle>
+<circle class="t" style="animation-delay:3.11s" cx="169.0" cy="155.8" r="3.51" fill="#c9ccd3"><title>2025-12-24: 15</title></circle>
+<circle cx="169.0" cy="174.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:3.04s" cx="169.0" cy="193.8" r="3.26" fill="#c9ccd3"><title>2025-12-26: 11</title></circle>
+<circle class="t" style="animation-delay:1.79s" cx="169.0" cy="212.8" r="3.77" fill="#c9ccd3"><title>2025-12-27: 20</title></circle>
+<circle cx="185.5" cy="99.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="185.5" cy="118.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:3.30s" cx="185.5" cy="137.7" r="2.24" fill="#7d8597"><title>2025-12-30: 1</title></circle>
+<circle class="t" style="animation-delay:0.92s" cx="185.5" cy="156.7" r="3.62" fill="#c9ccd3"><title>2025-12-31: 17</title></circle>
+<circle class="t" style="animation-delay:1.38s" cx="185.5" cy="175.7" r="3.19" fill="#c9ccd3"><title>2026-01-01: 10</title></circle>
+<circle class="t" style="animation-delay:3.83s" cx="185.5" cy="194.7" r="3.51" fill="#c9ccd3"><title>2026-01-02: 15</title></circle>
+<circle cx="185.5" cy="213.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:0.91s" cx="202.0" cy="100.4" r="2.42" fill="#7d8597"><title>2026-01-04: 2</title></circle>
+<circle class="t" style="animation-delay:0.58s" cx="202.0" cy="119.4" r="4.17" fill="#ffb347"><title>2026-01-05: 29</title></circle>
+<circle class="t" style="animation-delay:0.13s" cx="202.0" cy="138.4" r="5.38" fill="#ffb347"><title>2026-01-06: 66</title></circle>
+<circle class="t" style="animation-delay:2.69s" cx="202.0" cy="157.4" r="3.56" fill="#c9ccd3"><title>2026-01-07: 16</title></circle>
+<circle class="t" style="animation-delay:3.28s" cx="202.0" cy="176.4" r="5.29" fill="#ffb347"><title>2026-01-08: 63</title></circle>
+<circle class="t" style="animation-delay:0.21s" cx="202.0" cy="195.4" r="2.68" fill="#c9ccd3"><title>2026-01-09: 4</title></circle>
+<circle class="t" style="animation-delay:1.91s" cx="202.0" cy="214.4" r="2.96" fill="#c9ccd3"><title>2026-01-10: 7</title></circle>
+<circle class="t" style="animation-delay:1.59s" cx="218.5" cy="101.0" r="2.88" fill="#c9ccd3"><title>2026-01-11: 6</title></circle>
+<circle class="t" style="animation-delay:1.31s" cx="218.5" cy="120.0" r="2.56" fill="#7d8597"><title>2026-01-12: 3</title></circle>
+<circle class="t" style="animation-delay:0.94s" cx="218.5" cy="139.0" r="2.96" fill="#c9ccd3"><title>2026-01-13: 7</title></circle>
+<circle class="t" style="animation-delay:1.54s" cx="218.5" cy="158.0" r="4.85" fill="#ffb347"><title>2026-01-14: 48</title></circle>
+<circle class="t" style="animation-delay:0.57s" cx="218.5" cy="177.0" r="3.67" fill="#c9ccd3"><title>2026-01-15: 18</title></circle>
+<circle class="t" style="animation-delay:3.69s" cx="218.5" cy="196.0" r="3.77" fill="#c9ccd3"><title>2026-01-16: 20</title></circle>
+<circle class="t" style="animation-delay:0.80s" cx="218.5" cy="215.0" r="4.40" fill="#ffb347"><title>2026-01-17: 35</title></circle>
+<circle class="t" style="animation-delay:2.14s" cx="235.0" cy="101.5" r="2.96" fill="#c9ccd3"><title>2026-01-18: 7</title></circle>
+<circle class="t" style="animation-delay:2.56s" cx="235.0" cy="120.5" r="2.42" fill="#7d8597"><title>2026-01-19: 2</title></circle>
+<circle cx="235.0" cy="139.5" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.63s" cx="235.0" cy="158.5" r="2.56" fill="#7d8597"><title>2026-01-21: 3</title></circle>
+<circle class="t" style="animation-delay:1.90s" cx="235.0" cy="177.5" r="3.51" fill="#c9ccd3"><title>2026-01-22: 15</title></circle>
+<circle cx="235.0" cy="196.5" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.09s" cx="235.0" cy="215.5" r="3.45" fill="#c9ccd3"><title>2026-01-24: 14</title></circle>
+<circle class="t" style="animation-delay:3.75s" cx="251.5" cy="101.8" r="4.29" fill="#ffb347"><title>2026-01-25: 32</title></circle>
+<circle class="t" style="animation-delay:0.69s" cx="251.5" cy="120.8" r="2.68" fill="#c9ccd3"><title>2026-01-26: 4</title></circle>
+<circle class="t" style="animation-delay:0.80s" cx="251.5" cy="139.8" r="2.56" fill="#7d8597"><title>2026-01-27: 3</title></circle>
+<circle cx="251.5" cy="158.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="251.5" cy="177.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="251.5" cy="196.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.21s" cx="251.5" cy="215.8" r="3.12" fill="#c9ccd3"><title>2026-01-31: 9</title></circle>
+<circle cx="268.0" cy="102.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.96s" cx="268.0" cy="121.0" r="2.56" fill="#7d8597"><title>2026-02-02: 3</title></circle>
+<circle class="t" style="animation-delay:1.69s" cx="268.0" cy="140.0" r="2.42" fill="#7d8597"><title>2026-02-03: 2</title></circle>
+<circle cx="268.0" cy="159.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="268.0" cy="178.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="268.0" cy="197.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="268.0" cy="216.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.56s" cx="284.5" cy="102.0" r="2.56" fill="#7d8597"><title>2026-02-08: 3</title></circle>
+<circle class="t" style="animation-delay:0.31s" cx="284.5" cy="121.0" r="2.88" fill="#c9ccd3"><title>2026-02-09: 6</title></circle>
+<circle cx="284.5" cy="140.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="284.5" cy="159.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="284.5" cy="178.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="284.5" cy="197.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:0.50s" cx="284.5" cy="216.0" r="2.56" fill="#7d8597"><title>2026-02-14: 3</title></circle>
+<circle class="t" style="animation-delay:2.61s" cx="301.0" cy="101.8" r="3.72" fill="#c9ccd3"><title>2026-02-15: 19</title></circle>
+<circle class="t" style="animation-delay:0.92s" cx="301.0" cy="120.8" r="2.88" fill="#c9ccd3"><title>2026-02-16: 6</title></circle>
+<circle class="t" style="animation-delay:1.84s" cx="301.0" cy="139.8" r="2.24" fill="#7d8597"><title>2026-02-17: 1</title></circle>
+<circle cx="301.0" cy="158.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:0.95s" cx="301.0" cy="177.8" r="2.24" fill="#7d8597"><title>2026-02-19: 1</title></circle>
+<circle class="t" style="animation-delay:1.24s" cx="301.0" cy="196.8" r="2.24" fill="#7d8597"><title>2026-02-20: 1</title></circle>
+<circle cx="301.0" cy="215.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:0.77s" cx="317.5" cy="101.5" r="3.19" fill="#c9ccd3"><title>2026-02-22: 10</title></circle>
+<circle cx="317.5" cy="120.5" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="317.5" cy="139.5" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:3.63s" cx="317.5" cy="158.5" r="2.42" fill="#7d8597"><title>2026-02-25: 2</title></circle>
+<circle cx="317.5" cy="177.5" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="317.5" cy="196.5" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.50s" cx="317.5" cy="215.5" r="3.96" fill="#c9ccd3"><title>2026-02-28: 24</title></circle>
+<circle cx="334.0" cy="101.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="334.0" cy="120.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="334.0" cy="139.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="334.0" cy="158.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="334.0" cy="177.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="334.0" cy="196.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.95s" cx="334.0" cy="215.1" r="2.24" fill="#7d8597"><title>2026-03-07: 1</title></circle>
+<circle cx="350.5" cy="100.5" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:0.92s" cx="350.5" cy="119.5" r="3.77" fill="#c9ccd3"><title>2026-03-09: 20</title></circle>
+<circle cx="350.5" cy="138.5" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:3.35s" cx="350.5" cy="157.5" r="4.58" fill="#ffb347"><title>2026-03-11: 40</title></circle>
+<circle cx="350.5" cy="176.5" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.25s" cx="350.5" cy="195.5" r="3.45" fill="#c9ccd3"><title>2026-03-13: 14</title></circle>
+<circle class="t" style="animation-delay:0.54s" cx="350.5" cy="214.5" r="2.24" fill="#7d8597"><title>2026-03-14: 1</title></circle>
+<circle cx="367.0" cy="99.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="367.0" cy="118.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="367.0" cy="137.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="367.0" cy="156.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="367.0" cy="175.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="367.0" cy="194.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="367.0" cy="213.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="383.5" cy="98.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="383.5" cy="117.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="383.5" cy="136.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:0.72s" cx="383.5" cy="155.9" r="2.88" fill="#c9ccd3"><title>2026-03-25: 6</title></circle>
+<circle cx="383.5" cy="174.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="383.5" cy="193.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="383.5" cy="212.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:3.80s" cx="400.0" cy="98.0" r="3.33" fill="#c9ccd3"><title>2026-03-29: 12</title></circle>
+<circle cx="400.0" cy="117.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.29s" cx="400.0" cy="136.0" r="2.42" fill="#7d8597"><title>2026-03-31: 2</title></circle>
+<circle class="t" style="animation-delay:1.64s" cx="400.0" cy="155.0" r="4.00" fill="#c9ccd3"><title>2026-04-01: 25</title></circle>
+<circle class="t" style="animation-delay:0.39s" cx="400.0" cy="174.0" r="2.24" fill="#7d8597"><title>2026-04-02: 1</title></circle>
+<circle class="t" style="animation-delay:3.49s" cx="400.0" cy="193.0" r="2.24" fill="#7d8597"><title>2026-04-03: 1</title></circle>
+<circle class="t" style="animation-delay:0.98s" cx="400.0" cy="212.0" r="3.12" fill="#c9ccd3"><title>2026-04-04: 9</title></circle>
+<circle cx="416.5" cy="96.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.26s" cx="416.5" cy="115.9" r="2.24" fill="#7d8597"><title>2026-04-06: 1</title></circle>
+<circle cx="416.5" cy="134.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="416.5" cy="153.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="416.5" cy="172.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="416.5" cy="191.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="416.5" cy="210.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="433.0" cy="95.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="433.0" cy="114.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="433.0" cy="133.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="433.0" cy="152.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="433.0" cy="171.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="433.0" cy="190.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.89s" cx="433.0" cy="209.8" r="2.42" fill="#7d8597"><title>2026-04-18: 2</title></circle>
+<circle class="t" style="animation-delay:2.15s" cx="449.5" cy="94.6" r="3.26" fill="#c9ccd3"><title>2026-04-19: 11</title></circle>
+<circle cx="449.5" cy="113.6" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.50s" cx="449.5" cy="132.6" r="2.96" fill="#c9ccd3"><title>2026-04-21: 7</title></circle>
+<circle cx="449.5" cy="151.6" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="449.5" cy="170.6" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="449.5" cy="189.6" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="449.5" cy="208.6" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="466.0" cy="93.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.04s" cx="466.0" cy="112.4" r="2.68" fill="#c9ccd3"><title>2026-04-27: 4</title></circle>
+<circle cx="466.0" cy="131.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="466.0" cy="150.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="466.0" cy="169.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="466.0" cy="188.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="466.0" cy="207.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="482.5" cy="92.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.77s" cx="482.5" cy="111.2" r="2.68" fill="#c9ccd3"><title>2026-05-04: 4</title></circle>
+<circle cx="482.5" cy="130.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="482.5" cy="149.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="482.5" cy="168.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="482.5" cy="187.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="482.5" cy="206.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.03s" cx="499.0" cy="90.9" r="2.24" fill="#7d8597"><title>2026-05-10: 1</title></circle>
+<circle cx="499.0" cy="109.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="499.0" cy="128.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="499.0" cy="147.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="499.0" cy="166.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="499.0" cy="185.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="499.0" cy="204.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="515.5" cy="89.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="515.5" cy="108.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="515.5" cy="127.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.46s" cx="515.5" cy="146.7" r="3.33" fill="#c9ccd3"><title>2026-05-20: 12</title></circle>
+<circle class="t" style="animation-delay:3.83s" cx="515.5" cy="165.7" r="2.68" fill="#c9ccd3"><title>2026-05-21: 4</title></circle>
+<circle class="t" style="animation-delay:3.69s" cx="515.5" cy="184.7" r="2.56" fill="#7d8597"><title>2026-05-22: 3</title></circle>
+<circle cx="515.5" cy="203.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="532.0" cy="88.5" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="532.0" cy="107.5" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.69s" cx="532.0" cy="126.5" r="2.24" fill="#7d8597"><title>2026-05-26: 1</title></circle>
+<circle class="t" style="animation-delay:2.38s" cx="532.0" cy="145.5" r="3.26" fill="#c9ccd3"><title>2026-05-27: 11</title></circle>
+<circle cx="532.0" cy="164.5" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:0.63s" cx="532.0" cy="183.5" r="2.42" fill="#7d8597"><title>2026-05-29: 2</title></circle>
+<circle class="t" style="animation-delay:3.25s" cx="532.0" cy="202.5" r="2.42" fill="#7d8597"><title>2026-05-30: 2</title></circle>
+<circle cx="548.5" cy="87.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:3.64s" cx="548.5" cy="106.4" r="2.88" fill="#c9ccd3"><title>2026-06-01: 6</title></circle>
+<circle cx="548.5" cy="125.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="548.5" cy="144.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="548.5" cy="163.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="548.5" cy="182.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="548.5" cy="201.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.39s" cx="565.0" cy="86.3" r="2.56" fill="#7d8597"><title>2026-06-07: 3</title></circle>
+<circle class="t" style="animation-delay:0.25s" cx="565.0" cy="105.3" r="2.78" fill="#c9ccd3"><title>2026-06-08: 5</title></circle>
+<circle cx="565.0" cy="124.3" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="565.0" cy="143.3" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.13s" cx="565.0" cy="162.3" r="2.24" fill="#7d8597"><title>2026-06-11: 1</title></circle>
+<circle class="t" style="animation-delay:1.73s" cx="565.0" cy="181.3" r="2.68" fill="#c9ccd3"><title>2026-06-12: 4</title></circle>
+<circle cx="565.0" cy="200.3" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:3.40s" cx="581.5" cy="85.3" r="3.87" fill="#c9ccd3"><title>2026-06-14: 22</title></circle>
+<circle cx="581.5" cy="104.3" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:3.01s" cx="581.5" cy="123.3" r="3.91" fill="#c9ccd3"><title>2026-06-16: 23</title></circle>
+<circle cx="581.5" cy="142.3" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.73s" cx="581.5" cy="161.3" r="2.78" fill="#c9ccd3"><title>2026-06-18: 5</title></circle>
+<circle class="t" style="animation-delay:2.13s" cx="581.5" cy="180.3" r="2.24" fill="#7d8597"><title>2026-06-19: 1</title></circle>
+<circle cx="581.5" cy="199.3" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="598.0" cy="84.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="598.0" cy="103.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="598.0" cy="122.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.92s" cx="598.0" cy="141.4" r="3.62" fill="#c9ccd3"><title>2026-06-24: 17</title></circle>
+<circle cx="598.0" cy="160.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="598.0" cy="179.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.65s" cx="598.0" cy="198.4" r="3.12" fill="#c9ccd3"><title>2026-06-27: 9</title></circle>
+<circle class="t" style="animation-delay:2.56s" cx="614.5" cy="83.7" r="3.77" fill="#c9ccd3"><title>2026-06-28: 20</title></circle>
+<circle cx="614.5" cy="102.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="614.5" cy="121.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="614.5" cy="140.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="614.5" cy="159.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.64s" cx="614.5" cy="178.7" r="2.24" fill="#7d8597"><title>2026-07-03: 1</title></circle>
+<circle cx="614.5" cy="197.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="631.0" cy="83.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="631.0" cy="102.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:0.87s" cx="631.0" cy="121.1" r="3.26" fill="#c9ccd3"><title>2026-07-07: 11</title></circle>
+<circle cx="631.0" cy="140.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="631.0" cy="159.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="631.0" cy="178.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="631.0" cy="197.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="647.5" cy="82.6" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="647.5" cy="101.6" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="647.5" cy="120.6" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:3.22s" cx="647.5" cy="139.6" r="2.56" fill="#7d8597"><title>2026-07-15: 3</title></circle>
+<circle class="t" style="animation-delay:0.21s" cx="647.5" cy="158.6" r="2.24" fill="#7d8597"><title>2026-07-16: 1</title></circle>
+<circle class="t" style="animation-delay:1.05s" cx="647.5" cy="177.6" r="2.68" fill="#c9ccd3"><title>2026-07-17: 4</title></circle>
+<circle cx="647.5" cy="196.6" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="664.0" cy="82.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="664.0" cy="101.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="664.0" cy="120.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="664.0" cy="139.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="664.0" cy="158.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="664.0" cy="177.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="664.0" cy="196.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="680.5" cy="82.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="680.5" cy="101.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="680.5" cy="120.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="680.5" cy="139.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="680.5" cy="158.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="680.5" cy="177.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="680.5" cy="196.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.22s" cx="697.0" cy="82.0" r="2.56" fill="#7d8597"><title>2026-08-02: 3</title></circle>
+<circle class="t" style="animation-delay:0.10s" cx="697.0" cy="101.0" r="2.24" fill="#7d8597"><title>2026-08-03: 1</title></circle>
+<circle cx="697.0" cy="120.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="697.0" cy="139.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.41s" cx="697.0" cy="158.0" r="4.48" fill="#ffb347"><title>2026-08-06: 37</title></circle>
+<circle class="t" style="animation-delay:1.29s" cx="697.0" cy="177.0" r="2.24" fill="#7d8597"><title>2026-08-07: 1</title></circle>
+<circle class="t" style="animation-delay:1.35s" cx="697.0" cy="196.0" r="2.24" fill="#7d8597"><title>2026-08-08: 1</title></circle>
+<circle cx="713.5" cy="82.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:0.32s" cx="713.5" cy="101.1" r="2.68" fill="#c9ccd3"><title>2026-08-10: 4</title></circle>
+<circle class="t" style="animation-delay:1.52s" cx="713.5" cy="120.1" r="4.13" fill="#ffb347"><title>2026-08-11: 28</title></circle>
+<circle class="t" style="animation-delay:2.31s" cx="713.5" cy="139.1" r="6.00" fill="#ffb347"><title>2026-08-12: 130</title></circle>
+<circle class="t" style="animation-delay:0.19s" cx="713.5" cy="158.1" r="4.21" fill="#ffb347"><title>2026-08-13: 30</title></circle>
+<circle class="t" style="animation-delay:3.34s" cx="713.5" cy="177.1" r="2.24" fill="#7d8597"><title>2026-08-14: 1</title></circle>
+<circle cx="713.5" cy="196.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="730.0" cy="82.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:3.93s" cx="730.0" cy="101.4" r="5.91" fill="#ffb347"><title>2026-08-17: 87</title></circle>
+<circle class="t" style="animation-delay:2.08s" cx="730.0" cy="120.4" r="3.56" fill="#c9ccd3"><title>2026-08-18: 16</title></circle>
+<circle class="t" style="animation-delay:2.21s" cx="730.0" cy="139.4" r="6.00" fill="#ffb347"><title>2026-08-19: 91</title></circle>
+<circle class="t" style="animation-delay:3.27s" cx="730.0" cy="158.4" r="3.33" fill="#c9ccd3"><title>2026-08-20: 12</title></circle>
+<circle class="t" style="animation-delay:2.61s" cx="730.0" cy="177.4" r="3.33" fill="#c9ccd3"><title>2026-08-21: 12</title></circle>
+<circle class="t" style="animation-delay:2.66s" cx="730.0" cy="196.4" r="4.33" fill="#ffb347"><title>2026-08-22: 33</title></circle>
+<circle cx="746.5" cy="82.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="746.5" cy="101.8" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.90s" cx="746.5" cy="120.8" r="3.39" fill="#c9ccd3"><title>2026-08-25: 13</title></circle>
+<circle class="t" style="animation-delay:2.08s" cx="746.5" cy="139.8" r="4.37" fill="#ffb347"><title>2026-08-26: 34</title></circle>
+<circle class="t" style="animation-delay:1.46s" cx="746.5" cy="158.8" r="4.13" fill="#ffb347"><title>2026-08-27: 28</title></circle>
+<circle class="t" style="animation-delay:0.42s" cx="746.5" cy="177.8" r="6.00" fill="#ffb347"><title>2026-08-28: 119</title></circle>
+<circle class="t" style="animation-delay:3.11s" cx="746.5" cy="196.8" r="5.98" fill="#ffb347"><title>2026-08-29: 90</title></circle>
+<circle class="t" style="animation-delay:2.66s" cx="763.0" cy="83.4" r="4.21" fill="#ffb347"><title>2026-08-30: 30</title></circle>
+<circle cx="763.0" cy="102.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="763.0" cy="121.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:0.02s" cx="763.0" cy="140.4" r="2.24" fill="#7d8597"><title>2026-09-02: 1</title></circle>
+<circle cx="763.0" cy="159.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="763.0" cy="178.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:3.11s" cx="763.0" cy="197.4" r="2.42" fill="#7d8597"><title>2026-09-05: 2</title></circle>
+<circle class="t" style="animation-delay:3.94s" cx="779.5" cy="84.1" r="6.00" fill="#ffb347"><title>2026-09-06: 279</title></circle>
+<circle class="t" style="animation-delay:1.64s" cx="779.5" cy="103.1" r="2.24" fill="#7d8597"><title>2026-09-07: 1</title></circle>
+<circle cx="779.5" cy="122.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="779.5" cy="141.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="779.5" cy="160.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="779.5" cy="179.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="779.5" cy="198.1" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="796.0" cy="84.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="796.0" cy="103.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="796.0" cy="122.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:3.67s" cx="796.0" cy="141.9" r="4.75" fill="#ffb347"><title>2026-09-16: 45</title></circle>
+<circle class="t" style="animation-delay:0.87s" cx="796.0" cy="160.9" r="4.21" fill="#ffb347"><title>2026-09-17: 30</title></circle>
+<circle class="t" style="animation-delay:2.53s" cx="796.0" cy="179.9" r="3.33" fill="#c9ccd3"><title>2026-09-18: 12</title></circle>
+<circle class="t" style="animation-delay:3.20s" cx="796.0" cy="198.9" r="2.96" fill="#c9ccd3"><title>2026-09-19: 7</title></circle>
+<circle class="t" style="animation-delay:1.62s" cx="812.5" cy="85.9" r="2.24" fill="#7d8597"><title>2026-09-20: 1</title></circle>
+<circle class="t" style="animation-delay:1.16s" cx="812.5" cy="104.9" r="2.56" fill="#7d8597"><title>2026-09-21: 3</title></circle>
+<circle class="t" style="animation-delay:0.54s" cx="812.5" cy="123.9" r="2.88" fill="#c9ccd3"><title>2026-09-22: 6</title></circle>
+<circle cx="812.5" cy="142.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.18s" cx="812.5" cy="161.9" r="6.00" fill="#ffb347"><title>2026-09-24: 127</title></circle>
+<circle class="t" style="animation-delay:1.23s" cx="812.5" cy="180.9" r="2.68" fill="#c9ccd3"><title>2026-09-25: 4</title></circle>
+<circle cx="812.5" cy="199.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="829.0" cy="86.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.91s" cx="829.0" cy="105.9" r="4.09" fill="#c9ccd3"><title>2026-09-28: 27</title></circle>
+<circle class="t" style="animation-delay:2.46s" cx="829.0" cy="124.9" r="2.78" fill="#c9ccd3"><title>2026-09-29: 5</title></circle>
+<circle class="t" style="animation-delay:0.94s" cx="829.0" cy="143.9" r="3.72" fill="#c9ccd3"><title>2026-09-30: 19</title></circle>
+<circle class="t" style="animation-delay:1.63s" cx="829.0" cy="162.9" r="2.24" fill="#7d8597"><title>2026-10-01: 1</title></circle>
+<circle class="t" style="animation-delay:0.17s" cx="829.0" cy="181.9" r="6.00" fill="#ffb347"><title>2026-10-02: 578</title></circle>
+<circle cx="829.0" cy="200.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.65s" cx="845.5" cy="88.0" r="6.00" fill="#ffb347"><title>2026-10-04: 130</title></circle>
+<circle class="t" style="animation-delay:2.93s" cx="845.5" cy="107.0" r="3.12" fill="#c9ccd3"><title>2026-10-05: 9</title></circle>
+<circle class="t" style="animation-delay:1.18s" cx="845.5" cy="126.0" r="3.05" fill="#c9ccd3"><title>2026-10-06: 8</title></circle>
+<circle class="t" style="animation-delay:0.84s" cx="845.5" cy="145.0" r="3.67" fill="#c9ccd3"><title>2026-10-07: 18</title></circle>
+<circle class="t" style="animation-delay:2.54s" cx="845.5" cy="164.0" r="3.82" fill="#c9ccd3"><title>2026-10-08: 21</title></circle>
+<circle class="t" style="animation-delay:1.81s" cx="845.5" cy="183.0" r="6.00" fill="#ffb347"><title>2026-10-09: 138</title></circle>
+<circle cx="845.5" cy="202.0" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="862.0" cy="89.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:3.27s" cx="862.0" cy="108.2" r="5.76" fill="#ffb347"><title>2026-10-12: 81</title></circle>
+<circle cx="862.0" cy="127.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:3.00s" cx="862.0" cy="146.2" r="3.12" fill="#c9ccd3"><title>2026-10-14: 9</title></circle>
+<circle cx="862.0" cy="165.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="862.0" cy="184.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.81s" cx="862.0" cy="203.2" r="2.24" fill="#7d8597"><title>2026-10-17: 1</title></circle>
+<circle cx="878.5" cy="90.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.71s" cx="878.5" cy="109.4" r="2.24" fill="#7d8597"><title>2026-10-19: 1</title></circle>
+<circle class="t" style="animation-delay:2.32s" cx="878.5" cy="128.4" r="2.24" fill="#7d8597"><title>2026-10-20: 1</title></circle>
+<circle class="t" style="animation-delay:2.40s" cx="878.5" cy="147.4" r="2.42" fill="#7d8597"><title>2026-10-21: 2</title></circle>
+<circle cx="878.5" cy="166.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="878.5" cy="185.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="878.5" cy="204.4" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.90s" cx="895.0" cy="91.7" r="3.12" fill="#c9ccd3"><title>2026-10-25: 9</title></circle>
+<circle class="t" style="animation-delay:2.18s" cx="895.0" cy="110.7" r="3.39" fill="#c9ccd3"><title>2026-10-26: 13</title></circle>
+<circle class="t" style="animation-delay:1.48s" cx="895.0" cy="129.7" r="3.39" fill="#c9ccd3"><title>2026-10-27: 13</title></circle>
+<circle class="t" style="animation-delay:2.77s" cx="895.0" cy="148.7" r="6.00" fill="#ffb347"><title>2026-10-28: 145</title></circle>
+<circle cx="895.0" cy="167.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="895.0" cy="186.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="895.0" cy="205.7" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:1.94s" cx="911.5" cy="92.9" r="2.56" fill="#7d8597"><title>2026-11-01: 3</title></circle>
+<circle cx="911.5" cy="111.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="911.5" cy="130.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="911.5" cy="149.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="911.5" cy="168.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle cx="911.5" cy="187.9" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:0.53s" cx="911.5" cy="206.9" r="2.42" fill="#7d8597"><title>2026-11-07: 2</title></circle>
+<circle class="t" style="animation-delay:2.53s" cx="928.0" cy="94.2" r="2.42" fill="#7d8597"><title>2026-11-08: 2</title></circle>
+<circle class="t" style="animation-delay:1.29s" cx="928.0" cy="113.2" r="6.00" fill="#ffb347"><title>2026-11-09: 229</title></circle>
+<circle class="t" style="animation-delay:1.35s" cx="928.0" cy="132.2" r="3.19" fill="#c9ccd3"><title>2026-11-10: 10</title></circle>
+<circle cx="928.0" cy="151.2" r="1.1" fill="#7d8597" fill-opacity=".35"/>
+<circle class="t" style="animation-delay:2.34s" cx="928.0" cy="170.2" r="2.24" fill="#7d8597"><title>2026-11-12: 1</title></circle>
+<circle class="t" style="animation-delay:3.48s" cx="928.0" cy="189.2" r="6.00" fill="#ffb347"><title>2026-11-13: 1174</title></circle>
+<circle class="t" style="animation-delay:1.61s" cx="928.0" cy="208.2" r="2.56" fill="#7d8597"><title>2026-11-14: 3</title></circle>
+<text x="136.0" y="259" class="mono" font-size="11">DEC</text>
+<text x="202.0" y="259" class="mono" font-size="11">JAN</text>
+<text x="268.0" y="259" class="mono" font-size="11">FEB</text>
+<text x="334.0" y="259" class="mono" font-size="11">MAR</text>
+<text x="416.5" y="259" class="mono" font-size="11">APR</text>
+<text x="482.5" y="259" class="mono" font-size="11">MAY</text>
+<text x="565.0" y="259" class="mono" font-size="11">JUN</text>
+<text x="631.0" y="259" class="mono" font-size="11">JUL</text>
+<text x="697.0" y="259" class="mono" font-size="11">AUG</text>
+<text x="779.5" y="259" class="mono" font-size="11">SEP</text>
+<text x="845.5" y="259" class="mono" font-size="11">OCT</text>
+<text x="911.5" y="259" class="mono" font-size="11">NOV</text>
+<text x="500.0" y="308" text-anchor="middle" class="lbl" font-size="14" fill-opacity=".75">5,120 contributions in the last year · brightest day Nov 13 with 1174</text>
+<rect width="1000" height="330" fill="url(#fade)"/>
+</svg>
