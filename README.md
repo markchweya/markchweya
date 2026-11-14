@@ -1,9 +1,6 @@
 <div align="center">
 
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/markchweya/markchweya/main/assets/header-dark.svg" />
-<img src="https://raw.githubusercontent.com/markchweya/markchweya/main/assets/header-light.svg" width="100%" alt="Mark Chweya — Building AI products and modern digital experiences" />
-</picture>
+<img src="assets/homescreen/repo-constellation.webp" width="100%" alt="Mark Chweya, Software Developer: an animated 3D solar system where my public repositories orbit a sun" />
 
 <br />
 
