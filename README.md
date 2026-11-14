@@ -1,7 +1,7 @@
 <div align="center">
 
 <img src="assets/homescreen/journey-moon.webp" width="100%" alt="Mark Chweya, Software Developer: a cratered moon beside my name, high above a solar system" />
-<img src="assets/homescreen/journey-sun.webp" width="100%" alt="Scrolling down reaches the sun, where my public repositories orbit as planets" />
+<a href="https://markchweya.github.io/markchweya/system/" title="Open the interactive solar system: hover a planet to see what the project is about"><img src="assets/homescreen/journey-sun.webp" width="100%" alt="Scrolling down reaches the sun, where my public repositories orbit as planets. Click to open the interactive version" /></a>
 
 <img src="assets/space/telemetry.svg" width="100%" alt="Contribution telemetry: contributions in the last year, current and longest streak, all-time contributions" />
 
