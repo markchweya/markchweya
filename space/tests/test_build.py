@@ -38,7 +38,7 @@ class Panels(unittest.TestCase):
         with tempfile.TemporaryDirectory() as out:
             self.assertEqual(build.main(["--fixture", str(Path(build.HERE, "fixture.json")), "--out", out]), 0)
             files = sorted(Path(out).glob("*.svg"))
-            self.assertEqual(len(files), 6)
+            self.assertEqual(len(files), 7)
             for f in files:
                 xml.dom.minidom.parseString(f.read_bytes())  # raises on malformed XML
                 self.assertNotIn("<script", f.read_text())
@@ -80,3 +80,20 @@ class Galaxy(unittest.TestCase):
     def test_activity_levels_follow_quartiles(self):
         self.assertEqual([build.activity_level(n, 8) for n in (0, 1, 2, 3, 4, 6, 8, 50)],
                          [0, 1, 1, 2, 2, 3, 4, 4])
+
+
+class ActivityOverview(unittest.TestCase):
+    def test_shares_and_labels(self):
+        s = build.overview_shares({"commits": 60, "code_review": 30, "issues": 8, "pull_requests": 2})
+        self.assertAlmostEqual(sum(s.values()), 1.0)
+        self.assertEqual(build.pct_label(s["commits"]), "60%")
+        self.assertEqual(build.pct_label(s["pull_requests"]), "2%")
+        self.assertEqual(build.pct_label(0.004), "<1%")
+
+    def test_no_activity_draws_without_dividing_by_zero(self):
+        self.assertEqual(set(build.overview_shares({}).values()), {0.0})
+        p = build.load_fixture(Path(build.HERE, "fixture.json"))
+        p.overview = {}
+        svg = build.activity_overview(p)
+        xml.dom.minidom.parseString(svg)
+        self.assertIn("0% commits", svg)
