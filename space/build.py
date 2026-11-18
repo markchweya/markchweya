@@ -587,7 +587,7 @@ def activity_overview(p: Profile) -> str:
         ly = cy + (-50 if dy < 0 else 40 if dy > 0 else -4) + dy * arm
         anchor = "middle"
         labels.append(f'<text x="{lx:.1f}" y="{ly - 4:.1f}" text-anchor="{anchor}" class="lbl" font-size="16" '
-                      f'fill="{GH_TEXT}">{pct_label(v)}</text>'
+                      f'fill="{GH_TEXT}">{esc(pct_label(v))}</text>'
                       f'<text x="{lx:.1f}" y="{ly + 18:.1f}" text-anchor="{anchor}" class="lbl" font-size="16" '
                       f'fill="{GH_TEXT}">{name}</text>')
     counts = " · ".join(f"{fmt(p.overview.get(k, 0))} {n.lower()}" for k, n, _ in OVERVIEW_ARMS[::-1])
