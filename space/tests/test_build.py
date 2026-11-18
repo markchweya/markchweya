@@ -97,3 +97,11 @@ class ActivityOverview(unittest.TestCase):
         svg = build.activity_overview(p)
         xml.dom.minidom.parseString(svg)
         self.assertIn("0% commits", svg)
+
+    def test_tiny_share_label_is_valid_xml(self):
+        # a real year can have 1 review against 900 commits, which labels as "<1%"
+        p = build.load_fixture(Path(build.HERE, "fixture.json"))
+        p.overview = {"commits": 930, "code_review": 1, "issues": 0, "pull_requests": 60}
+        svg = build.activity_overview(p)
+        xml.dom.minidom.parseString(svg)
+        self.assertIn("&lt;1%", svg)
