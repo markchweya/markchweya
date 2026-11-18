@@ -7,6 +7,7 @@
 <img src="assets/space/telemetry.svg" width="100%" alt="Contribution telemetry: contributions in the last year, current and longest streak, all-time contributions" />
 
 <img src="assets/space/galaxy.svg" width="100%" alt="The last 52 weeks of contributions drawn as a band of stars" />
+<img src="assets/space/activity-overview.svg" width="100%" alt="Activity overview: share of commits, code review, issues and pull requests over the last year" />
 
 <img src="assets/space/belt.svg" width="100%" alt="Language mix across my public repositories as an asteroid belt" />
 

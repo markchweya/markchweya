@@ -68,6 +68,8 @@ class Profile:
     days: list[tuple[dt.date, int]]           # contribution calendar, oldest first
     repos: list[Repo] = field(default_factory=list)
     languages: list[tuple[str, str, int]] = field(default_factory=list)  # name, color, bytes
+    # last-year totals behind GitHub's "Activity overview": commits, issues, pull requests, reviews
+    overview: dict[str, int] = field(default_factory=dict)
 
 
 def graphql(token: str, query: str, variables: dict) -> dict:
@@ -91,7 +93,9 @@ def graphql(token: str, query: str, variables: dict) -> dict:
 Q_USER = """
 query($login:String!){ user(login:$login){
   name createdAt
-  contributionsCollection{ contributionCalendar{ totalContributions
+  contributionsCollection{ totalCommitContributions totalIssueContributions
+    totalPullRequestContributions totalPullRequestReviewContributions
+    contributionCalendar{ totalContributions
     weeks{ contributionDays{ date contributionCount } } } }
   repositories(first:100, ownerAffiliations:OWNER, isFork:false, privacy:PUBLIC,
                orderBy:{field:STARGAZERS, direction:DESC}){
@@ -131,7 +135,12 @@ def fetch(login: str, token: str) -> Profile:
             prev = langs.get(name, (color, 0))
             langs[name] = (color, prev[1] + e["size"])
     languages = sorted(((k, c, s) for k, (c, s) in langs.items()), key=lambda x: -x[2])
-    return Profile(login, u["name"] or login, since, total, cal["totalContributions"], days, repos, languages)
+    cc = u["contributionsCollection"]
+    overview = {"commits": cc["totalCommitContributions"], "issues": cc["totalIssueContributions"],
+                "pull_requests": cc["totalPullRequestContributions"],
+                "code_review": cc["totalPullRequestReviewContributions"]}
+    return Profile(login, u["name"] or login, since, total, cal["totalContributions"], days, repos, languages,
+                   overview)
 
 
 def load_fixture(path: Path) -> Profile:
@@ -139,7 +148,7 @@ def load_fixture(path: Path) -> Profile:
     d = json.loads(path.read_text())
     days = [(dt.date.fromisoformat(k), v) for k, v in d["days"]]
     return Profile(d["login"], d["name"], d["since_year"], d["total_all_time"], d["last_year"], days,
-                   [Repo(**r) for r in d["repos"]], [tuple(x) for x in d["languages"]])
+                   [Repo(**r) for r in d["repos"]], [tuple(x) for x in d["languages"]], d.get("overview", {}))
 
 
 def streaks(days: list[tuple[dt.date, int]], today: dt.date | None = None) -> tuple[int, int]:
@@ -541,6 +550,63 @@ def fleet(p: Profile, featured: list[str]) -> str:
     return shell(h, "\n".join(parts), "Featured repositories: " + ", ".join(r.name for r in chosen))
 
 
+OVERVIEW_ARMS = (  # key, label, direction (dx, dy): the same layout as GitHub's chart
+    ("code_review", "Code review", (0, -1)), ("issues", "Issues", (1, 0)),
+    ("pull_requests", "Pull requests", (0, 1)), ("commits", "Commits", (-1, 0)))
+GH_GREEN, GH_FILL, GH_TEXT = "#3fb950", "#2ea043", "#9198a1"
+
+
+def overview_shares(totals: dict[str, int]) -> dict[str, float]:
+    """Each category's share of the four-category total (all zero when there is no activity)."""
+    s = sum(totals.get(k, 0) for k, _, _ in OVERVIEW_ARMS)
+    return {k: (totals.get(k, 0) / s if s else 0.0) for k, _, _ in OVERVIEW_ARMS}
+
+
+def pct_label(share: float) -> str:
+    if share <= 0:
+        return "0%"
+    return "<1%" if share < .005 else f"{round(share * 100)}%"
+
+
+def activity_overview(p: Profile) -> str:
+    """GitHub's "Activity overview" cross: four green arms, a dot per category, a filled shape."""
+    h = 540
+    cx, cy, arm = W / 2, 272, 150
+    shares = overview_shares(p.overview)
+    top = max(shares.values()) or 1.0
+    pts, dots, labels = [], [], []
+    for key, name, (dx, dy) in OVERVIEW_ARMS:
+        v = shares[key]
+        # distance along the arm grows with the share, relative to the largest category
+        r = 0 if v <= 0 else max(8.0, arm * .92 * v / top)
+        x, y = cx + dx * r, cy + dy * r
+        pts.append(f"{x:.1f},{y:.1f}")
+        dots.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5.2" fill="#ffffff" stroke="{GH_GREEN}" stroke-width="2.6"/>')
+        # side labels sit beside the arm tip; top/bottom labels sit just past it
+        lx = cx + dx * (arm + 66)
+        ly = cy + (-50 if dy < 0 else 40 if dy > 0 else -4) + dy * arm
+        anchor = "middle"
+        labels.append(f'<text x="{lx:.1f}" y="{ly - 4:.1f}" text-anchor="{anchor}" class="lbl" font-size="16" '
+                      f'fill="{GH_TEXT}">{pct_label(v)}</text>'
+                      f'<text x="{lx:.1f}" y="{ly + 18:.1f}" text-anchor="{anchor}" class="lbl" font-size="16" '
+                      f'fill="{GH_TEXT}">{name}</text>')
+    counts = " · ".join(f"{fmt(p.overview.get(k, 0))} {n.lower()}" for k, n, _ in OVERVIEW_ARMS[::-1])
+    body = f"""<style>
+  .ov{{transform-origin:{cx}px {cy}px;animation:ovgrow 1.4s cubic-bezier(.2,.8,.2,1) both}}
+  @keyframes ovgrow{{from{{transform:scale(0);opacity:0}}to{{transform:scale(1);opacity:1}}}}
+  @media (prefers-reduced-motion: reduce){{.ov{{animation:none}}}}
+</style>
+<text x="{W / 2}" y="36" text-anchor="middle" class="mono" font-size="13">ACTIVITY OVERVIEW</text>
+<g class="ov"><polygon points="{' '.join(pts)}" fill="{GH_FILL}" fill-opacity=".55"/></g>
+<line x1="{cx}" y1="{cy - arm}" x2="{cx}" y2="{cy + arm}" stroke="{GH_GREEN}" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="{cx - arm}" y1="{cy}" x2="{cx + arm}" y2="{cy}" stroke="{GH_GREEN}" stroke-width="2.6" stroke-linecap="round"/>
+<g class="ov">{''.join(dots)}</g>
+{''.join(labels)}
+<text x="{W / 2}" y="{h - 18}" text-anchor="middle" class="lbl" font-size="13" fill-opacity=".7">last year: {counts}</text>"""
+    title = "Activity overview: " + ", ".join(f"{pct_label(shares[k])} {n.lower()}" for k, n, _ in OVERVIEW_ARMS)
+    return shell(h, body, title)
+
+
 def belt(p: Profile) -> str:
     """Language mix as an asteroid belt arc around a small sun."""
     h = 300
@@ -678,6 +744,7 @@ def main(argv: list[str] | None = None) -> int:
         "telemetry.svg": telemetry(profile),
         "galaxy.svg": galaxy(profile),
         "belt.svg": belt(profile),
+        "activity-overview.svg": activity_overview(profile),
         "constellations.svg": constellations(config["stack"]),
         "fleet.svg": fleet(profile, config["featured"]),
         "gravity-well.svg": drift(),
