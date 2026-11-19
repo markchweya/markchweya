@@ -111,6 +111,60 @@
    "topics": []
   },
   {
+   "name": "air-swipe",
+   "description": "Control Windows by swiping your hand in front of the webcam: open apps, close windows, switch tabs, play music.",
+   "language": "Python",
+   "color": "#3572A5",
+   "stars": 0,
+   "url": "https://github.com/markchweya/air-swipe",
+   "homepage": null,
+   "updated": "2026-11-18",
+   "topics": [
+    "gesture-control",
+    "hand-tracking",
+    "mediapipe",
+    "python",
+    "webcam",
+    "windows"
+   ]
+  },
+  {
+   "name": "pinch-to-draw",
+   "description": "Draw on top of anything on your Windows screen with the mouse, touchpad, or by pinching your fingers in front of the webcam.",
+   "language": "Python",
+   "color": "#3572A5",
+   "stars": 0,
+   "url": "https://github.com/markchweya/pinch-to-draw",
+   "homepage": null,
+   "updated": "2026-11-18",
+   "topics": [
+    "drawing",
+    "hand-tracking",
+    "mediapipe",
+    "python",
+    "screen-annotation",
+    "webcam"
+   ]
+  },
+  {
+   "name": "central-bank-ecomood",
+   "description": "LLM-measured central bank sentiment from 20,000+ speeches, tested as a macro forecasting signal",
+   "language": "Python",
+   "color": "#3572A5",
+   "stars": 0,
+   "url": "https://github.com/markchweya/central-bank-ecomood",
+   "homepage": null,
+   "updated": "2026-11-18",
+   "topics": [
+    "central-banks",
+    "economics",
+    "forecasting",
+    "llm",
+    "nlp",
+    "sentiment-analysis"
+   ]
+  },
+  {
    "name": "USI-Lugano",
    "description": null,
    "language": "Vue",
@@ -818,7 +872,7 @@
    "stars": 0,
    "url": "https://github.com/markchweya/markchweya",
    "homepage": "https://github.com/markchweya",
-   "updated": "2026-11-18",
+   "updated": "2026-11-19",
    "topics": [
     "config",
     "github-config"
@@ -1097,39 +1151,6 @@
    "url": "https://github.com/markchweya/AAKENYA-quiz-page",
    "homepage": null,
    "updated": "2023-04-03",
-   "topics": []
-  },
-  {
-   "name": "code-challenge-week-3",
-   "description": null,
-   "language": "JavaScript",
-   "color": "#f1e05a",
-   "stars": 0,
-   "url": "https://github.com/markchweya/code-challenge-week-3",
-   "homepage": null,
-   "updated": "2023-04-03",
-   "topics": []
-  },
-  {
-   "name": "Chweya-s-assignment",
-   "description": null,
-   "language": "JavaScript",
-   "color": "#f1e05a",
-   "stars": 0,
-   "url": "https://github.com/markchweya/Chweya-s-assignment",
-   "homepage": null,
-   "updated": "2023-03-27",
-   "topics": []
-  },
-  {
-   "name": "Chweya-s-project",
-   "description": null,
-   "language": "HTML",
-   "color": "#e34c26",
-   "stars": 0,
-   "url": "https://github.com/markchweya/Chweya-s-project",
-   "homepage": null,
-   "updated": "2023-03-19",
    "topics": []
   }
  ]
