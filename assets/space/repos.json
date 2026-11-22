@@ -154,7 +154,7 @@
    "stars": 0,
    "url": "https://github.com/markchweya/central-bank-ecomood",
    "homepage": null,
-   "updated": "2026-11-18",
+   "updated": "2026-11-21",
    "topics": [
     "central-banks",
     "economics",
@@ -431,12 +431,12 @@
   {
    "name": "Roko",
    "description": "a local-first AI guard and efficiency gateway that reduces OpenAI token usage by ~60%, blocks prompt injection before it reaches the API, and provides a reusable client-to-cloud pattern. We think this could be a reference implementation for safe, cost-efficient AI clients.",
-   "language": null,
-   "color": null,
+   "language": "Python",
+   "color": "#3572A5",
    "stars": 0,
    "url": "https://github.com/markchweya/Roko",
    "homepage": null,
-   "updated": "2025-12-20",
+   "updated": "2026-11-21",
    "topics": []
   },
   {
@@ -872,7 +872,7 @@
    "stars": 0,
    "url": "https://github.com/markchweya/markchweya",
    "homepage": "https://github.com/markchweya",
-   "updated": "2026-11-21",
+   "updated": "2026-11-22",
    "topics": [
     "config",
     "github-config"
