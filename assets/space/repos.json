@@ -7,7 +7,7 @@
    "description": "A Windows AI assistant that brings local and cloud AI to your desktop through a floating chat interface.",
    "language": "JavaScript",
    "color": "#f1e05a",
-   "stars": 10,
+   "stars": 11,
    "url": "https://github.com/markchweya/ibia",
    "homepage": null,
    "updated": "2026-11-25",
@@ -872,7 +872,7 @@
    "stars": 0,
    "url": "https://github.com/markchweya/markchweya",
    "homepage": "https://github.com/markchweya",
-   "updated": "2026-11-26",
+   "updated": "2026-11-27",
    "topics": [
     "config",
     "github-config"
